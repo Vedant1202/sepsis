@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SEPSIS | Homepage</title>
+    <title>Sepsis | Patient </title>
 
     <!-- CSS LIBRARIES IMPORT -->
-    <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/libs/uikit.min.css">
+    <link rel="stylesheet" href=" css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href=" css/libs/uikit.min.css">
 
     <!-- CUSTOM CSS IMPORTS -->
-    <link rel="stylesheet" href="../css/master.css">
-    <link rel="stylesheet" href="../css/user_profile.css">
+    <link rel="stylesheet" href=" css/master.css">
+    <link rel="stylesheet" href=" css/user_profile.css">
 
     <!-- JS LIBRARIES IMPORT -->
-    <script src="../js/libs/jquery.min.js" charset="utf-8"></script>
-    <script src="../js/libs/uikit.min.js" charset="utf-8"></script>
-    <script src="../js/libs/uikit-icons.js" charset="utf-8"></script>
-    <script src="../js/libs/bootstrap.min.js" charset="utf-8"></script>
-    <script src="../js/libs/popper.min.js" charset="utf-8"></script>
+    <script src="js/libs/jquery.min.js" charset="utf-8"></script>
+    <script src="js/libs/uikit.min.js" charset="utf-8"></script>
+    <script src="js/libs/uikit-icons.js" charset="utf-8"></script>
+    <script src="js/libs/bootstrap.min.js" charset="utf-8"></script>
+    <script src="js/libs/popper.min.js" charset="utf-8"></script>
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
-    <script src="../js/utils.js" charset="utf-8"></script>
+    <script src=" js/utils.js" charset="utf-8"></script>
   </head>
   <body>
 
@@ -34,14 +34,14 @@
             <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
           </div>
           <div class="col-8" align="center" style="padding-top: .5%;">
-            <h1>Missing Directory</h1>
+            <h1>Sepsis</h1>
           </div>
             <div class="uk-inline">
               <div class="col-2" align="right">
                 <button class="btn btn-secondary rounded-pill" type="button" >
                   <div class="row">
                     <div class="col-4" style="padding-left: 0;">
-                      <img src="../resources/images/placeholders/users/user-white.png" alt="" class="rounded-circle" style="max-width: 50px;">
+                      <img src="resources/images/placeholders/users/user-white.png" alt="" class="rounded-circle" style="max-width: 50px;">
                     </div>
                     <div class="col-8" align="center">
                       <div style="padding-top: 50%; padding-left:30%;">Profile</div>
@@ -69,7 +69,7 @@
               </div> -->
               <div class="col-12">
                 <h2>
-                  Missing Directory
+                  Sepsis
                 </h2>
                 <hr style="border-color: grey; margin-bottom: 30px;">
               </div>
@@ -79,7 +79,7 @@
               <a class="btn btn-link" onclick="Nav.assign('home.html');">Home</a><br>
               <!-- <a class="btn btn-link">Watching</a><br> -->
               <a class="btn btn-link" onclick="Nav.assign('missing_create.html');">Missing Create</a><br>
-              
+
               <a class="btn btn-link" onclick="Nav.assign('face_recog.html');">Face Recognition</a><br>
               <a class="btn btn-link" onclick="Nav.assign('help_line.html');">Helpline</a><br>
               <!-- <a class="btn btn-link">About Us</a><br> -->
@@ -155,12 +155,11 @@
 
     <!-- ========================================= USER PROFILE VIEW =========================================== -->
     <div class="main">
-
       <div class="container">
         <div class="header">
           <div class="row">
             <div class="col-12">
-              <h2 align="center" style="margin: 0; padding: 0;">My Profile</h2>
+              <h2 align="center" style="margin: 0; padding: 0;">Patient Profile</h2>
             </div>
           </div>
         </div>
@@ -174,7 +173,7 @@
         <div class="row">
           <div class="col-3">
               <div class="uk-inline uk-light">
-                <img src="../resources/images/placeholders/users/user-white.png" alt="">
+                <img src=" resources/images/placeholders/users/user-white.png" alt="">
                 <div class="uk-position-center">
                   <span uk-overlay-icon id="profImg" onclick="$('#profImgUpload').click();"></span>
                 </div>
@@ -257,9 +256,43 @@
                   <input type="number" class="uk-input rounded" placeholder="Contact Number"><br>
                 </div>
               </div>
+
             <!-- </form> -->
           </div>
         </div>
+      </div>
+      <div class="container-fluid results">
+        <div class="row" style="margin:0px;">
+          <div class="col-3">
+            <div class="row">
+              <div class="col-10">
+                <h4><strong>Medical Details</strong></h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-9">
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-3">
+            Blood Group:
+          </div>
+          <div class="col-9">
+            <input type="text" class="uk-input rounded" placeholder="For eg : A+ , A- etc"><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            Medical History:
+          </div>
+          <div class="col-9">
+            <input type="text" class="uk-input rounded" placeholder="For eg : A+ , A- etc"><br>
+
+          </div>
+        </div>
+
+
       </div>
     </div>
 
