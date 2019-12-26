@@ -1,0 +1,44 @@
+
+input {
+	padding: 0 !important;
+}
+
+.container
+{
+	margin-top: 80px;
+	width: 400px;
+	height: 100%;
+}
+
+.tabs .indicator
+{
+	background-color: #006fd6;
+	height: 60px;
+	opacity: 0.3;
+}
+
+.form-container
+{
+	padding: 40px;
+	padding-top: 10px;
+}
+
+.confirmation-tabs-btn
+{
+	position: absolute;
+}
+
+.err {
+  border-width: thick !important;
+  border-color: red !important;
+}
+
+.showelem {
+  display: block !important;
+}
+
+.errelem {
+  color: red !important;
+  font-size: 12px !important;
+  display: none;
+}

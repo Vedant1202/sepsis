@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SEPSIS | Homepage</title>
+
+    <!-- CSS LIBRARIES IMPORT -->
+    <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/libs/uikit.min.css">
+
+    <!-- CUSTOM CSS IMPORTS -->
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/user_profile.css">
+
+    <!-- JS LIBRARIES IMPORT -->
+    <script src="../js/libs/jquery.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit-icons.js" charset="utf-8"></script>
+    <script src="../js/libs/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../js/libs/popper.min.js" charset="utf-8"></script>
+    <script src="../js/libs/mustache.js" charset="utf-8"></script>
+
+    <!-- UTILITY FUNCTIONS JS IMPORT -->
+    <script src="../js/utils.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+
+    <!-- ========================================= NAVBAR =========================================== -->
+    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+      <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
+        <div class="row" style="width: 100%;">
+          <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
+            <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
+          </div>
+          <div class="col-8" align="center" style="padding-top: .5%;">
+            <h1>Missing Directory</h1>
+          </div>
+            <div class="uk-inline">
+              <div class="col-2" align="right">
+                <button class="btn btn-secondary rounded-pill" type="button">
+                  <div class="row">
+                    <div class="col-4" style="padding-left: 0;">
+                      <img src="../resources/images/placeholders/users/user-white.png" alt="" class="rounded-circle" style="max-width: 50px;">
+                    </div>
+                    <div class="col-8" align="center">
+                      <div style="padding-top: 50%; padding-left:30%; ">Profile</div>
+                    </div>
+                  </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+    <!-- ========================================= MENU =========================================== -->
+    <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
+        <div class="uk-offcanvas-bar bg-light">
+
+            <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+
+            <div class="row" style="margin-top: 20%;">
+              <!-- <div class="col-5">
+
+              </div> -->
+              <div class="col-12">
+                <h2>
+                  Missing Directory
+                </h2>
+                <hr style="border-color: grey; margin-bottom: 30px;">
+              </div>
+            </div>
+
+            <div class="container-fluid menubar">
+              <a class="btn btn-link" onclick="Nav.assign('home.html');">Home</a><br>
+              <!-- <a class="btn btn-link">Watching</a><br> -->
+              <a class="btn btn-link" onclick="Nav.assign('missing_create.html');">Missing Create</a><br>
+              
+              <a class="btn btn-link" onclick="Nav.assign('face_recog.html');">Face Recognition</a><br>
+              <a class="btn btn-link" onclick="Nav.assign('help_line.html');">Helpline</a><br>
+              <!-- <a class="btn btn-link">About Us</a><br> -->
+              <a class="btn btn-link" id="logout" onclick="logout();">Logout</a><br>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================= FILTERS TAB =========================================== -->
+    <!-- <button class="uk-button uk-button-default" type="button" >Open</button> -->
+
+    <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+      <div class="uk-offcanvas-bar bg-light">
+
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+        <h3>Filters</h3>
+        <hr style="border-color: grey; margin-bottom: 30px;">
+
+        <div class="container-fluid" id="allFilters">
+          <div class="row">
+            <div class="col-12">
+              <div class="uk-margin">
+                <h5>Location</h5>
+                <div class="uk-inline">
+                  <span class="uk-form-icon" uk-icon="icon: location"></span>
+                  <input class="uk-input rounded" placeholder="Enter Location" type="text" list="locations">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h5>Age</h5>
+              <div class="uk-margin">
+                <input class="uk-range" type="range" value="0" min="0" max="120" step="1" style="padding-left: 0 !important;">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h5>Gender</h5>
+              <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                <label><input class="uk-radio" type="radio" name="radio2" value="Male" checked>Male</label>
+                <label><input class="uk-radio" type="radio" name="radio2" value="Female">Female</label>
+                <label><input class="uk-radio" type="radio" name="radio2" value="Other">Other</label>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="position: absolute; bottom: 30px;">
+            <div class="col-6">
+              <button type="button" style=" color: white !important;" class="btn btn-primary rounded-pill" name="button">Apply</button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-light rounded-pill" name="button">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+
+        <datalist id="locations">
+          <option value="Mumbai">
+          <option value="Pune">
+          <option value="Goa">
+          <option value="Delhi">
+          <option value="Chennai">
+          <option value="Bangalore">
+        </datalist>
+
+      </div>
+    </div>
+
+    <!-- ========================================= USER PROFILE VIEW =========================================== -->
+    <div class="main">
+
+      <div class="container">
+        <div class="header">
+          <div class="row">
+            <div class="col-12">
+              <h2 align="center" style="margin: 0; padding: 0;">My Profile</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="container-fluid results">
+
+      </div>
+    </div>
+
+
+    <script type="text/template" id="profile">
+      <div class="row">
+        <div class="col-3">
+          <img src="../resources/images/placeholders/users/user-black.png">
+        </div>
+        <div class="col-9" style="padding:20px;">
+          <div class="row">
+            <div class="col-10">
+              <h4><strong>General Details</strong></h4>
+            </div>
+            <div class="col-2">
+              <a href="user_edit.html">Edit</a>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <div class="row">
+              <div class="col-3 text-muted">
+                <i>Firstname:</i>
+              </div>
+              <div class="col-9">
+                {{ fname }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3 text-muted">
+                <i>Lastname:</i>
+              </div>
+              <div class="col-9">
+                {{ lname }}
+              </div>
+            </div>
+            <!-- <label>Username: </label> -->
+            <div class="row">
+              <div class="col-3 text-muted">
+                <i>Username:</i>
+              </div>
+              <div class="col-9">
+                {{ username }}
+              </div>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col-3 text-muted">
+                <i>Gender:</i>
+              </div>
+              <div class="col-9">
+                {{ gender }}
+              </div>
+            </div> -->
+            <div class="row">
+              <div class="col-3 text-muted">
+                <i>Date Of Birth:</i>
+              </div>
+              <div class="col-9">
+                {{ dob }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3 text-muted">
+                <i>Email:</i>
+              </div>
+              <div class="col-9">
+                {{ email }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3 text-muted">
+                <i>Contact Number:</i>
+              </div>
+              <div class="col-9">
+                {{ phone }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </script>
+
+
+    <!-- CUSTOM JS IMPORT -->
+    <script src="../js/user_profile.js" charset="utf-8"></script>
+
+
+  </body>
+</html>
