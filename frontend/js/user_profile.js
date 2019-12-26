@@ -3,9 +3,9 @@
 
 
 
-if (!checkData('user')) {
-  Nav.assign('login-register.html');
-}
+// if (!checkData('user')) {
+//   Nav.assign('login-register.html');
+// }
 
 
 $(document).ready(function () {
