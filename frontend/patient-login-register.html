@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>The Missing Directory | Login/Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" href=" images/icon.png"> -->
+  </head>
+  <body>
+
+    <!-- CSS LIBRARIES IMPORT -->
+    <link rel="stylesheet" href=" css/libs/materialize.css">
+
+    <!-- CUSTOM CSS IMPORTS -->
+    <link rel="stylesheet" href=" css/master.css">
+    <link rel="stylesheet" href=" css/login-register.css">
+
+    <!-- JS LIBRARIES IMPORT -->
+    <script src=" js/libs/jquery.min.js" charset="utf-8"></script>
+    <script src=" js/libs/materialize.min.js" charset="utf-8"></script>
+    <script src=" js/libs/moment.min.js" charset="utf-8"></script>
+
+    <!-- UTILITY FUNCTIONS JS IMPORT -->
+    <script src=" js/utils.js" charset="utf-8"></script>
+    <div class="container">
+      <p class="light-blue-text" style="text-align:right; font-size:18px;"> <a href="doctor-login-register.html">Are You a Doctor?</a></p>
+    </div>
+
+    <div class="container white z-depth-2" style="margin-bottom: 8%;margin-top:0%;">
+
+    	<ul class="tabs light-blue">
+    		<li class="tab col s3"><a class="white-text active" href="#login">login</a></li>
+    		<li class="tab col s3"><a class="white-text" href="#register">register</a></li>
+    	</ul>
+    	<div id="login" class="col s12">
+    	   <div id="loginForm" class="col s12">
+    			<div class="form-container">
+    				<h3 class="light-blue-text">Sign In</h3>
+    				<div class="row">
+    					<div class="input-field col s12">
+    						<input name="username" id="username-login" type="text" class="validate">
+    						<label for="username">Username</label>
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="input-field col s12">
+    						<input name="password" id="password-login" type="password" class="validate">
+    						<label for="password-login">Password</label>
+    					</div>
+    				</div>
+    				<br>
+    				<center>
+    					<button id="loginBtn" class="btn waves-effect waves-light light-blue">Login</button>
+    					<br>
+    					<br>
+    				</center>
+    			</div>
+    		</div>
+    	</div>
+    	<div id="register" class="col s12">
+    		<div id="registerForm" class="col s12">
+    			<div class="form-container">
+    				<h3 class="light-blue-text">Register</h3>
+    				<div class="row">
+    					<!-- <div class="input-field col s6">
+    						<input id="last_name" type="text" class="validate">
+    						<label for="last_name">First Name</label>
+    					</div> -->
+    					<div class="input-field col s12">
+    						<input id="username" type="text" class="validate">
+    						<label for="username">Username</label>
+                <span id="takenuser" class="errelem">This username is already taken</span>
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="input-field col s12">
+    						<input id="email" type="email" class="validate">
+    						<label for="email">Email</label>
+                <span id="emailvalid" class="errelem">Please enter a valid email address</span>
+    					</div>
+    				</div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="fname" type="text" class="validate">
+                <label for="text">First Name</label>
+                <span id="fnamevalid" class="errelem">Please fill this field</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="lname" type="text" class="validate">
+                <label for="text">Last Name</label>
+                <span id="lnamevalid" class="errelem">Please fill this field</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <span style="color: #a8a8a8;" for="date">Date of Birth</span>
+                <input id="date" type="date" class="validate">
+                <span id="lnamevalid" class="errelem">Please fill this field</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <span style="color: #a8a8a8;" for="date">Address</span>
+                <textarea id="address" class="validate"></textarea>
+                <span id="addressvalid" class="errelem">Please fill this field</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <span style="color: #a8a8a8;" for="date">Phone</span>
+                <input type="number" id="phone" class="validate" pattern=".{10,10}">
+                <span id="phonevalid" class="errelem">Please enter valid Phone number of 10 digits</span>
+              </div>
+            </div>
+    				<!-- <div class="row">
+    					<div class="input-field col s12">
+    						<input id="email-confirm" type="email" class="validate">
+    						<label for="email-confirm">Email Confirmation</label>
+    					</div>
+    				</div> -->
+    				<div class="row">
+    					<div class="input-field col s12">
+    						<input id="password" type="password" class="validate">
+    						<label for="password">Password</label>
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="input-field col s12">
+    						<input id="password-confirm" type="password" class="validate">
+    						<label for="password-confirm">Password Confirmation</label>
+                <span id="matchpass" class="errelem">Passwords do not match</span>
+    					</div>
+    				</div>
+    				<center>
+    					<button id="registerBtn" class="btn waves-effect waves-light light-blue">Register</button>
+    				</center>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <script src=" js/login-register.js" charset="utf-8"></script>
+
+
+  </body>
+</html>
