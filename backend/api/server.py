@@ -15,8 +15,10 @@ import uuid
 from controller.authenticate.login import login
 from controller.authenticate.logout import logout
 from controller.user.add import user_add
+from controller.patient.add import patient_add
 from controller.user.update import user_update
 from controller.user.fetch import user_fetch
+from controller.patient.fetch import patient_fetch, patient_search
 from controller.missing.fetch import missing_fetch_reg, missing_fetch_unreg, missing_fetch_reg_user, missing_fetch_unreg_user, missing_fetch_search_reg, missing_fetch_search_unreg
 from controller.missing.add import missing_add
 from controller.report.add import report_add
@@ -58,6 +60,13 @@ def fetch_user():
     return user_fetch()
 
 
+# patient add route
+@app.route("/patient/add", methods=["POST"])
+# @cross_origin()
+def add_patient():
+    return patient_add()
+
+
 # # login route
 @app.route("/login", methods=["POST"])
 # # @cross_origin()
@@ -71,6 +80,17 @@ def login_user():
 def logout_user():
     return logout()
 
+# # patient fetch route
+@app.route("/patient/fetch", methods=["POST"])
+# # @cross_origin()
+def fetch_patient():
+    return patient_fetch()
+
+# # patient fetch route
+@app.route("/patient/search", methods=["POST"])
+# # @cross_origin()
+def search_patient():
+    return patient_search()
 
 # # missing profiles fetch route
 @app.route("/missing/fetch/reg", methods=["POST"])

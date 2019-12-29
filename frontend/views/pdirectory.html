@@ -24,6 +24,9 @@
     <!-- UTILITY FUNCTIONS JS IMPORT -->
     <script src="../js/utils.js" charset="utf-8"></script>
 
+    <!-- CUSTOM UTILITY JS IMPORT -->
+    <script src="../js/patient_.js" charset="utf-8"></script>
+
   </head>
   <body>
   <div>
@@ -216,7 +219,7 @@
             <img src="" class="laptops" style="width: 70%;">
           </div>
           <div class="col-4" style="cursor: pointer;" onclick="setData('laptopDetails', JSON.stringify({'pid': ${patient.pid}})); Nav.assign('patient_profile.html');">
-            <strong>${patient.Firstname} ${patient.Lastname}</strong>
+            <strong>${patient.lname} ${patient.lname}</strong>
             <ul>
               <li style="padding-bottom:10px;">${patient.gender}</li>
               <li style="padding-bottom:10px;">${patient.phone}</li>
@@ -228,7 +231,7 @@
 
             <ul>
 
-              <li style="padding-bottom:10px;padding-top:40px;">${patient.blood_group}</li>
+              <li style="padding-bottom:10px;padding-top:40px;">${patient.bgroup}</li>
               <li style="padding-bottom:10px;">${patient.allergies}</li>
 
             </ul>
