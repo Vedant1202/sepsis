@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 from datetime import date
 import uuid
-import face_recognition
+# import face_recognition
 
 import os
 from flask import Flask, request, redirect, url_for

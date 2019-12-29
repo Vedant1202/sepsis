@@ -20,9 +20,9 @@ from controller.user.fetch import user_fetch
 from controller.missing.fetch import missing_fetch_reg, missing_fetch_unreg, missing_fetch_reg_user, missing_fetch_unreg_user, missing_fetch_search_reg, missing_fetch_search_unreg
 from controller.missing.add import missing_add
 from controller.report.add import report_add
-from utils.utils import upload_file
+# from utils.utils import upload_file
 
-from controller.face_recog.add import encoding_add
+# from controller.face_recog.add import encoding_add
 
 CORS(app)
 
@@ -139,7 +139,7 @@ def add_report():
 @app.route("/face_recog", methods=["POST"])
 # # @cross_origin()
 def file_upload():
-    return encoding_add()   
+    return encoding_add()
 
 
 # user add route
