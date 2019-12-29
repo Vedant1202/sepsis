@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sepsis | Patient</title>
+
+    <!-- CSS LIBRARIES IMPORT -->
+    <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/libs/uikit.min.css">
+
+    <!-- CUSTOM CSS IMPORTS -->
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/home.css">
+
+    <!-- JS LIBRARIES IMPORT -->
+    <script src="../js/libs/jquery.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit-icons.js" charset="utf-8"></script>
+    <script src="../js/libs/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../js/libs/popper.min.js" charset="utf-8"></script>
+    <script src="../js/libs/mustache.js" charset="utf-8"></script>
+
+    <!-- UTILITY FUNCTIONS JS IMPORT -->
+    <script src="../js/utils.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+  <div>
+
+
+    <!-- ========================================= NAVBAR =========================================== -->
+    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+      <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
+        <div class="row" style="width: 100%;">
+          <div class="col-1" align="left" style="padding-left: 4%; padding-top: .5%;">
+            <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
+          </div>
+          <div class="col-2" style="padding-top: .8%;">
+           <a href="" uk-icon="icon: bell; ratio:1.5" class="uk-icon-button"></a>
+            <span class="uk-badge">1</span>
+           </div>
+          <div class="col-5" align="center" style="padding-top: .5%;">
+            <h1>Sepsis</h1>
+          </div>
+          <div class="col-4" align="right">
+            <div class="uk-inline">
+              <button class="btn btn-outline-secondary rounded-pill" type="button" id="profileBtn">
+                <div class="row">
+                  <div class="col-4" style="padding-left: 0;">
+                    <img src="../resources/images/placeholders/users/user-white.png" alt="" class="rounded-circle" style="max-width: 50px;">
+                  </div>
+                  <div class="col-8" align="center">
+                    <div style="padding-top: 20%;">Profile</div>
+                  </div>
+                </div>
+              </button>
+              <div uk-drop="mode: click">
+                <div class="uk-card uk-card-body uk-card-default rounded-lg shadow-lg">
+                  <div class="row">
+                    <div class="col-5" align="left">
+                      <img src="../resources/images/placeholders/users/user-white.png" alt="" class="rounded-circle" style="max-width: 80px;">
+                    </div>
+                    <div class="col-7" align="left" style="padding-top: 5%;">
+                      <div class="row">
+                        <b>Sample User 1</b>
+                      </div>
+                      <div class="row">
+                        Doctor
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" align="center" style="margin-top: 10%;">
+                    <div class="col-12">
+                      <button class="btn btn-primary rounded-pill btn-block">View Full Profile</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             <!-- <button class="btn btn-outline-secondary rounded-pill" type="button" id="logInBtn">
+                <div class="row" style="padding: 10px;">
+                  <div class="col-12" align="center">
+                    <div>Login/Register</div>
+                  </div>
+                </div>
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+ <!-- ========================================= MENU =========================================== -->
+    <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
+        <div class="uk-offcanvas-bar bg-light">
+
+            <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+
+            <div class="row" style="margin-top: 20%;">
+              <!-- <div class="col-5">
+
+              </div> -->
+              <div class="col-12">
+                <h2>
+                  Sepsis
+                </h2>
+                <hr style="border-color: grey; margin-bottom: 30px;">
+              </div>
+            </div>
+
+            <div class="container-fluid menubar">
+              <a class="btn btn-link ">Home</a><br>
+              <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+              <a class="btn btn-link">My Profile</a><br>
+
+              <a class="btn btn-link">Guidelines/Training</a><br>
+              <a class="btn btn-link">Detection/Prediction</a><br>
+              <a class="btn btn-link active-menu">Patient Directory</a>
+
+            </div>
+        </div>
+    </div>
+
+ <!-- ========================================= FILTERS TAB =========================================== -->
+    <!-- <button class="uk-button uk-button-default" type="button" >Open</button> -->
+<!--
+    <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+        <div class="uk-offcanvas-bar bg-light">
+
+          <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+          <h3>Filters</h3>
+          <hr style="border-color: grey; margin-bottom: 30px;">
+
+          <div class="container-fluid" id="allFilters">
+            <div class="row">
+              <div class="col-12">
+                <div class="uk-margin">
+                  <h5>Location</h5>
+                  <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: location"></span>
+                    <input class="uk-input rounded" placeholder="Enter Location" type="text" list="locations">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <h5>Age</h5>
+                <div class="uk-margin">
+                  <input class="uk-range" type="range" value="0" min="0" max="120" step="1" style="padding-left: 0 !important;">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <h5>Gender</h5>
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                  <label><input class="uk-radio" type="radio" name="radio2" value="Male" checked>Male</label>
+                  <label><input class="uk-radio" type="radio" name="radio2" value="Female">Female</label>
+                  <label><input class="uk-radio" type="radio" name="radio2" value="Other">Other</label>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="position: absolute; bottom: 30px;">
+              <div class="col-6">
+                <button type="button" style=" color: white !important;" class="btn btn-primary rounded-pill" name="button">Apply</button>
+              </div>
+              <div class="col-6">
+                <button type="button" class="btn btn-light rounded-pill" name="button">Cancel</button>
+              </div>
+            </div>
+          </div>
+
+
+          <datalist id="locations">
+            <option value="Mumbai">
+            <option value="Pune">
+            <option value="Goa">
+            <option value="Delhi">
+            <option value="Chennai">
+            <option value="Bangalore">
+          </datalist>
+
+        </div>
+      </div> -->
+
+<!-- ========================================= CONTAINER =========================================== -->
+    <div class="main">
+
+      <div class="container">
+        <div class="header">
+          <div class="row">
+            <div class="col-8">
+              <h2>Patient Results</h2>
+            </div>
+            <div class="col-1" align="right">
+              <!-- <button type="button" class="btn btn-outline-primary rounded-pill" uk-toggle="target: #offcanvas-flip">Filters</button> -->
+            </div>
+            <div class="col-3" align="right">
+              <div class="uk-margin">
+                <form class="uk-search uk-search-default" onsubmit="return false;">
+                  <button id="searchMissing" class="uk-search-icon-flip" uk-search-icon></button>
+                  <input class="uk-search-input rounded-pill" type="search" placeholder="Search..." id="missingKey">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="margin-bottom: 50px;">
+      </div>
+      <div class="container">
+        <div class="row" style="margin-bottom: 50px;">
+        <!-- <div class="laptop-item"> -->
+          <div class="col-4">
+            <img src="" class="laptops" style="width: 70%;">
+          </div>
+          <div class="col-4" style="cursor: pointer;" onclick="setData('laptopDetails', JSON.stringify({'pid': ${patient.pid}})); Nav.assign('patient_profile.html');">
+            <strong>${patient.Firstname} ${patient.Lastname}</strong>
+            <ul>
+              <li style="padding-bottom:10px;">${patient.gender}</li>
+              <li style="padding-bottom:10px;">${patient.phone}</li>
+              <li style="padding-bottom:10px;">${patient.dob}</li>
+            </ul>
+          </div>
+          <div class="col-2">
+
+
+            <ul>
+
+              <li style="padding-bottom:10px;padding-top:40px;">${patient.blood_group}</li>
+              <li style="padding-bottom:10px;">${patient.allergies}</li>
+
+            </ul>
+
+          </div>
+        <!-- </div> -->
+      </div>
+      <hr>
+      <!-- <hr style="margin-bottom: 50px;"> -->
+      </div>
+    </body>
+  </html>
