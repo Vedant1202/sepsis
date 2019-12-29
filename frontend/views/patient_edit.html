@@ -78,14 +78,14 @@
             </div>
 
             <div class="container-fluid menubar">
-              <a class="btn btn-link" onclick="Nav.assign('home.html');">Home</a><br>
-              <!-- <a class="btn btn-link">Watching</a><br> -->
-              <a class="btn btn-link" onclick="Nav.assign('missing_create.html');">Missing Create</a><br>
+              <a class="btn btn-link ">Home</a><br>
+              <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+              <a class="btn btn-link">My Profile</a><br>
 
-              <a class="btn btn-link" onclick="Nav.assign('face_recog.html');">Face Recognition</a><br>
-              <a class="btn btn-link" onclick="Nav.assign('help_line.html');">Helpline</a><br>
-              <!-- <a class="btn btn-link">About Us</a><br> -->
-              <a class="btn btn-link" id="logout" onclick="logout();">Logout</a><br>
+              <a class="btn btn-link">Guidelines/Training</a><br>
+              <a class="btn btn-link">Detection/Prediction</a><br>
+              <a class="btn btn-link active-menu">Patient Directory</a>
+
             </div>
         </div>
     </div>
@@ -213,14 +213,14 @@
                 </div>
               </div>
               <!-- <label>Username: </label> -->
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-3">
                   Username:
                 </div>
                 <div class="col-9">
                   <input type="text"  class="uk-input rounded" placeholder="username" ><br>
                 </div>
-              </div>
+              </div> -->
 
               <div class="row">
                 <div class="col-3">
@@ -336,7 +336,7 @@
             <div class="col-7">
             </div>
             <div class="col-2">
-              <a class="uk-button uk-button-default uk-input rounded " href="#modal-center" uk-toggle>Add</a>
+              <a class="uk-button uk-button-default uk-input rounded btn btn-outline-primary rounded-pill" href="#modal-center" uk-toggle>Add</a>
               <div id="modal-center" class="uk-flex-top" uk-modal>
                   <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
                       <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -367,7 +367,7 @@
                           </div>
                       </p>
                       <p class="uk-text-right">
-                          <button class="uk-button uk-button-primary" type="button">Save</button>
+                          <button class="uk-button uk-button-primary rounded-pill" type="button">Save</button>
                       </p>
                   </div>
               </div>

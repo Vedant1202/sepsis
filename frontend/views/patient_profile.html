@@ -76,14 +76,13 @@
             </div>
 
             <div class="container-fluid menubar">
-              <a class="btn btn-link" onclick="Nav.assign('home.html');">Home</a><br>
-              <!-- <a class="btn btn-link">Watching</a><br> -->
-              <a class="btn btn-link" onclick="Nav.assign('missing_create.html');">Missing Create</a><br>
+              <a class="btn btn-link ">Home</a><br>
+              <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+              <a class="btn btn-link">My Profile</a><br>
 
-              <a class="btn btn-link" onclick="Nav.assign('face_recog.html');">Face Recognition</a><br>
-              <a class="btn btn-link" onclick="Nav.assign('help_line.html');">Helpline</a><br>
-              <!-- <a class="btn btn-link">About Us</a><br> -->
-              <a class="btn btn-link" id="logout" onclick="logout();">Logout</a><br>
+              <a class="btn btn-link">Guidelines/Training</a><br>
+              <a class="btn btn-link">Detection/Prediction</a><br>
+              <a class="btn btn-link active-menu">Patient Directory</a>
 
             </div>
         </div>
@@ -203,23 +202,23 @@
                 </div>
               </div>
               <!-- <label>Username: </label> -->
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-3 text-muted">
                   <i>Username:</i>
                 </div>
                 <div class="col-9">
                   {{ username }}
                 </div>
-              </div>
+              </div> -->
 
-              <!-- <div class="row">
+              <div class="row">
                 <div class="col-3 text-muted">
                   <i>Gender:</i>
                 </div>
                 <div class="col-9">
                   {{ gender }}
                 </div>
-              </div> -->
+              </div>
               <div class="row">
                 <div class="col-3 text-muted">
                   <i>Date Of Birth:</i>

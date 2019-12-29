@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sepsis | Homepage</title>
+    <title>Sepsis | Patient</title>
 
     <!-- CSS LIBRARIES IMPORT -->
     <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
@@ -25,7 +25,7 @@
     <script src="../js/utils.js" charset="utf-8"></script>
 
   </head>
-
+  <body>
   <div>
 
 
@@ -76,7 +76,7 @@
                     </div>
                   </div>
                 </div>
-              </div> 
+              </div>
              <!-- <button class="btn btn-outline-secondary rounded-pill" type="button" id="logInBtn">
                 <div class="row" style="padding: 10px;">
                   <div class="col-12" align="center">
@@ -109,13 +109,13 @@
             </div>
 
             <div class="container-fluid menubar">
-              <a class="btn btn-link active-menu">Home</a><br>
+              <a class="btn btn-link ">Home</a><br>
               <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
               <a class="btn btn-link">My Profile</a><br>
 
               <a class="btn btn-link">Guidelines/Training</a><br>
               <a class="btn btn-link">Detection/Prediction</a><br>
-              <a class="btn btn-link">Patient Directory</a>
+              <a class="btn btn-link active-menu">Patient Directory</a>
 
             </div>
         </div>
@@ -123,15 +123,15 @@
 
  <!-- ========================================= FILTERS TAB =========================================== -->
     <!-- <button class="uk-button uk-button-default" type="button" >Open</button> -->
-
+<!--
     <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar bg-light">
-  
+
           <button class="uk-offcanvas-close" type="button" uk-close></button>
-  
+
           <h3>Filters</h3>
           <hr style="border-color: grey; margin-bottom: 30px;">
-  
+
           <div class="container-fluid" id="allFilters">
             <div class="row">
               <div class="col-12">
@@ -171,8 +171,8 @@
               </div>
             </div>
           </div>
-  
-  
+
+
           <datalist id="locations">
             <option value="Mumbai">
             <option value="Pune">
@@ -181,9 +181,9 @@
             <option value="Chennai">
             <option value="Bangalore">
           </datalist>
-  
+
         </div>
-      </div>
+      </div> -->
 
 <!-- ========================================= CONTAINER =========================================== -->
     <div class="main">
@@ -195,7 +195,7 @@
               <h2>Patient Results</h2>
             </div>
             <div class="col-1" align="right">
-              <button type="button" class="btn btn-outline-primary rounded-pill" uk-toggle="target: #offcanvas-flip">Filters</button>
+              <!-- <button type="button" class="btn btn-outline-primary rounded-pill" uk-toggle="target: #offcanvas-flip">Filters</button> -->
             </div>
             <div class="col-3" align="right">
               <div class="uk-margin">
@@ -207,31 +207,37 @@
             </div>
           </div>
         </div>
+        <hr style="margin-bottom: 50px;">
       </div>
-
-      <div class="row" style="margin-bottom: 50px;">
+      <div class="container">
+        <div class="row" style="margin-bottom: 50px;">
         <!-- <div class="laptop-item"> -->
           <div class="col-4">
             <img src="" class="laptops" style="width: 70%;">
           </div>
-          <div class="col-4" style="cursor: pointer;" onclick="setData('laptopDetails', JSON.stringify({'pid': ${prod.pid}})); Nav.assign('laptop-details.html');">
-            <strong>${prod.name}</strong>
+          <div class="col-4" style="cursor: pointer;" onclick="setData('laptopDetails', JSON.stringify({'pid': ${patient.pid}})); Nav.assign('patient_profile.html');">
+            <strong>${patient.Firstname} ${patient.Lastname}</strong>
             <ul>
-              <li style="padding-bottom:10px;">${prod.processor} Processor</li>
-              <li style="padding-bottom:10px;">${prod.ram} GB DDR4 RAM</li>
-              <li style="padding-bottom:10px;">${prod.os}</li>
+              <li style="padding-bottom:10px;">${patient.gender}</li>
+              <li style="padding-bottom:10px;">${patient.phone}</li>
+              <li style="padding-bottom:10px;">${patient.dob}</li>
             </ul>
           </div>
           <div class="col-2">
-            <strong>&#8377; ${prod.price}</strong><br>
-            <div class="row" style="padding-top:20px;">
-              <input type="checkbox" class="compare" onchange="changeCheck();" id="${prod.pid}"><b>Add To Compare</b><br>
-            </div>
-            <div class="row" style="padding-top:15px ;">
-              <button class="btn-blue addToCart" style="padding: 10px; font-size: 20px;" type="button" id="item-${prod.pid}" onclick="addToCart(this);" name="button">Add to Cart</button>
-            </div>
+
+
+            <ul>
+
+              <li style="padding-bottom:10px;padding-top:40px;">${patient.blood_group}</li>
+              <li style="padding-bottom:10px;">${patient.allergies}</li>
+
+            </ul>
+
           </div>
         <!-- </div> -->
       </div>
-      <hr style="margin-bottom: 50px;">
+      <hr>
+      <!-- <hr style="margin-bottom: 50px;"> -->
       </div>
+    </body>
+  </html>
