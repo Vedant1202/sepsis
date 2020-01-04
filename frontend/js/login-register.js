@@ -137,7 +137,7 @@ $('#registerBtn').click(function () {
             data: formData,
             success: function(data) {
               setData('user', JSON.stringify(data));
-              Nav.assign('home.html')
+              Nav.assign('home.html');
             },
            error: function(error) {
              console.log(error);

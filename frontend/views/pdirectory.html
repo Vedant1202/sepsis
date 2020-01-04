@@ -25,7 +25,7 @@
     <script src="../js/utils.js" charset="utf-8"></script>
 
     <!-- CUSTOM UTILITY JS IMPORT -->
-    <script src="../js/patient_.js" charset="utf-8"></script>
+    <script src="../js/patient.js" charset="utf-8"></script>
 
   </head>
   <body>
@@ -190,7 +190,6 @@
 
 <!-- ========================================= CONTAINER =========================================== -->
     <div class="main">
-
       <div class="container">
         <div class="header">
           <div class="row">
@@ -212,14 +211,14 @@
         </div>
         <hr style="margin-bottom: 50px;">
       </div>
-      <div class="container">
-        <div class="row" style="margin-bottom: 50px;">
+      <div class="container" >
+        <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient.pid}})); Nav.assign('patient_profile.html'); margin-bottom: 50px;">
         <!-- <div class="laptop-item"> -->
           <div class="col-4">
             <img src="" class="laptops" style="width: 70%;">
           </div>
-          <div class="col-4" style="cursor: pointer;" onclick="setData('laptopDetails', JSON.stringify({'pid': ${patient.pid}})); Nav.assign('patient_profile.html');">
-            <strong>${patient.lname} ${patient.lname}</strong>
+          <div class="col-4" >
+            <strong>${patient.fname} ${patient.lname}</strong>
             <ul>
               <li style="padding-bottom:10px;">${patient.gender}</li>
               <li style="padding-bottom:10px;">${patient.phone}</li>
@@ -242,5 +241,6 @@
       <hr>
       <!-- <hr style="margin-bottom: 50px;"> -->
       </div>
-    </body>
-  </html>
+    </div>
+  </body>
+</html>
