@@ -1,62 +1,76 @@
 <!DOCTYPE html>
-<p lang="en" dir="ltr">
+<html>
+<!-- <p lang="en" dir="ltr"> -->
   <head>
-	
-    
+
+
     <title>The Missing Directory | Login/Register</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="icon" href=" images/icon.png"> -->
     <!-- CSS LIBRARIES IMPORT -->
+    <!-- CSS LIBRARIES IMPORT -->
+    <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/libs/uikit.min.css">
 
+    <!-- CUSTOM CSS IMPORTS -->
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/libs/materialize.css">
 
 
     <!-- CUSTOM CSS IMPORTS -->
-    <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/login-register.css">
 
     <!-- JS LIBRARIES IMPORT -->
     <script src=" ../js/libs/jquery.min.js" charset="utf-8"></script>
     <script src=" ../js/libs/materialize.min.js" charset="utf-8"></script>
     <script src=" ../js/libs/moment.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit-icons.js" charset="utf-8"></script>
+    <script src="../js/libs/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../js/libs/popper.min.js" charset="utf-8"></script>
+    <script src="../js/libs/mustache.js" charset="utf-8"></script>
+    <script src=" ../js/libs/fontawesome.js" charset="utf-8"></script>
+
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
-	<script src=" ../js/utils.js" charset="utf-8"></script>
-	
+	  <script src=" ../js/utils.js" charset="utf-8"></script>
+
 	</head>
 
 	<body>
 
 	<!-- ========================================= NAVBAR =========================================== -->
-	<div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;" style="margin-bottom:5%">
-        <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
-          <div class="row" style="width: 100%;">
 
-            <div class="col-2" align="center" style="padding-top: .5%;">
-                <h1><a href="landing.html" style="text-decoration: none;color: black;">Sepsis</a></h1>
-            </div>
-            <div class="col-3" align="center" style="padding-top: .5%;">
+  <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;" style="margin-bottom:5%">
+     <nav class="uk-navbar-container navbar-main shadow" uk-navbar style="height:100% !important">
+        <div class="row" style="width: 100%;">
 
-            </div>
-            <div class="col-2" align="center" style="padding-top: .5%;">
-                <h5><span uk-icon="info"><a href="guidelines.html" style="text-decoration: none;color: black;">Guidelines/Training</a></span></h5>
-            </div>
-            <div class="col-3" align="center" style="padding-top: .5%;">
-                <h5><span uk-icon="users"><a href="detection.html" style="text-decoration: none;color: black;">Detection/Prevention</a></span></h5>
-            </div>
-            <div class="col-2" align="center" style="padding-top: .5%;">
-              <h5><span uk-icon="sign-in"><a href="doctor-login-register.html" style="text-decoration: none;color: black;">Login/Register</a></span></h5>
-            </div>
+         <div class="col-2" align="center" style="padding-top: .5%;">
+             <h1><a href="landing.html" style="text-decoration: none;color: black;">Sepsis</a></h1>
+         </div>
+         <div class="col-3" align="center" style="padding-top: .5%;">
+
+         </div>
+         <div class="col-2" align="center" style="padding-top: 2%;">
+           <h6><span uk-icon="info"><a href="guidelines.html" style="text-decoration: none;color: black;">Guidelines/Training</a></span></h6>
+         </div>
+         <div class="col-3" align="center" style="padding-top: 2%;">
+           <h6><span uk-icon="users"><a href="detection.html" style="text-decoration: none;color: black;">Detection/Prevention</a></span></h6>
+         </div>
+         <div class="col-2" align="center" style="padding-top: 2%;">
+           <h6><span uk-icon="sign-in"><a href="doctor-login-register.html" style="text-decoration: none;color: black;">Login/Register</a></span></h6>
+         </div>
 
 
-          </div>
-        </nav>
-      </div> <br>
+       </div>
+     </nav>
+   </div> <br>
 
 	<!-- ========================================= FORM =========================================== -->
-	
-	  <div class="container white z-depth-2">
+
+	  <div class="container white z-depth-2" style="padding-left: 0px;padding-right:0px;">
 
     	<ul class="tabs light-blue">
     		<li class="tab col s3"><a class="white-text active" href="#login">login</a></li>
@@ -177,4 +191,4 @@
 
 
   </body>
-</p>
+</html>
