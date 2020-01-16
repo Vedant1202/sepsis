@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<p lang="en" dir="ltr">
   <head>
+
+
     <title>The Missing Directory | Login/Register</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="icon" href=" images/icon.png"> -->
-
     <!-- CSS LIBRARIES IMPORT -->
 
     <link rel="stylesheet" href="../css/libs/materialize.css">
@@ -21,41 +22,41 @@
     <script src=" ../js/libs/moment.min.js" charset="utf-8"></script>
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
-    <script src=" ../js/utils.js" charset="utf-8"></script>
-  </head>
-  <body>
+	<script src=" ../js/utils.js" charset="utf-8"></script>
 
-    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;" style="margin-bottom:0.75%">
-       <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
-         <div class="row" style="width: 100%;">
+	</head>
 
-           <div class="col-2" align="center" style="padding-top: .5%;">
-               <h1>Sepsis</h1>
-           </div>
-           <div class="col-3" align="center" style="padding-top: .5%;">
+	<body>
 
-           </div>
-           <div class="col-2" align="center" style="padding-top: .5%;">
-               <h5><span uk-icon="info">Guidelines/Training</span></h5>
-           </div>
-           <div class="col-3" align="center" style="padding-top: .5%;">
-               <h5><span uk-icon="users">Detection/Prevention</span></h5>
-           </div>
-           <div class="col-2" align="center" style="padding-top: .5%;">
-             <h5><span uk-icon="sign-in">Login/Register</span></h5>
-           </div>
+	<!-- ========================================= NAVBAR =========================================== -->
+	<div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;" style="margin-bottom:5%">
+        <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
+          <div class="row" style="width: 100%;">
+
+            <div class="col-2" align="center" style="padding-top: .5%;">
+                <h1><a href="landing.html" style="text-decoration: none;color: black;">Sepsis</a></h1>
+            </div>
+            <div class="col-3" align="center" style="padding-top: .5%;">
+
+            </div>
+            <div class="col-2" align="center" style="padding-top: .5%;">
+                <h5><span uk-icon="info"><a href="guidelines.html" style="text-decoration: none;color: black;">Guidelines/Training</a></span></h5>
+            </div>
+            <div class="col-3" align="center" style="padding-top: .5%;">
+                <h5><span uk-icon="users"><a href="detection.html" style="text-decoration: none;color: black;">Detection/Prevention</a></span></h5>
+            </div>
+            <div class="col-2" align="center" style="padding-top: .5%;">
+              <h5><span uk-icon="sign-in"><a href="doctor-login-register.html" style="text-decoration: none;color: black;">Login/Register</a></span></h5>
+            </div>
 
 
-         </div>
-       </nav>
-     </div> <br>
+          </div>
+        </nav>
+      </div> <br>
 
-	<div class="container">
-		<!-- <p class="light-blue-text" style="text-align: right;font-size: 18px;">
-			<a href="patient-login-register.html">Are you a Patient? </a>
-		</p> -->
-	</div>
-	  <div class="container white z-depth-2" style="margin-bottom: 8%;margin-top:0%;">
+	<!-- ========================================= FORM =========================================== -->
+
+	  <div class="container white z-depth-2">
 
     	<ul class="tabs light-blue">
     		<li class="tab col s3"><a class="white-text active" href="#login">login</a></li>
@@ -176,4 +177,4 @@
 
 
   </body>
-</html>
+</p>
