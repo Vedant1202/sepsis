@@ -202,45 +202,21 @@
             <div class="col-3" align="right">
               <div class="uk-margin">
                 <form class="uk-search uk-search-default" onsubmit="return false;">
-                  <button id="searchMissing" class="uk-search-icon-flip" uk-search-icon></button>
+                  <button id="searchMissing" class="uk-search-icon-flip" uk-search-icon onclick="searchPatient();"></button>
                   <input class="uk-search-input rounded-pill" type="search" placeholder="Search..." id="missingKey">
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <hr style="margin-bottom: 50px;">
+      <hr style="margin-bottom: 50px;">
       </div>
-      <div class="container" >
-        <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient.pid}})); Nav.assign('patient_profile.html'); margin-bottom: 50px;">
-        <!-- <div class="laptop-item"> -->
-          <div class="col-4">
-            <img src="" class="laptops" style="width: 70%;">
-          </div>
-          <div class="col-4" >
-            <strong>${patient.fname} ${patient.lname}</strong>
-            <ul>
-              <li style="padding-bottom:10px;">${patient.gender}</li>
-              <li style="padding-bottom:10px;">${patient.phone}</li>
-              <li style="padding-bottom:10px;">${patient.dob}</li>
-            </ul>
-          </div>
-          <div class="col-2">
+      <div class="container" id="pdirectory">
 
 
-            <ul>
 
-              <li style="padding-bottom:10px;padding-top:40px;">${patient.bgroup}</li>
-              <li style="padding-bottom:10px;">${patient.allergies}</li>
-
-            </ul>
-
-          </div>
-        <!-- </div> -->
-      </div>
-      <hr>
-      <!-- <hr style="margin-bottom: 50px;"> -->
       </div>
     </div>
+    <script src="../js/pdirectory.js" charset="utf-8"></script>
   </body>
 </html>

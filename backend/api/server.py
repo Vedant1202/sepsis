@@ -18,7 +18,7 @@ from controller.user.add import user_add
 from controller.patient.add import patient_add
 from controller.user.update import user_update
 from controller.user.fetch import user_fetch
-from controller.patient.fetch import patient_fetch, patient_search
+from controller.patient.fetch import patient_fetch, patient_search, patient_fetch_profile
 from controller.missing.fetch import missing_fetch_reg, missing_fetch_unreg, missing_fetch_reg_user, missing_fetch_unreg_user, missing_fetch_search_reg, missing_fetch_search_unreg
 from controller.missing.add import missing_add
 from controller.report.add import report_add
@@ -85,6 +85,12 @@ def logout_user():
 # # @cross_origin()
 def fetch_patient():
     return patient_fetch()
+
+# # patient fetch route
+@app.route("/patient/fetch/profile", methods=["POST"])
+# # @cross_origin()
+def fetch_patient_profile():
+    return patient_fetch_profile()
 
 # # patient fetch route
 @app.route("/patient/search", methods=["POST"])
