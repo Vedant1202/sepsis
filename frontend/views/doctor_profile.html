@@ -3,26 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Missing Directory | Homepage</title>
+    <title>Sepsis | Doctor Profile</title>
 
     <!-- CSS LIBRARIES IMPORT -->
-    <link rel="stylesheet" href=" css/libs/bootstrap.min.css">
-    <link rel="stylesheet" href=" css/libs/uikit.min.css">
+    <link rel="stylesheet" href=" ../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href=" ../css/libs/uikit.min.css">
 
     <!-- CUSTOM CSS IMPORTS -->
-    <link rel="stylesheet" href=" css/master.css">
-    <link rel="stylesheet" href=" css/user_profile.css">
+    <link rel="stylesheet" href=" ../css/master.css">
+    <link rel="stylesheet" href=" ../css/user_profile.css">
 
     <!-- JS LIBRARIES IMPORT -->
-    <script src=" js/libs/jquery.min.js" charset="utf-8"></script>
-    <script src=" js/libs/uikit.min.js" charset="utf-8"></script>
-    <script src=" js/libs/uikit-icons.js" charset="utf-8"></script>
-    <script src=" js/libs/bootstrap.min.js" charset="utf-8"></script>
-    <script src=" js/libs/popper.min.js" charset="utf-8"></script>
-    <script src=" js/libs/mustache.js" charset="utf-8"></script>
+    <script src=" ../js/libs/jquery.min.js" charset="utf-8"></script>
+    <script src=" ../js/libs/uikit.min.js" charset="utf-8"></script>
+    <script src=" ../js/libs/uikit-icons.js" charset="utf-8"></script>
+    <script src=" ../js/libs/bootstrap.min.js" charset="utf-8"></script>
+    <script src=" ../js/libs/popper.min.js" charset="utf-8"></script>
+    <script src=" ../js/libs/mustache.js" charset="utf-8"></script>
+
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
-    <!-- <script src=" js/utils.js" charset="utf-8"></script> -->
+    <script src=" ../js/utils.js" charset="utf-8"></script>
   </head>
   <body>
 
@@ -34,15 +35,15 @@
           <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
             <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
           </div>
-          <div class="col-8" align="center" style="padding-top: .5%;">
-            <h1>Missing Directory</h1>
+          <div class="col-7" align="center" style="padding-top: .5%;">
+            <h1>Sepsis</h1>
           </div>
             <div class="uk-inline">
-              <div class="col-2" align="right">
+              <div class="col-4" align="right">
                 <button class="btn btn-secondary rounded-pill" type="button">
                   <div class="row">
                     <div class="col-4" style="padding-left: 0;">
-                      <img src=" resources/images/placeholders/users/user-white.png" alt="" class="rounded-circle" style="max-width: 50px;">
+                      <img src=" ../resources/images/placeholders/users/user-white.png" alt="" class="rounded-circle" style="max-width: 50px;">
                     </div>
                     <div class="col-8" align="center">
                       <div style="padding-top: 50%; padding-left:30%; ">Profile</div>
@@ -56,37 +57,36 @@
     </div>
 
 
-    <!-- ========================================= MENU =========================================== -->
-    <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
-        <div class="uk-offcanvas-bar bg-light">
+  <!-- ========================================= MENU =========================================== -->
+  <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
+    <div class="uk-offcanvas-bar bg-light">
 
-            <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+        <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
 
-            <div class="row" style="margin-top: 20%;">
-              <!-- <div class="col-5">
+        <div class="row" style="margin-top: 20%;">
+          <!-- <div class="col-5">
 
-              </div> -->
-              <div class="col-12">
-                <h2>
-                  Missing Directory
-                </h2>
-                <hr style="border-color: grey; margin-bottom: 30px;">
-              </div>
-            </div>
+          </div> -->
+          <div class="col-12">
+            <h2>
+              Sepsis
+            </h2>
+            <hr style="border-color: grey; margin-bottom: 30px;">
+          </div>
+        </div>
 
-            <div class="container-fluid menubar">
-              <a class="btn btn-link" onclick="Nav.assign('home.html');">Home</a><br>
-              <!-- <a class="btn btn-link">Watching</a><br> -->
-              <a class="btn btn-link" onclick="Nav.assign('missing_create.html');">Missing Create</a><br>
+        <div class="container-fluid menubar">
+          <a href="landing.html" class="btn btn-link" style="color: black;">Home</a><br>
+          <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+          <a class="btn btn-link">My Profile</a><br>
 
-              <a class="btn btn-link" onclick="Nav.assign('face_recog.html');">Face Recognition</a><br>
-              <a class="btn btn-link" onclick="Nav.assign('help_line.html');">Helpline</a><br>
-              <!-- <a class="btn btn-link">About Us</a><br> -->
-              <a class="btn btn-link" id="logout" onclick="logout();">Logout</a><br>
+          <a href="guidelines.html" class="btn btn-link" style="color: black;">Guidelines/Training</a><br>
+          <a href="detection.html" class="btn btn-link" style="color: black;">Detection/Prediction</a><br>
+          <a href="pdirectory.html" class="btn btn-link active-menu" style="color: black;">Patient Directory</a>
 
-            </div>
         </div>
     </div>
+</div>
 
 
     <!-- ========================================= FILTERS TAB =========================================== -->
@@ -170,8 +170,8 @@
     <div class="main">
       <div class="container-fluid results">
         <div class="row">
-          <div class="col-3">
-            <img src=" resources/images/placeholders/users/user-black.png">
+          <div class="col-3" style="padding-top: 9%;">
+            <img src=" ../resources/images/placeholders/users/user-black.png">
           </div>
           <div class="col-9" style="padding:20px;">
             <div class="row">
@@ -249,105 +249,70 @@
     </div>
 
 
-     <script type="text/template" id="profile">
-      <div class="row">
-        <div class="col-3">
-          <img src=" resources/images/placeholders/users/user-black.png">
+     <script type="text/template" id="profile"></script>  
+              <!-- <label>Username: </label> -->
+            
+
+              <!-- <div class="row">
+                <div class="col-3 text-muted">
+                  <i>Gender:</i>
+                </div>
+                <div class="col-9">
+                  {{ gender }}
+                </div>
+              </div> -->
+          </div>
+
         </div>
-        <div class="col-9" style="padding:20px;">
+      </div>
+    </div>
+    <div class="container-fluid results">
+      <div class="row" style="margin:0px;">
+        <div class="col-3">
           <div class="row">
             <div class="col-10">
-              <h4><strong>General Details</strong></h4>
-            </div>
-            <div class="col-2">
-              <a href="user_edit.html">Edit</a>
+              <h4><strong>Field Details</strong></h4>
             </div>
           </div>
-          <div class="col-9" style="padding:20px;">
-            <div class="row">
-              <div class="col-10">
-                <h4><strong>General Details</strong></h4>
-              </div>
-              <div class="col-2">
-                <a href="user_edit.html">Edit</a>
-              </div>
-            </div>
-            <hr>
-            <div>
-              <div class="row">
-                <div class="col-3 text-muted">
-                  <i>Firstname:</i>
-                </div>
-                <div class="col-9">
-                  {{ fname }}
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-3 text-muted">
-                  <i>Lastname:</i>
-                </div>
-                <div class="col-9">
-                  {{ lname }}
-                </div>
-              </div>
-              <!-- <label>Username: </label> -->
-              <div class="row">
-                <div class="col-3 text-muted">
-                  <i>Username:</i>
-                </div>
-                <div class="col-9">
-                  {{ username }}
-                </div>
-              </div>
+        </div>
+        <div class="col-9">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
 
-              <!-- <div class="row">
-                <div class="col-3 text-muted">
-                  <i>Gender:</i>
-                </div>
-                <div class="col-9">
-                  {{ gender }}
-                </div>
-              </div> -->
-              <div class="row">
-                <div class="col-3 text-muted">
-                  <i>Date Of Birth:</i>
-                </div>
-                <div class="col-9">
-                  {{ dob }}
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-3 text-muted">
-                  <i>Email:</i>
-                </div>
-                <div class="col-9">
-                  {{ email }}
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-3 text-muted">
-                  <i>Contact Number:</i>
-                </div>
-                <div class="col-9">
-                  {{ phone }}
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col-3">
+          Specialization:
+        </div>
+        <div class="col-7">
+          {{ specialization }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          Experience:
+        </div>
 
+        <div class="col-7">
+          <!-- <input type="text" class="uk-input rounded" placeholder="Diabetes etc"><br> -->
+          {{ experience }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          Registration:
+        </div>
+        <div class="col-7">
+          <!-- <input type="text" class="uk-input rounded" placeholder="High BP etc"><br> -->
+          {{ registration }}
         </div>
       </div>
     </div>
-
 
     <script type="text/template" id="profile">
 
     </script>
-
-
     <!-- CUSTOM JS IMPORT -->
     <!-- <script src=" js/user_profile.js" charset="utf-8"></script> -->
-
-
   </body>
 </html>
