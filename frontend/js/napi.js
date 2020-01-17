@@ -4,6 +4,7 @@ $(document).ready(function () {
     var url = 'https://newsapi.org/v2/top-headlines?' +
     'q=Sepsis&' +
     'sortBy=popularity&' +
+    'language=en&' +
     'apiKey=3ac7f3bd3e4042f98b5bfcfc30dde1e7';
 
     // var req = new Request(url);
