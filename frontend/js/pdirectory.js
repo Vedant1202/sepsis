@@ -10,79 +10,56 @@
 //
 
 $(document).ready(function () {
-  if (checkData('user')) {
-    fetchCart(getData('user')[1].uid, true);
-  }
+  // if (checkData('user')) {
+  //   fetchCart(getData('user')[1].uid, true);
+  // }
 
-  setTimeout(function () {
+  // setTimeout(function () {
 
       $.ajax({
         type: "POST",
         url: 'http://localhost:5000/patient/fetch',
-        data: 'pdirectory',
+        data: {
+          'uid': getData('user').uid
+        },
         success: function(data) {
-          console.log(JSON.parse(data[0]));
-          console.log(data.length);
+          // console.log(JSON.parse(data[0]));
+          console.log(data.data[0]);
           $('#pdirectory').html('');
-          for (var i = 0; i < data.length; i++) {
-            var prod = JSON.parse(data[i]);
+          for (var i = 0; i < data.data.length; i++) {
+            var patient = data.data[i];
             $('#pdirectory').append(
 
               `
-              <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient.pid}})); Nav.assign('patient_profile.html'); margin-bottom: 50px;">
-              <!-- <div class="laptop-item"> -->
-                <div class="col-4">
-                  <img src="" class="laptops" style="width: 70%;">
+                <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
+                  <div class="col-4">
+                    <img src="" class="laptops" style="width: 70%;">
+                  </div>
+                  <div class="col-4" >
+                    <strong>${patient[1]} ${patient[2]}</strong>
+                    <ul>
+                      <li style="padding-bottom:10px;">${patient[3]}</li>
+                      <li style="padding-bottom:10px;">${patient[5]}</li>
+                      <li style="padding-bottom:10px;">${patient[4]}</li>
+                    </ul>
+                  </div>
+                  <div class="col-2">
+
+
+                    <ul>
+
+                      <li style="padding-bottom:10px;padding-top:40px;">${patient[6]}</li>
+                      <li style="padding-bottom:10px;">${patient[9]}</li>
+
+                    </ul>
+
+                  </div>
+
                 </div>
-                <div class="col-4" >
-                  <strong>${patient.fname} ${patient.lname}</strong>
-                  <ul>
-                    <li style="padding-bottom:10px;">${patient.gender}</li>
-                    <li style="padding-bottom:10px;">${patient.phone}</li>
-                    <li style="padding-bottom:10px;">${patient.dob}</li>
-                  </ul>
-                </div>
-                <div class="col-2">
-
-
-                  <ul>
-
-                    <li style="padding-bottom:10px;padding-top:40px;">${patient.bgroup}</li>
-                    <li style="padding-bottom:10px;">${patient.allergies}</li>
-
-                  </ul>
-
-                </div>
-              <!-- </div> -->
-            </div>
-            <hr>
+              <hr>
               `
             );
           }
-          // if (!checkData('user')) {
-          //   var elems = document.getElementsByClassName('addToCart');
-          //   for (var j = 0; j < elems.length; j++) {
-          //     // elems[j].setAttribute('disabled', '');
-          //     elems[j].setAttribute('onclick', 'alert("Please log in to add to cart")');
-          //     elems[j].style.backgroundColor = '#729db5';
-          //     elems[j].style.borderColor = '#729db5';
-          //   }
-          // } else {
-          //   if (checkData('cart')) {
-          //     var pids = getData('cart').pid;
-          //     var elems = document.getElementsByClassName('addToCart');
-          //     for (var c = 0; c < elems.length; c++) {
-          //       console.log('cart pid: ' + elems[c].id.split('-')[1]);
-          //       console.log(pids);
-          //       console.log(pids.includes(parseInt(elems[c].id.split('-')[1])));
-          //       if (pids.includes(parseInt(elems[c].id.split('-')[1]))) {
-          //         document.getElementById(elems[c].id).style.backgroundColor = '#cc2424';
-          //         document.getElementById(elems[c].id).style.borderColor = '#cc2424';
-          //         document.getElementById(elems[c].id).innerText = 'Remove from Cart';
-          //         document.getElementById(elems[c].id).setAttribute('onclick', 'removeCart(this)');
-          //       }
-          //     }
-          //   }
         }
       });
       //  error: function(error) {
@@ -92,9 +69,63 @@ $(document).ready(function () {
       //  processData: false,
       //  contentType: false
       // });
-  }, 1500);
-
+  // }, 1500);
 });
+
+
+function searchPatient(elem) {
+  console.log($('#missingKey').val().trim());
+  $.ajax({
+    type: "POST",
+    url: 'http://localhost:5000/patient/search',
+    data: {
+      'keyword': $('#missingKey').val().trim()
+    },
+    success: function(data) {
+      // console.log(JSON.parse(data[0]));
+      console.log(data.data[0]);
+      $('#pdirectory').html('');
+      for (var i = 0; i < data.data.length; i++) {
+        var patient = data.data[i];
+        $('#pdirectory').append(
+
+          `
+            <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
+              <div class="col-4">
+                <img src="" class="laptops" style="width: 70%;">
+              </div>
+              <div class="col-4" >
+                <strong>${patient[1]} ${patient[2]}</strong>
+                <ul>
+                  <li style="padding-bottom:10px;">${patient[3]}</li>
+                  <li style="padding-bottom:10px;">${patient[5]}</li>
+                  <li style="padding-bottom:10px;">${patient[4]}</li>
+                </ul>
+              </div>
+              <div class="col-2">
+
+
+                <ul>
+
+                  <li style="padding-bottom:10px;padding-top:40px;">${patient[6]}</li>
+                  <li style="padding-bottom:10px;">${patient[9]}</li>
+
+                </ul>
+
+              </div>
+
+            </div>
+          <hr>
+          `
+        );
+      }
+    }
+  });
+
+}
+
+
+
 //
 //
 // function changeCheck() {

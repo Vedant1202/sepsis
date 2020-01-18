@@ -12,16 +12,16 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: 'http://localhost:5000/patient/fetch',
+      url: 'http://localhost:5000/patient/fetch/profile',
       data: {
         // 'skey': getData('user').skey,
-        'uid': getData('user').uid,
+        'pid': getData('pdirectory').pid,
       },
       success: function(data) {
         if (data) {
           console.log(data);
           var template = $('#patient_profile').html();
-          var patients = data.data;
+          var patients = data.data[0];
 
           var personData = {
             // 'username': patients[1],
@@ -41,7 +41,7 @@ $(document).ready(function () {
           };
 
           var html = Mustache.render(template, personData);
-          $('.results').append(html);
+          $('.main').append(html);
 
         }
       },

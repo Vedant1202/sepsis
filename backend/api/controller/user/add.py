@@ -26,10 +26,6 @@ def user_add():
         _specialization = request.form.getlist("specialization")[0]
         _experience = request.form.getlist("experience")[0]
         _registration = request.form.getlist("registration")[0]
-        # _last_updated = int(time.time())
-        # _date_created = int(time.time())
-        # _age = calculate_age(time.strptime(_date, '%Y-%m-%d'))
-        # _type = type
 
         # validate the received values
         if _fname and _lname and _email and _password and _dept and _dob and _gender and _phone and _type and _specialization and _experience and _registration and request.method == "POST":

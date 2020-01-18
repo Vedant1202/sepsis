@@ -106,27 +106,38 @@ $('#phone').keyup(function () {
 $('#registerBtn').click(function () {
   // alert('submit')
 
-    var username = $('#username').val().trim(),
-        password = $('#password').val(),
+    // var username = $('#username').val().trim(),
+    var password = $('#password').val(),
         email = $('#email').val().trim(),
         fname = $('#fname').val().trim(),
         lname = $('#lname').val().trim(),
         phone = $('#phone').val().trim(),
         date = $('#date').val().trim(),
-        address = $('#address').val().trim();
+        spec = $('#spec').val().trim(),
+        dept = $('#dept').val().trim(),
+        exp = $('#exp').val().trim(),
+        gender = $('#gender').val().trim(),
+        regNo = $('#regNo').val().trim(),
+        type = $('#type').val().trim();
 
 
-    if (username && password && email && fname && lname && phone && date && address) {
+    if ( password && email && fname && lname && phone && date && spec && dept && exp && regNo && type) {
 
           var formData = {
-            'username': username,
-            'email': email,
-            'password': password,
+            // 'username': username,
             'fname': fname,
             'lname': lname,
+            'email': email,
+            'password': password,
+            'dept': dept,
+            'gender': gender,
+            'dob': date,
             'phone': phone,
-            'date': date,
-            'address': address
+            'specialization': spec,
+            'experience': exp,
+            'registration': regNo,
+            'type': type
+            // 'address': address
           };
 
           // console.log(formData);
@@ -137,7 +148,7 @@ $('#registerBtn').click(function () {
             data: formData,
             success: function(data) {
               setData('user', JSON.stringify(data));
-              Nav.assign('home.html');
+              Nav.assign('pdirectory.html');
             },
            error: function(error) {
              console.log(error);

@@ -202,15 +202,16 @@
             <div class="col-3" align="right">
               <div class="uk-margin">
                 <form class="uk-search uk-search-default" onsubmit="return false;">
-                  <button id="searchMissing" class="uk-search-icon-flip" uk-search-icon></button>
+                  <button id="searchMissing" class="uk-search-icon-flip" uk-search-icon onclick="searchPatient();"></button>
                   <input class="uk-search-input rounded-pill" type="search" placeholder="Search..." id="missingKey">
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <hr style="margin-bottom: 50px;">
+      <hr style="margin-bottom: 50px;">
       </div>
+<<<<<<< HEAD
       <div class="container" >
         <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient.pid}})); Nav.assign('patient_profile.html'); margin-bottom: 50px;">
         <!-- <div class="laptop-item"> -->
@@ -229,15 +230,14 @@
             <ul>
               <li style="padding-bottom:10px;padding-top:40px;">${patient.bgroup}</li>
               <li style="padding-bottom:10px;">${patient.allergies}</li>
+=======
+      <div class="container" id="pdirectory">
 
-            </ul>
 
-          </div>
-        <!-- </div> -->
-      </div>
-      <hr>
-      <!-- <hr style="margin-bottom: 50px;"> -->
+>>>>>>> 428b0640fae1552cd7451cebc2c4abcb75860a14
+
       </div>
     </div>
+    <script src="../js/pdirectory.js" charset="utf-8"></script>
   </body>
 </html>
