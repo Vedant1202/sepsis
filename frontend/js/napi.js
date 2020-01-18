@@ -1,7 +1,7 @@
 
 
 $(document).ready(function () {
-    var url = 'https://newsapi.org/v2/top-headlines?' +
+    var url = 'https://newsapi.org/v2/everything?' +
     'q=Sepsis&' +
     'sortBy=popularity&' +
     'language=en&' +
@@ -34,9 +34,9 @@ $(document).ready(function () {
                         <div class="uk-card-footer">
                             <a href="${data.articles[i]['url']}" class="uk-button uk-button-text">Read more</a>
                         </div>
-                        
+
                     </div>
-  
+
                 `);
               }
 
@@ -48,4 +48,3 @@ $(document).ready(function () {
     });
 
 });
-    
