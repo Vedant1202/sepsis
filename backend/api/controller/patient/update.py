@@ -10,39 +10,42 @@ from utils.utils import not_found, verify_session
 
 
 
-def user_update():
+def patient_update():
     try:
-        _name = request.form.getlist("username")[0]
-        _email = request.form.getlist("email")[0]
-        _password = request.form.getlist("password")[0]
-        _last_updated = int(request.form.getlist("last_updated")[0])
-        _address = request.form.getlist("address")[0]
-        _type = request.form.getlist("type")[0]
-        _phone = int(request.form.getlist("phone")[0])
-        _date_created = int(request.form.getlist("date_created")[0])
         _fname = request.form.getlist("fname")[0]
         _lname = request.form.getlist("lname")[0]
-        _uid = request.form.getlist("uid")[0]
-        _skey = request.form.getlist("skey")[0]
+        # _email = request.form.getlist("email")[0]
+        # _password = request.form.getlist("password")[0]
+        _gender = request.form.getlist("gender")[0]
+        _phone = request.form.getlist("phone")[0]
+        _dob = request.form.getlist("dob")[0]
+        _bgroup = request.form.getlist("bgroup")[0]
+        _medhist = request.form.getlist("medhist")[0]
+        _roa = request.form.getlist("roa")[0]
+        _allergies = request.form.getlist("allergies")[0]
+        # _uid = request.form.getlist("uid")[0]
+
+        _pid = request.form.getlist("pid")[0]
+        # _skey = request.form.getlist("skey")[0]
 
 
         # validate the received values
-        if _name and _email and _password and _skey and _last_updated and _address and _type and _phone and _date_created and _fname and _lname and request.method == "POST":
-            if verify_session(_skey, _uid):
-                # do not save password as a plain text
-                _hashed_password = generate_password_hash(_password)
-                # save edits
-                sql = "UPDATE user SET username=%s, email=%s, password=%s, last_updated=%s, address=%s, type=%s, phone=%s, date_created=%s, fname=%s, lname=%s WHERE uid=%s;"
-                data = (_name, _email, _hashed_password, _last_updated, _address, _type, _phone, _date_created, _fname, _lname, _uid)
-                conn = mysql.connect()
-                cursor = conn.cursor()
-                cursor.execute(sql, data)
-                conn.commit()
-                resp = jsonify("Success")
-                resp.status_code = 200
-            else:
-                resp = jsonify('Unauthorised')
-                resp.status_code = 405
+        if _fname and _lname and _gender and _phone and  _dob and _bgroup and _medhist and _roa and _allergies and _pid and request.method == "POST":
+            # if verify_session(_pid):
+            # do not save password as a plain text
+            # _hashed_password = generate_password_hash(_password)
+            # save edits
+            sql = "UPDATE patient SET fname=%s, lname=%s,    gender=%s ,phone=%s , dob=%s , bgroup=%s,  medhist=%s , roa=%s , allergies=%s WHERE pid=%s;"
+            data = (_fname, _lname ,_gender, _phone , _dob ,_bgroup , _medhist , _roa, _allergies, _pid)
+            conn = mysql.connect()
+            cursor = conn.cursor()
+            cursor.execute(sql, data)
+            conn.commit()
+            resp = jsonify("Success")
+            resp.status_code = 200
+            # else:
+            #     resp = jsonify('Unauthorised')
+            #     resp.status_code = 405
             print(resp)
             return resp
         else:
