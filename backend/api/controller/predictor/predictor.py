@@ -4,8 +4,55 @@ import math
 import numpy as np
 from sklearn.metrics import mean_squared_error
 from statsmodels.iolib.smpickle import load_pickle
+import plotly
+import plotly.graph_objs as go
 
 
+def create_plot(dfact, dfpred):
+
+
+    trace0=go.Scatter(
+    x=dfact.index, # assign x as the dataframe column 'x'
+    y=dfact['heartrate'],
+    mode = 'lines+markers'
+    )
+    trace1=go.Scatter(
+    x=dfpred.index, # assign x as the dataframe column 'x'
+    y=dfpred['heartrate'],
+    mode = 'lines+markers'
+    )
+    trace2=go.Scatter(
+    x=dfact.index, # assign x as the dataframe column 'x'
+    y=dfact['temperature'],
+    mode = 'lines+markers'
+    )
+    trace3=go.Scatter(
+    x=dfpred.index, # assign x as the dataframe column 'x'
+    y=dfpred['temperature'],
+    mode = 'lines+markers'
+    )
+    trace4=go.Scatter(
+    x=dfact.index, # assign x as the dataframe column 'x'
+    y=dfact['respiration'],
+    mode = 'lines+markers'
+    )
+    trace5=go.Scatter(
+    x=dfpred.index, # assign x as the dataframe column 'x'
+    y=dfpred['respiration'],
+    mode = 'lines+markers'
+    )
+
+    data1 = [trace0,trace1]
+    data2 = [trace2,trace3]
+    data3 = [trace4,trace5]
+
+    graph1JSON = json.dumps(data1, cls=plotly.utils.PlotlyJSONEncoder)
+    graph2JSON = json.dumps(data2, cls=plotly.utils.PlotlyJSONEncoder)
+    graph3JSON = json.dumps(data3, cls=plotly.utils.PlotlyJSONEncoder)
+
+    multi_graph={'heartrate':graph1JSON,'temperature':graph2JSON,'respiration':graph3JSON}
+
+    return multi_graph
 
 
 
@@ -68,8 +115,19 @@ def getPredictions(patientId=None):
                  'actual': finaldf})
 
 
-getPredictions()
-
+def get_graph():
+        try:
+            preds = getPredictions()
+            plot = create_plot(preds['actual'], preds['predictions'], preds['critical'])
+            resp = jsonify(data=plot)
+            resp.status_code = 200
+            return resp
+        except Exception as e:
+            print('====================== EXCEPTION ========================')
+            print(e)
+        # finally:
+            # cursor.close()
+            # conn.close()
 
 
 

@@ -58,8 +58,8 @@ def create_plot(dfact, dfpred):
 
     multi_graph={'heartrate':graph1JSON,'temperature':graph2JSON,'respiration':graph3JSON}
 
-    #return multi_graph
-    print(multi_graph)
+    return multi_graph
+    # print(multi_graph)
 
     # @app.route('/')
     # def index():
@@ -69,11 +69,11 @@ def create_plot(dfact, dfpred):
     #     return bar
 
 
-if __name__ == '__main__':
-        # app.run()
-    N = 40
-    x = np.linspace(0, 1, N)
-    y = np.random.randn(N)
-    df1 = pd.DataFrame({'x': x[0:21], 'y': y[0:21]})
-    df2 = pd.DataFrame({'x': x[20:], 'y': y[20:]})
-    create_plot(df1, df2)
+# if __name__ == '__main__':
+#         # app.run()
+#     N = 40
+#     x = np.linspace(0, 1, N)
+#     y = np.random.randn(N)
+#     df1 = pd.DataFrame({'x': x[0:21], 'y': y[0:21]})
+#     df2 = pd.DataFrame({'x': x[20:], 'y': y[20:]})
+#     create_plot(df1, df2)

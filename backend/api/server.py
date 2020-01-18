@@ -23,6 +23,7 @@ from controller.patient.fetch import patient_fetch, patient_search, patient_fetc
 from controller.missing.fetch import missing_fetch_reg, missing_fetch_unreg, missing_fetch_reg_user, missing_fetch_unreg_user, missing_fetch_search_reg, missing_fetch_search_unreg
 from controller.missing.add import missing_add
 from controller.report.add import report_add
+from controller.predictor.predictor import get_graph
 # from utils.utils import upload_file
 
 # from controller.face_recog.add import encoding_add
@@ -63,6 +64,12 @@ def update_patient():
 # @cross_origin()
 def fetch_user():
     return user_fetch()
+
+# user edit route
+@app.route("/prediction", methods=["POST"])
+# @cross_origin()
+def predictions():
+    return get_graph()
 
 # #user update route
 # @app.route("/user/update", methods=["POST"])
