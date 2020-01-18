@@ -14,7 +14,7 @@ def login():
         if _username and _password and request.method == "POST":
             conn = mysql.connect()
             cursor = conn.cursor(pymysql.cursors.DictCursor)
-            cursor.execute("SELECT * FROM user WHERE BINARY username=%s", (_username))
+            cursor.execute("SELECT * FROM user WHERE BINARY email=%s", (_username))
             row = cursor.fetchone()
 
             if row:
