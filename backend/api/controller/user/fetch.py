@@ -11,11 +11,11 @@ from utils.utils import not_found, verify_session
 
 def user_fetch():
     try:
-        _skey = request.form.getlist("skey")[0]
+        # _skey = request.form.getlist("skey")[0]
         _uid = request.form.getlist("uid")[0]
 
         # validate the received values
-        if _skey and _uid and request.method == "POST" and verify_session(_skey, _uid):
+        if _uid and request.method == "POST" :
             sql = "SELECT * FROM user WHERE uid=%s;"
             data = (_uid)
             conn = mysql.connect()
