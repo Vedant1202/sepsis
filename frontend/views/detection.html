@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sepsis | Detection</title>
+    <!-- CSS LIBRARIES IMPORT -->
+    <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/libs/uikit.min.css">
+
+    <!-- CUSTOM CSS IMPORTS -->
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/home.css">
+
+    <!-- JS LIBRARIES IMPORT -->
+    <script src="../js/libs/jquery.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit-icons.js" charset="utf-8"></script>
+    <script src="../js/libs/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../js/libs/popper.min.js" charset="utf-8"></script>
+    <script src="../js/libs/mustache.js" charset="utf-8"></script>
+    <script src=" ../js/libs/fontawesome.js" charset="utf-8"></script>
+
+    <!-- UTILITY FUNCTIONS JS IMPORT -->
+    <script src="../js/utils.js" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <!-- ========================================= NAVBAR =========================================== -->
+    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+      <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
+        <div class="row" style="width: 100%;">
+          <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
+            <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
+          </div>
+          <div class="col-8" align="center" style="padding-top: .5%;">
+            <h1>Sepsis</h1>
+          </div>
+            <div class="uk-inline">
+              <div class="col-2" align="right">
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ========================================= MENU =========================================== -->
+    <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
+      <div class="uk-offcanvas-bar bg-light">
+
+          <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+
+          <div class="row" style="margin-top: 20%;">
+            <!-- <div class="col-5">
+
+            </div> -->
+            <div class="col-12">
+              <h2>
+                Sepsis
+              </h2>
+              <hr style="border-color: grey; margin-bottom: 30px;">
+            </div>
+          </div>
+
+          <div class="container-fluid menubar">
+            <a href="landing.html" class="btn btn-link" style="color: black;">Home</a><br>
+            <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+            <a class="btn btn-link">My Profile</a><br>
+
+            <a href="guidelines.html" class="btn btn-link" style="color: black;">Guidelines/Training</a><br>
+            <a href="detection.html" class="btn btn-link active-menu" style="color: black;">Detection/Prediction</a><br>
+            <a href="pdirectory.html" class="btn btn-link" style="color: black;">Patient Directory</a>
+
+          </div>
+      </div>
+  </div>
+
+    <!-- ========================================= HEADER =========================================== -->
+    <div>
+      <div class="uk-container" style="margin-top:5%;">
+        <div class="row" style="width: 100%;margin-top:2%;margin-left:1%;">
+          <!-- <div class="uk-inline"> -->
+            <div class="col-3" align="right">
+              <div class="uk-inline uk-light">
+                <img src=" ../resources/images/placeholders/users/user-white.png" alt="">
+
+                <div class="uk-position-center">
+                  <span uk-overlay-icon id="profImg" onclick="$('#profImgUpload').click();"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-4" style="padding-top: 10%;">
+              <h2>Rishi Pandya</h2>
+            </div>
+
+            <!-- <div class="col-2" align="center">
+
+            </div> -->
+            <div class="col-4" style="padding-left: 30%;padding-top: 8%;" >
+              <button type="button" class="btn btn-outline-secondary" style="height:30%;width:150px;">
+              <a href="patient_profile.html" style="text-decoration:none;color:black;">Patient Profile</a>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+        <!-- </div> -->
+
+<!-- ========================================= CONTAINER =========================================== -->
+
+        <div class="uk-container" style="margin-top:5%;">
+          <div class="row">
+            <h1 style="padding-left:40%;">
+              Analysis
+            </h1>
+          </div>
+        </div>
+
+<!-- ========================================= CONTAINER =========================================== -->
+        <div class="uk-container" style="margin-top:5%;">
+          <div class="row" style="width: 100%;">
+            <div class="col-6">
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            <div class="col-6">
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            </div>
+
+        </div>
+        <div class="uk-container" style="margin-top:5%;">
+          <div class="row" style="width: 100%;">
+            <div class="col-6">
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            <div class="col-6">
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            </div>
+
+        </div>
+
+<!-- ========================================= CONTAINER =========================================== -->
+        <div class="uk-container" style="margin-top:5%;">
+          <div class="row">
+            <h1 style="padding-left:40%;">
+              Prediction
+            </h1>
+          </div>
+        </div>
+
+<!-- ========================================= PREDICTION =========================================== -->
+        <div class="uk-container" style="margin-top:5%;">
+          <div class="row" style="width: 100%;">
+            <div class="col-6">
+              <h3 class="uk-card-title">T+1 hour</h3>
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            <div class="col-6">
+              <h3 class="uk-card-title">T+2 hour</h3>
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            </div>
+
+        </div>
+        <div class="uk-container" style="margin-top:5%;">
+          <div class="row" style="width: 100%;">
+            <div class="col-6">
+              <h3 class="uk-card-title">T+3 hour</h3>
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            <div class="col-6">
+              <h3 class="uk-card-title">T+4 hour</h3>
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            </div>
+
+        </div>
+  </body>
+</html>
