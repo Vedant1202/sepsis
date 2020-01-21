@@ -19,6 +19,8 @@
     <script src="../js/libs/popper.min.js" charset="utf-8"></script>
     <script src="../js/libs/mustache.js" charset="utf-8"></script>
     <script src=" ../js/libs/fontawesome.js" charset="utf-8"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
     <script src="../js/utils.js" charset="utf-8"></script>
@@ -114,6 +116,51 @@
             <h1 style="padding-left:40%;">
               Analysis
             </h1>
+          </div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <h3>Heart Rate</h3>
+                      <div class="chart" id="hrgraph" style="width:1100px;">
+                      </div>
+                      <h3>Temperature</h3>
+                      <div class="chart" id="tempgraph" style="width:1100px;">
+                      </div>
+                      <h3>Respiration Rate</h3>
+                      <div class="chart" id="rrgraph" style="width:1100px;">
+                      </div>
+                      <script>
+                      $(document).ready(function () {
+                        $.ajax({
+                          type: "POST",
+                          url: 'http://localhost:5000/prediction',
+                          data: {
+                            'uid': 'uid'
+                          },
+                          success: function(data) {
+                            // console.log(data);
+                            // console.log(data.data.heartrate);
+                            hr = JSON.parse(data.data.heartrate);
+                            tp = JSON.parse(data.data.temperature);
+                            rr = JSON.parse(data.data.respiration);
+
+                            console.log(hr);
+                            // console.log({ hr | safe })
+                            // var graphs = {{ hr | safe }};
+                            // Plotly.plot('hrgraph', graphs, {/});
+                            Plotly.newPlot('hrgraph', hr);
+                            Plotly.newPlot('tempgraph', tp);
+                            Plotly.newPlot('rrgraph', rr);
+
+                          }
+                        });
+                      })
+
+                      // var graphs = {{plot | safe}};
+                      // Plotly.plot('bargraph',graphs,{});
+                      </script>
+                  </div>
+              </div>
           </div>
         </div>
 

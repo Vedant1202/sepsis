@@ -6,45 +6,65 @@ from sklearn.metrics import mean_squared_error
 from statsmodels.iolib.smpickle import load_pickle
 import plotly
 import plotly.graph_objs as go
+from flask import jsonify
+import json
 
 
-def create_plot(dfact, dfpred):
+def create_plot(dfact, dfpred, dfmarker):
 
 
     trace0=go.Scatter(
     x=dfact.index, # assign x as the dataframe column 'x'
     y=dfact['heartrate'],
-    mode = 'lines+markers'
+    #mode = 'lines+markers'
     )
     trace1=go.Scatter(
     x=dfpred.index, # assign x as the dataframe column 'x'
     y=dfpred['heartrate'],
-    mode = 'lines+markers'
+    #mode = 'lines+markers'
+    )
+    trace6=go.Scatter(
+    x=dfmarker.index,
+    y=dfmarker['heartrate'],
+    mode="markers",
+    marker=dict(size=16,color='red')
     )
     trace2=go.Scatter(
     x=dfact.index, # assign x as the dataframe column 'x'
     y=dfact['temperature'],
-    mode = 'lines+markers'
+    # mode = 'lines+markers'
     )
     trace3=go.Scatter(
     x=dfpred.index, # assign x as the dataframe column 'x'
     y=dfpred['temperature'],
-    mode = 'lines+markers'
+    # mode = 'lines+markers'
+    )
+    trace7=go.Scatter(
+    x=dfmarker.index,
+    y=dfmarker['temperature'],
+    mode="markers",
+    marker=dict(size=16,color='red')
     )
     trace4=go.Scatter(
     x=dfact.index, # assign x as the dataframe column 'x'
     y=dfact['respiration'],
-    mode = 'lines+markers'
+    # mode = 'lines+markers'
     )
     trace5=go.Scatter(
     x=dfpred.index, # assign x as the dataframe column 'x'
     y=dfpred['respiration'],
-    mode = 'lines+markers'
+    # mode = 'lines+markers'
+    )
+    trace8=go.Scatter(
+    x=dfmarker.index,
+    y=dfmarker['respiration'],
+    mode="markers",
+    marker=dict(size=16,color='red')
     )
 
-    data1 = [trace0,trace1]
-    data2 = [trace2,trace3]
-    data3 = [trace4,trace5]
+    data1 = [trace0,trace1,trace6]
+    data2 = [trace2,trace3,trace7]
+    data3 = [trace4,trace5,trace8]
 
     graph1JSON = json.dumps(data1, cls=plotly.utils.PlotlyJSONEncoder)
     graph2JSON = json.dumps(data2, cls=plotly.utils.PlotlyJSONEncoder)
@@ -53,6 +73,7 @@ def create_plot(dfact, dfpred):
     multi_graph={'heartrate':graph1JSON,'temperature':graph2JSON,'respiration':graph3JSON}
 
     return multi_graph
+
 
 
 
@@ -112,7 +133,7 @@ def getPredictions(patientId=None):
     print(prediction)
     return dict({'predictions': prediction,
                  'critical': crits,
-                 'actual': finaldf})
+                 'actual': train})
 
 
 def get_graph():
