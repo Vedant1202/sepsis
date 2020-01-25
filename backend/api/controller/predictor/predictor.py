@@ -87,7 +87,8 @@ def getPredictions(patientId=None):
     wbcVals = finaldf['wbc'].unique()
 
     if not patientId:
-        rno = np.random.randint(0, 10, size=1)[0]
+        # rno = np.random.randint(0, 10, size=1)[0]
+        rno = 0
         patientId = patIds[rno]
 
     # get patient dataframe
