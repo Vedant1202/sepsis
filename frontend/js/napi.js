@@ -14,7 +14,7 @@ $(document).ready(function () {
         url: url,
         success: function(data) {
             console.log(data);
-            for (var i=0; i< 4; i++) {
+            for (var i=2; i< 6; i++) {
                 $('#newsDiv').append(`
                     <div class="uk-card uk-card-default uk-width-1-2@m">
                         <div class="uk-card-header">

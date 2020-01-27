@@ -8,10 +8,16 @@
     <!-- CSS LIBRARIES IMPORT -->
     <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="../css/libs/uikit.min.css">
+    <!-- <link rel="stylesheet" href="../css/libs/normalize.css"> -->
+    <!-- <link rel="stylesheet" href="../css/fonts/quicksand.css"> -->
 
     <!-- CUSTOM CSS IMPORTS -->
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/bar.css">
+    <link rel="stylesheet" href="../css/donut.css">
+
+    <!-- <link rel="stylesheet" href="../css/guidelines.css"> -->
 
     <!-- JS LIBRARIES IMPORT -->
     <script src="../js/libs/jquery.min.js" charset="utf-8"></script>
@@ -25,42 +31,137 @@
     <!-- UTILITY FUNCTIONS JS IMPORT -->
     <script src="../js/utils.js" charset="utf-8"></script>
 
+
   </head>
 
   <body>
 
     <!-- ========================================= NAVBAR =========================================== -->
-    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;" style="margin-bottom:0%">
-       <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
-         <div class="row" style="width: 100%;">
+    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+      <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
+        <div class="row" style="width: 100%;">
+          <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
+            <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
+          </div>
+          <div class="col-8" align="center" style="padding-top: .5%;">
+            <h1>Sepsis</h1>
+          </div>
+            <div class="uk-inline">
+              <div class="col-2" align="right">
 
-           <div class="col-2" align="center" style="padding-top: .5%;">
-               <h1><a href="landing.html" style="text-decoration: none;color: black;">Sepsis</a></h1>
-           </div>
-           <div class="col-3" align="center" style="padding-top: .5%;">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
 
-           </div>
-           <div class="col-2" align="center" style="padding-top: .5%;">
-               <h5><span uk-icon="info"><a href="guidelines.html" style="text-decoration: none;color: black;">Guidelines/Training</a></span></h5>
-           </div>
-           <div class="col-3" align="center" style="padding-top: .5%;">
-               <h5><span uk-icon="users"><a href="detection.html" style="text-decoration: none;color: black;">Detection/Prevention</a></span></h5>
-           </div>
-           <div class="col-2" align="center" style="padding-top: .5%;">
-             <h5><span uk-icon="sign-in"><a href="doctor-login-register.html" style="text-decoration: none;color: black;">Login/Register</a></span></h5>
-           </div>
+    <!-- ========================================= MENU =========================================== -->
+    <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
+      <div class="uk-offcanvas-bar bg-light">
 
+          <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
 
-         </div>
-       </nav>
-     </div>
+          <div class="row" style="margin-top: 20%;">
+            <!-- <div class="col-5">
+
+            </div> -->
+            <div class="col-12">
+              <h2 style="font-size: 35px; text-align: left !important;">
+                Sepsis
+              </h2>
+              <hr style="border-color: grey; margin-bottom: 30px;">
+            </div>
+          </div>
+
+          <div class="container-fluid menubar">
+            <a href="landing.html" class="btn btn-link" style="color: black;">Home</a><br>
+            <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+            <a class="btn btn-link">My Profile</a><br>
+
+            <a href="guidelines.html" class="btn btn-link active-menu" style="color: black;">Guidelines/Training</a><br>
+            <a href="detection.html" class="btn btn-link" style="color: black;">Detection/Prediction</a><br>
+            <a href="pdirectory.html" class="btn btn-link" style="color: black;">Patient Directory</a>
+
+          </div>
+      </div>
+  </div>
 
      <!-- ========================================= CONTENT =========================================== -->
-     <div class="uk-container">
+     <div class="uk-container"id="guide">
+      <h2 class="uk-h2" style="margin-bottom: 5%;margin-left: 3%;margin-top:4%;text-align:center;">
+        <strong>Guidelines & Training</strong>
+      </h2>
 
-        <div class="row uk-card uk-card-default" style="width: 100%;margin-bottom:5%;margin-top:5%">
+      <div class="uk-container" style="margin-top:-10%;">
+      <div class="row" style="width: 100%;">
+      <div class="col-6">
+      <!-- <div class="uk-card uk-card-default uk-card-body"> -->
+        <div id="wrapper" class="">
+          <div class="chart" style="margin-top: 20%;">
+            <h2>Severe Sepsis patients and their outcomes</h2>
+            <table id="data-table" border="1" cellpadding="10" cellspacing="0" summary="The effects of the zombie outbreak on the populations of endangered species from 2012 to 2016">
+              <caption>Patient Data in percentage</caption>
+              <thead>
+                <tr>
+                  <td>&nbsp;</td>
+                  <th scope="col">Number of severe sepsis patients</th>
+                  <th scope="col">Died in hospital</th>
+                  <th scope="col">Died in ICU</th>
+                  <th scope="col">Died within 28 days</th>
 
-            <h3 class="uk-h3" style="margin-bottom: 1%;margin-left: 3%;"><strong>Guidelines & Training</strong></h3>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!-- <th scope="row">Carbon Tiger</th> -->
+                  <td>70</td>
+                  <td>61</td>
+                  <td>52</td>
+                  <td>56</td>
+
+                </tr>
+                <tr>
+                  <!-- <th scope="row">Blue Monkey</th> -->
+                  <!-- <td>5680</td>
+                  <td>6880</td>
+                  <td>5760</td>
+                  <td>5120</td> -->
+
+                </tr>
+                <tr>
+                  <!-- <th scope="row">Tanned Zombie</th> -->
+                  <!-- <td>1040</td>
+                  <td>1760</td>
+                  <td>2880</td>
+                  <td>4720</td> -->
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <!-- </div> -->
+      </div>
+
+      <div class="col-6">
+        <div style="margin-left:40%;margin-top:30%;">
+        <h2>Men: Women Ratio for Sepsis contraction</h2> <br>
+        <div class="donut-chart chart1">
+        <div class="quad one"></div>
+        <div class="quad two"></div>
+        <div class="quad three"></div>
+        <div class="quad four"></div>
+        <div class="quad top"></div>
+        <div class="chart-center"></div>
+        </div><!--/.donut-chart-->
+        </div>
+      </div>
+      </div>
+     </div>
+
+        <div class="row uk-card uk-card-default" style="width: 100%;margin-bottom:5%;margin-top:10%">
+
+
             <p style="margin-right: 15%;margin-left: 3%;"> <br>
 
                 According to the Surviving Sepsis Guidelines, a sepsis diagnosis requires the presence of infection, which can be proven or suspected, and 2 or more of the following criteria: <br><br>
@@ -88,6 +189,14 @@
                 11. Hyperglycemia (>140 mg/dL) in someone without diabetes <br>
 
                 12. White blood cell count > 12,000 or less than 4,000, or with >10% "bands" (immature forms) <br>
+            </p>
+
+                <div class="row" style="width: 100%;">
+                <div class="center" style="margin-top: 5%;">
+                  <img src="../resources/images/placeholders/users/Guide1.jpg" alt="">
+                </div>
+                </div> <br><br>
+                <p style="margin-right: 15%;margin-left: 3%;">
 
                 13. Elevated C-reactive protein in serum (according to your lab's cutoffs) <br>
 
@@ -114,3 +223,76 @@
         </div> <hr>
 
     </div>
+
+    <!-- ========================================= Footer =========================================== -->
+    <a href="#" id="scroll" class="shadow" style="display: none;"><span></span></a>
+
+    <div class="footer" style="margin-top:10%;">
+         <div class="container">
+
+            <h4 style="font-size: 25px; text-align: left !important;"><strong>Find us at:</strong></h4>
+
+            <hr>
+          <div id="map" class="map"></div>
+    </div>
+
+
+  <div class="container" style="margin-top:2%;">
+    <div class="row">
+    <!-- <div class="col-12"> -->
+
+        <div class="col-3">
+          <div style="font-size:20px;margin-top: 10%;text-align:center;"> <b>Patient Reach</b></div> <hr>
+          <ul style="font-size:16px;list-style-type: none;">
+            <li style="padding:2%;padding-bottom:3%;">Contact us</li>
+              <ul style="font-size:16px;list-style-type: none;">
+                <li><a href="tel:+91-9821028822" style="text-decoration: none;color:black;padding-bottom:10px;" class="fa fa-phone"> We would love to hear from you </a></li>
+                <li><a href="mailto:rpcdrv@gmail.com" style="text-decoration: none;color:black;" class="fa fa-envelope"> Email us </a></li>
+              </ul>
+            <!-- <li style="padding:2%;padding-bottom:5%;padding-top:5%;">Technical Help</li> --> <br>
+            <li style="padding:2%;padding-bottom:5%;"><a style="text-decoration: none; color: black;" target="_blank" href="https://app.termly.io/document/terms-of-use-for-ecommerce/67bf223c-0226-429e-af02-de4d5235b20e">Terms of use</a></li>
+          </ul>
+        </div>
+        <div class="col-1">
+
+        </div>
+
+        <div class="col-3">
+          <div style="font-size:20px;margin-top: 10%;text-align:center;"><b>Stay in Touch</b></div> <hr>
+          <ul style="font-size:16px;list-style-type: none;">
+              <li style="padding:10px;" class="fa fa-facebook-official"> Facebook </li> <br>
+              <li style="padding:10px;" class="fa fa-twitter"> Twitter</li> <br>
+              <li style="padding:10px;"class="fa fa-instagram"> Instagram</li> <br>
+
+          </ul>
+        </div>
+
+          <div class="col-1">
+
+          </div>
+
+          <div class="col-3">
+            <div style="font-size:20px;margin-top: 17%;"><b>Newsletter Signup</b> <hr>
+              <p style="font-size:15px;" class="fa fa-newspaper-o">Subscribe to our newsletter for more updates </p>
+              <div>
+                <input style="padding:3%;" type="email" placeholder="Your Email ID"  onkeydown="if (event.keyCode == 13) { if(!checkEmail(this.value)) { alert('Please enter valid email address') } else { alert('Thanks for subscribing!'); } }"/>
+              </div>
+            </div>
+
+
+        </div>
+  <!-- </div> -->
+        </div>
+        <div style="font-size: 14px; margin-top: 2%; float: right;">
+          &copy; 2020 Sepsis Hack
+        </div>
+        </div>
+
+      </div>
+    </body>
+    <script src="../js/guidelines.js" charset="utf-8"></script>
+    <script src="../js/bar.js" charset="utf-8"></script>
+    <script src="../js/scroll.js" charset="utf-8"></script>
+
+
+    </html>

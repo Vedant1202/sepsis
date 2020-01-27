@@ -32,31 +32,56 @@
 
   <body>
 
-     <!-- ========================================= NAVBAR =========================================== -->
-     <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;" style="margin-bottom:0%">
-        <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
-          <div class="row" style="width: 100%;">
+    <!-- ========================================= NAVBAR =========================================== -->
+    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+      <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
+        <div class="row" style="width: 100%;">
+          <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
+            <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
+          </div>
+          <div class="col-8" align="center" style="padding-top: .5%;">
+            <h1>Sepsis</h1>
+          </div>
+            <div class="uk-inline">
+              <div class="col-2" align="right">
 
-            <div class="col-2" align="center" style="padding-top: .5%;">
-                <h1><a href="landing.html" style="text-decoration: none;color: black;">Sepsis</a></h1>
             </div>
-            <div class="col-3" align="center" style="padding-top: .5%;">
+          </div>
+        </div>
+      </nav>
+    </div>
 
-            </div>
-            <div class="col-2" align="center" style="padding-top: .5%;">
-                <h5><span uk-icon="info"><a href="guidelines.html" style="text-decoration: none;color: black;">Guidelines/Training</a></span></h5>
-            </div>
-            <div class="col-3" align="center" style="padding-top: .5%;">
-                <h5><span uk-icon="users"><a href="detection.html" style="text-decoration: none;color: black;">Detection/Prevention</a></span></h5>
-            </div>
-            <div class="col-2" align="center" style="padding-top: .5%;">
-              <h5><span uk-icon="sign-in"><a href="doctor-login-register.html" style="text-decoration: none;color: black;">Login/Register</a></span></h5>
-            </div>
+    <!-- ========================================= MENU =========================================== -->
+    <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
+      <div class="uk-offcanvas-bar bg-light">
 
+          <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+
+          <div class="row" style="margin-top: 20%;">
+            <!-- <div class="col-5">
+
+            </div> -->
+            <div class="col-12">
+              <h2 style="font-size: 35px; text-align: left !important;">
+                Sepsis
+              </h2>
+              <hr style="border-color: grey; margin-bottom: 30px;">
+            </div>
+          </div>
+
+          <div class="container-fluid menubar">
+            <a href="landing.html" class="btn btn-link active-menu" style="color: black;">Home</a><br>
+            <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+            <a class="btn btn-link">My Profile</a><br>
+
+            <a href="guidelines.html" class="btn btn-link" style="color: black;">Guidelines/Training</a><br>
+            <a href="detection.html" class="btn btn-link" style="color: black;">Detection/Prediction</a><br>
+            <a href="pdirectory.html" class="btn btn-link" style="color: black;">Patient Directory</a>
 
           </div>
-        </nav>
       </div>
+  </div>
+
       <!-- <br> -->
 
       <div class="container-fluid" align="center" style="margin-top: 0px; margin-bottom: 5%">
@@ -294,16 +319,15 @@
           </div>
         </div>
 
+
         <div id="newsDiv" class="row" style="width: 100%;">
-
-
         </div>
 
         </div>
         </div>
 
     <!-- ========================================= Footer =========================================== -->
-
+    <a href="#" id="scroll" style="display: none;"><span></span></a>
 
     <div class="footer" style="margin-top:10%;">
          <div class="container">
@@ -368,6 +392,7 @@
 
     <!-- <script src="../js/landing.js" charset="utf-8"></script> -->
     <script src="../js/napi.js" charset="utf-8"></script>
+    <script src="../js/scroll.js" charset="utf-8"></script>
 
 
      </div>

@@ -1,0 +1,123 @@
+html {
+  scroll-behavior: smooth !important;
+}
+
+.donut-chart {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.donut-chart .quad {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.donut-chart .chart-center {
+  position: absolute;
+  border-radius: 50%;
+}
+.donut-chart .chart-center span {
+  display: block;
+  text-align: center;
+}
+
+@-webkit-keyframes chart1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(216deg);
+  }
+}
+@-webkit-keyframes chartRotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+  }
+}
+@-webkit-keyframes chartRotate3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+  }
+}
+@-webkit-keyframes chartRotate4 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+  }
+}
+@-webkit-keyframes chartCover {
+  0%, 90% {
+    opacity: 1;
+  }
+  91%, 100% {
+    opacity: 0;
+  }
+}
+.donut-chart.chart1 {
+  width: 300px;
+  height: 300px;
+  background: #e1e1e1;
+}
+.donut-chart.chart1 .quad {
+  width: 150px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  border-radius: 100% 0 0 0;
+  display: none;
+}
+.donut-chart.chart1 .quad.one {
+  -webkit-transform: rotate(241.2deg);
+  -webkit-transform-origin: bottom right;
+  background: #48b2c1;
+  -webkit-animation: chart1 1s linear;
+  display: block;
+}
+.donut-chart.chart1 .quad.two {
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: bottom right;
+  background: #48b2c1;
+  -webkit-animation: chartRotate2 1s linear;
+  display: block;
+}
+.donut-chart.chart1 .quad.three {
+  -webkit-transform: rotate(180deg);
+  -webkit-transform-origin: bottom right;
+  background: #48b2c1;
+  -webkit-animation: chartRotate3 1s linear;
+  display: block;
+}
+.donut-chart.chart1 .quad.four {
+  -webkit-transform: rotate(270deg);
+  -webkit-transform-origin: bottom right;
+  background: #48b2c1;
+  -webkit-animation: chartRotate4 1s linear;
+}
+.donut-chart.chart1 .quad.top {
+  display: block;
+  background: #e1e1e1;
+}
+.donut-chart.chart1 .chart-center {
+  top: 25px;
+  left: 25px;
+  width: 250px;
+  height: 250px;
+  background: #fff;
+}
+.donut-chart.chart1 .chart-center:after {
+  display: inline-block;
+  width: 100%;
+  font-size: 60px;
+  color: #48b2c1;
+  text-align: center;
+  line-height: 250px;
+  content: "67%";
+}
