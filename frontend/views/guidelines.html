@@ -14,6 +14,8 @@
     <!-- CUSTOM CSS IMPORTS -->
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/bar.css">
+
     <!-- <link rel="stylesheet" href="../css/guidelines.css"> -->
 
     <!-- JS LIBRARIES IMPORT -->
@@ -61,55 +63,58 @@
 
      <!-- ========================================= CONTENT =========================================== -->
      <div class="uk-container">
-      <h2 class="uk-h2" style="margin-bottom: 1%;margin-left: 3%;margin-top:4%;text-align:center;">
+      <h2 class="uk-h2" style="margin-bottom: 5%;margin-left: 3%;margin-top:4%;text-align:center;">
         <strong>Guidelines & Training</strong>
       </h2>
 
+      <div class="uk-container">
       <div class="row" style="width: 100%;">
       <div class="col-6">
       <!-- <div class="uk-card uk-card-default uk-card-body"> -->
-        <div class="chartBarsWrap">
-          <div class="chartBars chartBars1">
-              <ul class="numbers" style="color: black;">
-                  <li><span>100%</span></li>
-                  <li><span>80%</span></li>
-                  <li><span>60%</span></li>
-                  <li><span>40%</span></li>
-                  <li><span>20%</span></li>
-                  <li><span>0%</span></li>
-              </ul>
-              <ul class="bars">
-                  <li>
-                      <span class="tooltip"> 
-                      <span class="tooltipContent">Very important info that you should read!</span>
-                      <div data-percentage="52" class="bar greenBar trigger"></div>
-                      </span>
-                      <b>Alpha</b>
-                  </li>
-                  <li>
-                      <span class="tooltip">  
-                      <span class="tooltipContent">This one is trending well.</span>
-                      <div data-percentage="83" class="bar blueBar trigger"></div>
-                      </span> 
-                      <b>Beta</b> 
-                  </li>
-                  <li>
-                      <span class="tooltip"> 
-                      <span class="tooltipContent">I like cheese!</span>
-                      <div data-percentage="94" class="bar orangeBar trigger"></div>
-                      </span>
-                      <b>Gamma</b>
-                  </li>
-                  <li>
-                      <span class="tooltip"> 
-                      <span class="tooltipContent">Monkey's are funny!</span> 
-                      <div data-percentage="64" class="bar purpleBar trigger"></div>    
-                      </span>
-                      <b>Delta</b>   
-                  </li>
-              </ul>
+        <div id="wrapper">
+          <div class="chart" style="margin-top: 20%;">
+            <h2>Population of endangered species from 2012 &ndash; 2016</h2>
+            <table id="data-table" border="1" cellpadding="10" cellspacing="0" summary="The effects of the zombie outbreak on the populations of endangered species from 2012 to 2016">
+              <caption>Population in thousands</caption>
+              <thead>
+                <tr>
+                  <td>&nbsp;</td>
+                  <th scope="col">2012</th>
+                  <th scope="col">2013</th>
+                  <th scope="col">2014</th>
+                  <th scope="col">2015</th>
+                  <th scope="col">2016</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Carbon Tiger</th>
+                  <td>4080</td>
+                  <td>6080</td>
+                  <td>6240</td>
+                  <td>3520</td>
+                  <td>2240</td>
+                </tr>
+                <tr>
+                  <th scope="row">Blue Monkey</th>
+                  <td>5680</td>
+                  <td>6880</td>
+                  <td>5760</td>
+                  <td>5120</td>
+                  <td>2640</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tanned Zombie</th>
+                  <td>1040</td>
+                  <td>1760</td>
+                  <td>2880</td>
+                  <td>4720</td>
+                  <td>7520</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-      </div>
+        </div>
       <!-- </div> -->
       </div>
 
@@ -120,8 +125,9 @@
       </div>
       </div>
       </div>
+     </div>
 
-        <div class="row uk-card uk-card-default" style="width: 100%;margin-bottom:5%;margin-top:5%">
+        <div class="row uk-card uk-card-default" style="width: 100%;margin-bottom:5%;margin-top:20%">
 
             
             <p style="margin-right: 15%;margin-left: 3%;"> <br>
@@ -187,6 +193,7 @@
     </div>
     </body>
     <script src="../js/guidelines.js" charset="utf-8"></script>
+    <script src="../js/bar.js" charset="utf-8"></script>
     <!-- <script id="rendered-js">
       var piesiteFired = 0;
       $(document).ready(function () {
