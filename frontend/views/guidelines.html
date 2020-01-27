@@ -8,10 +8,15 @@
     <!-- CSS LIBRARIES IMPORT -->
     <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="../css/libs/uikit.min.css">
+    <!-- <link rel="stylesheet" href="../css/libs/normalize.css"> -->
+    <!-- <link rel="stylesheet" href="../css/fonts/quicksand.css"> -->
 
     <!-- CUSTOM CSS IMPORTS -->
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/bar.css">
+
+    <!-- <link rel="stylesheet" href="../css/guidelines.css"> -->
 
     <!-- JS LIBRARIES IMPORT -->
     <script src="../js/libs/jquery.min.js" charset="utf-8"></script>
@@ -24,6 +29,7 @@
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
     <script src="../js/utils.js" charset="utf-8"></script>
+    
 
   </head>
 
@@ -57,10 +63,73 @@
 
      <!-- ========================================= CONTENT =========================================== -->
      <div class="uk-container">
+      <h2 class="uk-h2" style="margin-bottom: 5%;margin-left: 3%;margin-top:4%;text-align:center;">
+        <strong>Guidelines & Training</strong>
+      </h2>
 
-        <div class="row uk-card uk-card-default" style="width: 100%;margin-bottom:5%;margin-top:5%">
+      <div class="uk-container">
+      <div class="row" style="width: 100%;">
+      <div class="col-6">
+      <!-- <div class="uk-card uk-card-default uk-card-body"> -->
+        <div id="wrapper">
+          <div class="chart" style="margin-top: 20%;">
+            <h2>Population of endangered species from 2012 &ndash; 2016</h2>
+            <table id="data-table" border="1" cellpadding="10" cellspacing="0" summary="The effects of the zombie outbreak on the populations of endangered species from 2012 to 2016">
+              <caption>Population in thousands</caption>
+              <thead>
+                <tr>
+                  <td>&nbsp;</td>
+                  <th scope="col">2012</th>
+                  <th scope="col">2013</th>
+                  <th scope="col">2014</th>
+                  <th scope="col">2015</th>
+                  <th scope="col">2016</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Carbon Tiger</th>
+                  <td>4080</td>
+                  <td>6080</td>
+                  <td>6240</td>
+                  <td>3520</td>
+                  <td>2240</td>
+                </tr>
+                <tr>
+                  <th scope="row">Blue Monkey</th>
+                  <td>5680</td>
+                  <td>6880</td>
+                  <td>5760</td>
+                  <td>5120</td>
+                  <td>2640</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tanned Zombie</th>
+                  <td>1040</td>
+                  <td>1760</td>
+                  <td>2880</td>
+                  <td>4720</td>
+                  <td>7520</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <!-- </div> -->
+      </div>
 
-            <h3 class="uk-h3" style="margin-bottom: 1%;margin-left: 3%;"><strong>Guidelines & Training</strong></h3>
+      <div class="col-6">
+      <div class="uk-card uk-card-default uk-card-body">
+        <h3 class="uk-card-title">Default</h3>
+        <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      </div>
+      </div>
+     </div>
+
+        <div class="row uk-card uk-card-default" style="width: 100%;margin-bottom:5%;margin-top:20%">
+
+            
             <p style="margin-right: 15%;margin-left: 3%;"> <br>
 
                 According to the Surviving Sepsis Guidelines, a sepsis diagnosis requires the presence of infection, which can be proven or suspected, and 2 or more of the following criteria: <br><br>
@@ -88,6 +157,14 @@
                 11. Hyperglycemia (>140 mg/dL) in someone without diabetes <br>
 
                 12. White blood cell count > 12,000 or less than 4,000, or with >10% "bands" (immature forms) <br>
+            </p>
+
+                <div class="row" style="width: 100%;">
+                <div class="center" style="margin-top: 5%;">
+                  <img src="../resources/images/placeholders/users/Guide1.jpg" alt="">
+                </div>
+                </div> <br><br>
+                <p style="margin-right: 15%;margin-left: 3%;">
 
                 13. Elevated C-reactive protein in serum (according to your lab's cutoffs) <br>
 
@@ -114,3 +191,184 @@
         </div> <hr>
 
     </div>
+    </body>
+    <script src="../js/guidelines.js" charset="utf-8"></script>
+    <script src="../js/bar.js" charset="utf-8"></script>
+    <!-- <script id="rendered-js">
+      var piesiteFired = 0;
+      $(document).ready(function () {
+        var $win = $(window),
+        $win_height = $(window).height(),
+        // - A multiple of viewport height - The higher this number the sooner triggered.
+        windowPercentage = $(window).height() * 0.9;
+        $win.on("scroll", scrollReveal);
+        function scrollReveal() {
+          var scrolled = $win.scrollTop();
+      
+          ///////////////////////////////////////
+          // Bar Charts scroll activate, looking for .trigger class to fire.
+          $(".trigger").each(function () {
+            var $this = $(this),
+            offsetTop = $this.offset().top;
+            if (
+            scrolled + windowPercentage > offsetTop ||
+            $win_height > offsetTop)
+            {
+              $(this).each(function (key, bar) {
+                var percentage = $(this).data("percentage");
+                $(this).css("height", percentage + "%");
+      
+                ///////////////////////////////////////
+                //        Animated numbers
+                $(this).prop("Counter", 0).animate(
+                {
+                  Counter: $(this).data("percentage") },
+      
+                {
+                  duration: 2000,
+                  easing: "swing",
+                  step: function (now) {
+                    $(this).text(Math.ceil(now));
+                  } });
+      
+      
+                //        Animated numbers
+                ///////////////////////////////////////
+              });
+      
+            } else {
+              ///////////////////////////////////////
+              // To keep them triggered, lose this block.
+              $(this).each(function (key, bar) {
+                $(this).css("height", 0);
+              });
+            }
+      
+          });
+      
+          ///////////////////////////////////////
+          // Horizontal Chart
+          $(".chartBarsHorizontal .bar").each(function () {
+            var $this = $(this),
+            offsetTop = $this.offset().top;
+            if (
+            scrolled + windowPercentage > offsetTop ||
+            $win_height > offsetTop)
+            {
+              $(this).each(function (key, bar) {
+                var percentage = $(this).data("percentage");
+                $(this).css("width", percentage + "%");
+                ///////////////////////////////////////
+                //        Animated numbers
+                $(this).prop("Counter", 0).animate(
+                {
+                  Counter: $(this).data("percentage") },
+      
+                {
+                  duration: 2000,
+                  easing: "swing",
+                  step: function (now) {
+                    $(this).text(Math.ceil(now));
+                  } });
+      
+      
+                //        Animated numbers
+                ///////////////////////////////////////
+              });
+      
+            } else {
+              ///////////////////////////////////////
+              // To keep them triggered, lose this block.
+              $(this).each(function (key, bar) {
+                $(this).css("width", 0);
+              });
+            }
+      
+          });
+      
+          ///////////////////////////////////////
+          // Radial Graphs - scroll activate
+          $(".piesite").each(function () {
+            var $this = $(this),
+            offsetTop = $this.offset().top;
+            if (
+            scrolled + windowPercentage > offsetTop ||
+            $win_height > offsetTop)
+            {
+              if (piesiteFired == 0) {
+                timerSeconds = 3;
+                timerFinish = new Date().getTime() + timerSeconds * 1000;
+                $(".piesite").each(function (a) {
+                  pie = $("#pie_" + a).data("pie");
+                  timer = setInterval(
+                  "stoppie(" + a + ", " + pie + ")",
+                  0);
+      
+                });
+                piesiteFired = 1;
+              }
+            } else {
+              // To keep them triggered, lose this block.
+              $(".piesite").each(function () {
+                piesiteFired = 0;
+              });
+            }
+          });
+        }
+        scrollReveal();
+      });
+      
+      
+      
+      ///////////////////////////////////////
+      //        The Radial Graphs
+      ///////////////////////////////////////
+      
+      // The following code is originally from the excellent pen:
+      // https://codepen.io/StephenScaff/pen/VYaQGB by Stephen Scaff
+      
+      var timer;
+      var timerFinish;
+      var timerSeconds;
+      
+      function drawTimer(c, a) {
+        $("#pie_" + c).html(
+        '<div class="percent"></div><div id="slice"' + (
+        a > 50 ? ' class="gt50"' : "") +
+        '><div class="pie"></div>' + (
+        a > 50 ? '<div class="pie fill"></div>' : "") +
+        "</div>");
+      
+        var b = 360 / 100 * a;
+        $("#pie_" + c + " #slice .pie").css({
+          "-moz-transform": "rotate(" + b + "deg)",
+          "-webkit-transform": "rotate(" + b + "deg)",
+          "-o-transform": "rotate(" + b + "deg)",
+          transform: "rotate(" + b + "deg)" });
+      
+        a = Math.floor(a * 100) / 100;
+        arr = a.toString().split(".");
+        intPart = arr[0];
+        $("#pie_" + c + " .percent").html(
+        '<span class="int">' +
+        intPart +
+        "</span>" +
+        '<span class="symbol">%</span>');
+      
+      }
+      function stoppie(d, b) {
+        var c = (timerFinish - new Date().getTime()) / 1000;
+        var a = 100 - c / timerSeconds * 100;
+        a = Math.floor(a * 100) / 100;
+        if (a <= b) {
+          drawTimer(d, a);
+        } else {
+          b = $("#pie_" + d).data("pie");
+          arr = b.toString().split(".");
+          $("#pie_" + d + " .percent .int").html(arr[0]);
+        }
+      }
+      //# sourceURL=pen.js
+          </script> -->
+  
+    </html>

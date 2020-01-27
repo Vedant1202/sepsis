@@ -23,7 +23,7 @@ df3 = pd.DataFrame({'x': x[20:], 'y': y[20:]})
 print(df1)
 print(df2)
 
-def create_plot(dfact, dfpred, dfmarker):
+def create_plot(dfact, dfpred, dfmarker, rate):
 
 
     trace0=go.Scatter(

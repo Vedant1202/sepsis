@@ -78,35 +78,77 @@
   </div>
 
     <!-- ========================================= HEADER =========================================== -->
-    <div>
-      <div class="uk-container" style="margin-top:5%;">
-        <div class="row" style="width: 100%;margin-top:2%;margin-left:1%;">
-          <!-- <div class="uk-inline"> -->
-            <div class="col-3" align="right">
+    <div class="uk-container-fluid" style="margin-top:5%;">
+      <div class="row" style="padding: 0 0 3% 17%;">
+        <div class="col-6">
+          <h1>Report</h1>
+        </div>
+        <div class="col-2">
+        </div>
+        <div class="col-3">
+          <button style="padding: 5% 10% 0 10%;" class="btn btn-outline-primary rounded-pill" type="button">
+            <div class="row">
+              <h5><span uk-icon="download">Download</span></h5>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="row" style="padding: 0 2% 3% 17%;">
+        <div style="margin-right: 3.3%;" class="col-3 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Name:</h4>
+          <div class="row">
+            <div class="col-7" style="padding-top: 10%;">
+              <h4 style="color:#3498db;"><a href="patient_profile.html">Rishi Pandya</a></h4>
+            </div>
+            <div class="col-5">
               <div class="uk-inline uk-light">
                 <img src=" ../resources/images/placeholders/users/user-white.png" alt="">
-
                 <div class="uk-position-center">
                   <span uk-overlay-icon id="profImg" onclick="$('#profImgUpload').click();"></span>
                 </div>
               </div>
             </div>
-            <div class="col-4" style="padding-top: 10%;">
-              <h2>Rishi Pandya</h2>
-            </div>
-
-            <!-- <div class="col-2" align="center">
-
-            </div> -->
-            <div class="col-4" style="padding-left: 30%;padding-top: 8%;" >
-              <button type="button" class="btn btn-outline-secondary" style="height:30%;width:150px;">
-              <a href="patient_profile.html" style="text-decoration:none;color:black;">Patient Profile</a>
-              </button>
-            </div>
           </div>
-
+        </div>
+        <div style="margin-right: 3.3%;" class="col-3 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Situation:</h4>
+          <h4 style="color:#FF0000;">Chance of Sepsis</h4>
+        </div>
+        <div class="col-3 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Last Updated:</h4>
+          <h4 style="color:#3498db;">3 Hour</h4>
         </div>
       </div>
+      <div class="row" style="padding: 0 2% 3% 17%;">
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Temperature</h4>
+          <br>
+          <h4 style="color:#15b32a;">36</h4>
+          <br>
+          Range of sepsis= >38°C or < 36°C
+        </div>
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Respiratory Rate</h4>
+          <h4 style="color:#FF0000;">103</h4>
+          <br>
+          Range of sepsis= 20 breaths/min
+        </div>
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Heart Rate</h4>
+          <br>
+          <h4 style="color:#15b32a;">89</h4>
+          <br>
+          Range of sepsis= 90 beats/min
+        </div>
+        <div class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">WBC</h4>
+          <br>
+          <h4 style="color:#FF0000;">67</h4>
+          <br>
+          Range of sepsis= >12.0 x 10<sup>9</sup>cells/L or < 4.0 x 10<sup>9</sup>cells/L
+        </div>
+      </div>
+    </div>
         <!-- </div> -->
 
 <!-- ========================================= CONTAINER =========================================== -->
