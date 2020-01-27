@@ -23,12 +23,30 @@ def create_plot(dfact, dfpred, dfmarker):
     y=dfpred['heartrate'],
     #mode = 'lines+markers'
     )
-    trace6=go.Scatter(
-    x=dfmarker.index,
-    y=dfmarker['heartrate'],
-    mode="markers",
-    marker=dict(size=16,color='red')
-    )
+    data1 = [trace0,trace1]
+    fig1=go.Figure(data1)
+    fig1.update_layout(
+        shapes=[
+        # 1st highlight during Feb 4 - Feb 6
+        go.layout.Shape(
+            type="rect",
+            # x-reference is assigned to the x-values
+            xref="x",
+            # y-reference is assigned to the plot paper [0,1]
+            yref="y",
+            x0=0,
+            y0=90,
+            x1=250,
+            y1=120,
+            fillcolor="#ff0000",
+            opacity=0.07,
+            layer="below",
+            line_width=0,
+        )])
+    graph1JSON = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
+
+
+
     trace2=go.Scatter(
     x=dfact.index, # assign x as the dataframe column 'x'
     y=dfact['temperature'],
@@ -39,12 +57,45 @@ def create_plot(dfact, dfpred, dfmarker):
     y=dfpred['temperature'],
     # mode = 'lines+markers'
     )
-    trace7=go.Scatter(
-    x=dfmarker.index,
-    y=dfmarker['temperature'],
-    mode="markers",
-    marker=dict(size=16,color='red')
-    )
+    data2 = [trace2,trace3]
+    fig2=go.Figure(data2)
+    fig2.update_layout(
+        shapes=[
+        # 1st highlight during Feb 4 - Feb 6
+        go.layout.Shape(
+            type="rect",
+            # x-reference is assigned to the x-values
+            xref="x",
+            # y-reference is assigned to the plot paper [0,1]
+            yref="y",
+            x0=0,
+            y0=35,
+            x1=250,
+            y1=36,
+            fillcolor="#ff0000",
+            opacity=0.07,
+            layer="below",
+            line_width=0,
+        ),
+        go.layout.Shape(
+            type="rect",
+            # x-reference is assigned to the x-values
+            xref="x",
+            # y-reference is assigned to the plot paper [0,1]
+            yref="y",
+            x0=0,
+            y0=38,
+            x1=250,
+            y1=39,
+            fillcolor="#ff0000",
+            opacity=0.07,
+            layer="below",
+            line_width=0,
+        )])
+    graph2JSON = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
+
+
+
     trace4=go.Scatter(
     x=dfact.index, # assign x as the dataframe column 'x'
     y=dfact['respiration'],
@@ -55,20 +106,28 @@ def create_plot(dfact, dfpred, dfmarker):
     y=dfpred['respiration'],
     # mode = 'lines+markers'
     )
-    trace8=go.Scatter(
-    x=dfmarker.index,
-    y=dfmarker['respiration'],
-    mode="markers",
-    marker=dict(size=16,color='red')
-    )
+    data3 = [trace4,trace5]
+    fig3=go.Figure(data3)
+    fig3.update_layout(
+        shapes=[
+        # 1st highlight during Feb 4 - Feb 6
+        go.layout.Shape(
+            type="rect",
+            # x-reference is assigned to the x-values
+            xref="x",
+            # y-reference is assigned to the plot paper [0,1]
+            yref="y",
+            x0=0,
+            y0=20,
+            x1=250,
+            y1=23,
+            fillcolor="#ff0000",
+            opacity=0.07,
+            layer="below",
+            line_width=0,
+        )])
 
-    data1 = [trace0,trace1,trace6]
-    data2 = [trace2,trace3,trace7]
-    data3 = [trace4,trace5,trace8]
-
-    graph1JSON = json.dumps(data1, cls=plotly.utils.PlotlyJSONEncoder)
-    graph2JSON = json.dumps(data2, cls=plotly.utils.PlotlyJSONEncoder)
-    graph3JSON = json.dumps(data3, cls=plotly.utils.PlotlyJSONEncoder)
+    graph3JSON = json.dumps(fig3, cls=plotly.utils.PlotlyJSONEncoder)
 
     multi_graph={'heartrate':graph1JSON,'temperature':graph2JSON,'respiration':graph3JSON}
 

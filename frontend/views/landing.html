@@ -21,13 +21,10 @@
     <script src="../js/libs/popper.min.js" charset="utf-8"></script>
     <script src="../js/libs/mustache.js" charset="utf-8"></script>
     <script src=" ../js/libs/fontawesome.js" charset="utf-8"></script>
-    <script src="../js/libs/Typekit.js"></script>
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
     <script src="../js/utils.js" charset="utf-8"></script>
 
-    <script src="//use.typekit.net/ftn5fet.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
   </head>
 
   <body>
@@ -97,6 +94,39 @@
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe> -->
       </div>
+
+<!-- ============================= Menu ============================== -->
+
+    <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
+      <div class="uk-offcanvas-bar bg-light">
+
+          <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+
+          <div class="row" style="margin-top: 20%;">
+            <!-- <div class="col-5">
+
+            </div> -->
+            <div class="col-12">
+              <h2>
+                Sepsis
+              </h2>
+              <hr style="border-color: grey; margin-bottom: 30px;">
+            </div>
+          </div>
+
+          <div class="container-fluid menubar">
+            <a href="landing.html" class="btn btn-link" style="color: black;">Home</a><br>
+            <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+            <a class="btn btn-link">My Profile</a><br>
+
+            <a href="guidelines.html" class="btn btn-link" style="color: black;">Guidelines/Training</a><br>
+            <a href="detection.html" class="btn btn-link" style="color: black;">Detection/Prediction</a><br>
+            <a href="pdirectory.html" class="btn btn-link active-menu" style="color: black;">Patient Directory</a>
+
+          </div>
+      </div>
+    </div>
+
 
 
     <!-- ========================================= ABOUT SEPSIS =========================================== -->
