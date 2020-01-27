@@ -19,6 +19,8 @@
     <script src="../js/libs/popper.min.js" charset="utf-8"></script>
     <script src="../js/libs/mustache.js" charset="utf-8"></script>
     <script src=" ../js/libs/fontawesome.js" charset="utf-8"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
     <script src="../js/utils.js" charset="utf-8"></script>
@@ -76,35 +78,58 @@
   </div>
 
     <!-- ========================================= HEADER =========================================== -->
-    <div>
-      <div class="uk-container" style="margin-top:5%;">
-        <div class="row" style="width: 100%;margin-top:2%;margin-left:1%;">
-          <!-- <div class="uk-inline"> -->
-            <div class="col-3" align="right">
+    <div class="uk-container-fluid" style="margin-top:5%;">
+      <div class="row" style="padding: 0 0 3% 17%;">
+        <h1>Report</h1>
+      </div>
+      <div class="row" style="padding: 0 2% 3% 17%;">
+        <div style="margin-right: 3.3%;" class="col-3 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Name:</h4>
+          <div class="row">
+            <div class="col-7" style="padding-top: 10%;">
+              <h4 style="color:#3498db;">Rishi Pandya</h4>
+            </div>
+            <div class="col-5">
               <div class="uk-inline uk-light">
                 <img src=" ../resources/images/placeholders/users/user-white.png" alt="">
-
                 <div class="uk-position-center">
                   <span uk-overlay-icon id="profImg" onclick="$('#profImgUpload').click();"></span>
                 </div>
               </div>
             </div>
-            <div class="col-4" style="padding-top: 10%;">
-              <h2>Rishi Pandya</h2>
-            </div>
-
-            <!-- <div class="col-2" align="center">
-
-            </div> -->
-            <div class="col-4" style="padding-left: 30%;padding-top: 8%;" >
-              <button type="button" class="btn btn-outline-secondary" style="height:30%;width:150px;">
-              <a href="patient_profile.html" style="text-decoration:none;color:black;">Patient Profile</a>
-              </button>
-            </div>
           </div>
-
+        </div>
+        <div style="margin-right: 3.3%;" class="col-3 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Situation:</h4>
+          <h4 style="color:#FF0000;">Chance of Sepsis</h4>
+        </div>
+        <div class="col-3 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Last Updated:</h4>
+          <h4 style="color:#3498db;">3 Hour</h4>
         </div>
       </div>
+      <div class="row" style="padding: 0 2% 3% 17%;">
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Temperature</h4>
+          <br>
+          <h4 style="color:#15b32a;">36</h4>
+        </div>
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Respiratory Rate</h4>
+          <h4 style="color:#FF0000;">103</h4>
+        </div>
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Heart Rate</h4>
+          <br>
+          <h4 style="color:#15b32a;">89</h4>
+        </div>
+        <div class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">WBC</h4>
+          <br>
+          <h4 style="color:#FF0000;">67</h4>
+        </div>
+      </div>
+    </div>
         <!-- </div> -->
 
 <!-- ========================================= CONTAINER =========================================== -->
@@ -114,6 +139,51 @@
             <h1 style="padding-left:40%;">
               Analysis
             </h1>
+          </div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <h3>Heart Rate</h3>
+                      <div class="chart" id="hrgraph" style="width:1100px;">
+                      </div>
+                      <h3>Temperature</h3>
+                      <div class="chart" id="tempgraph" style="width:1100px;">
+                      </div>
+                      <h3>Respiration Rate</h3>
+                      <div class="chart" id="rrgraph" style="width:1100px;">
+                      </div>
+                      <script>
+                      $(document).ready(function () {
+                        $.ajax({
+                          type: "POST",
+                          url: 'http://localhost:5000/prediction',
+                          data: {
+                            'uid': 'uid'
+                          },
+                          success: function(data) {
+                            // console.log(data);
+                            // console.log(data.data.heartrate);
+                            hr = JSON.parse(data.data.heartrate);
+                            tp = JSON.parse(data.data.temperature);
+                            rr = JSON.parse(data.data.respiration);
+
+                            // console.log(hr);
+                            // console.log({ hr | safe })
+                            // var graphs = {{ hr | safe }};
+                            // Plotly.plot('hrgraph', graphs, {/});
+                            Plotly.newPlot('hrgraph', hr);
+                            Plotly.newPlot('tempgraph', tp);
+                            Plotly.newPlot('rrgraph', rr);
+
+                          }
+                        });
+                      })
+
+                      // var graphs = {{plot | safe}};
+                      // Plotly.plot('bargraph',graphs,{});
+                      </script>
+                  </div>
+              </div>
           </div>
         </div>
 

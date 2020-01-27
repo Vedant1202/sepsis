@@ -1,4 +1,4 @@
-
+ 
 
 
 
@@ -15,7 +15,7 @@ $(document).ready(function () {
       url: 'http://localhost:5000/patient/fetch/profile',
       data: {
         // 'skey': getData('user').skey,
-        'pid': getData('pdirectory').pid,
+        'pid': getData('patient').pid,
       },
       success: function(data) {
         if (data) {
