@@ -81,7 +81,7 @@ def getPredictions(patientId=None):
     # read csv
     finaldf = pd.read_csv('finaldf.csv')
     finaldf.drop(['vitalperiodicid'], axis=1, inplace=True)
-
+    print('start')
     # setup variables
     patIds = finaldf['patientunitstayid'].unique()
     wbcVals = finaldf['wbc'].unique()
@@ -111,13 +111,22 @@ def getPredictions(patientId=None):
     preds = prediction
     prediction = pd.concat([pd.DataFrame(prediction, columns=['heartrate', 'respiration', 'temperature']),
                            pd.DataFrame([wbcVals[rno]]*48, columns=['wbc'])], axis=1)
+    # print(prediction)
 
-    new_ind = list(range(train.index[-1], train.index[-1] + 240, 5))
-    prediction = pd.concat([prediction, pd.DataFrame(new_ind, columns=['new_ind'])], axis=1)
-    prediction = prediction.set_index(['new_ind']).copy()
+    # new_ind = list(range(train.index[-1], train.index[-1] + 240, 5))
+    # prediction = pd.concat([prediction, pd.DataFrame(new_ind, columns=['new_ind'])], axis=1)
+    # prediction = prediction.set_index(['new_ind']).copy()
 
+
+    train = train.tail(7).copy()
+    train.set_index(pd.Index([-30, -25, -20, -15, -10, -5, 0]), drop=True, inplace=True)
+    prediction.set_index(pd.Index(range(0, 240, 5)), drop=True, inplace=True)
+
+    # print(prediction)
+    # preds = prediction.copy()
     crits = []
     for i in preds:
+        print(i)
         count = 0
         if i[2] > 38 or i[2] < 36:
             count += 1
@@ -125,12 +134,12 @@ def getPredictions(patientId=None):
             count += 1
         if i[1] > 20:
             count += 1
-
         if count > 1:
             crits.append(i)
 
-        crits = pd.DataFrame(crits, columns=['heartrate', 'respiration', 'temperature'])
+    crits = pd.DataFrame(crits, columns=['heartrate', 'respiration', 'temperature'])
 
+    print('done')
     print(prediction)
     return dict({'predictions': prediction,
                  'critical': crits,
