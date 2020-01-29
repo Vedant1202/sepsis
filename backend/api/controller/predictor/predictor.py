@@ -43,6 +43,7 @@ def create_plot(dfact, dfpred, dfmarker):
             layer="below",
             line_width=0,
         )])
+    fig1.update_xaxes(range=[-30,240])
     graph1JSON = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -92,6 +93,7 @@ def create_plot(dfact, dfpred, dfmarker):
             layer="below",
             line_width=0,
         )])
+    fig2.update_xaxes(range=[-30,240])
     graph2JSON = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -126,7 +128,7 @@ def create_plot(dfact, dfpred, dfmarker):
             layer="below",
             line_width=0,
         )])
-
+    fig3.update_xaxes(range=[-30,240])
     graph3JSON = json.dumps(fig3, cls=plotly.utils.PlotlyJSONEncoder)
 
     multi_graph={'heartrate':graph1JSON,'temperature':graph2JSON,'respiration':graph3JSON}
@@ -209,7 +211,7 @@ def get_graph():
         # finally:
             # cursor.close()
             # conn.close()
-
+create_plot()
 
 
 
