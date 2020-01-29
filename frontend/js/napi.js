@@ -16,6 +16,7 @@ $(document).ready(function () {
             console.log(data);
             for (var i=2; i< 6; i++) {
                 $('#newsDiv').append(`
+
                     <div class="uk-card uk-card-default uk-width-1-2@m">
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -34,8 +35,8 @@ $(document).ready(function () {
                         <div class="uk-card-footer">
                             <a href="${data.articles[i]['url']}" class="uk-button uk-button-text">Read more</a>
                         </div>
-
-                    </div>
+                      </div>
+                    
 
                 `);
               }
