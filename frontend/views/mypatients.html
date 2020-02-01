@@ -12,7 +12,6 @@
     <!-- CUSTOM CSS IMPORTS -->
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/pdirectory.css">
 
     <!-- JS LIBRARIES IMPORT -->
     <script src="../js/libs/jquery.min.js" charset="utf-8"></script>
@@ -37,17 +36,17 @@
     <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
       <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
         <div class="row" style="width: 100%;">
-          <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
+          <div class="col-1" align="left" style="padding-left: 4%; padding-top: .5%;">
             <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
           </div>
           <div class="col-2" style="padding-top: .8%;">
-           <!-- <a href="" uk-icon="icon: bell; ratio:1.5" class="uk-icon-button"></a>
-            <span class="uk-badge">1</span> -->
+           <a href="" uk-icon="icon: bell; ratio:1.5" class="uk-icon-button"></a>
+            <span class="uk-badge">1</span>
            </div>
           <div class="col-5" align="center" style="padding-top: .5%">
             <h1>Sepsis</h1>
           </div>
-          <!-- <div class="col-4" align="right">
+          <div class="col-4" align="right">
             <div class="uk-inline">
               <button class="btn btn-outline-secondary rounded-pill" type="button" id="profileBtn">
                 <div class="row">
@@ -58,8 +57,8 @@
                     <div style="padding-top: 20%;">Profile</div>
                   </div>
                 </div>
-              </button> -->
-              <!-- <div uk-drop="mode: click">
+              </button>
+              <div uk-drop="mode: click">
                 <div class="uk-card uk-card-body uk-card-default rounded-lg shadow-lg">
                   <div class="row">
                     <div class="col-5" align="left">
@@ -80,7 +79,7 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
              <!-- <button class="btn btn-outline-secondary rounded-pill" type="button" id="logInBtn">
                 <div class="row" style="padding: 10px;">
                   <div class="col-12" align="center">
@@ -88,8 +87,8 @@
                   </div>
                 </div>
               </button> -->
-            <!-- </div> -->
-          <!-- </div> -->
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -115,11 +114,11 @@
             <div class="container-fluid menubar">
               <a href="landing.html" class="btn btn-link" style="color: black;">Home</a><br>
               <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
-              <a class="btn btn-link">My Patients</a><br>
+              <a class="btn btn-link">My Profile</a><br>
 
               <a href="guidelines.html" class="btn btn-link" style="color: black;">Guidelines/Training</a><br>
               <a href="detection.html" class="btn btn-link" style="color: black;">Detection/Prediction</a><br>
-              <a href="pdirectory.html" class="btn btn-link active-menu" style="color: black;">Patient Directory</a>
+              <!-- <a href="pdirectory.html" class="btn btn-link active-menu" style="color: black;">Patient Directory</a> -->
 
             </div>
         </div>
@@ -214,47 +213,9 @@
       </div>
       <div class="container" id="pdirectory">
 
-      <div class="container" align="center" style="padding-top: 10%;">
-        <div uk-spinner="ratio: 5"></div>
+
+
       </div>
-
-      <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
-        <div class="col-4">
-          <img src="" class="laptops" style="width: 70%;">
-        </div>
-        <div class="col-4" >
-          <strong>${patient[1]} ${patient[2]}</strong>
-          <ul>
-            <li style="padding-bottom:10px;">${patient[3]}</li>
-            <li style="padding-bottom:10px;">${patient[5]}</li>
-            <li style="padding-bottom:10px;">${patient[4]}</li>
-          </ul>
-        </div>
-        <div class="col-2">
-          <ul>
-            <li style="padding-bottom:10px;padding-top:40px;">${patient[6]}</li>
-            <li style="padding-bottom:10px;">${patient[9]}</li>
-          </ul>
-        </div>
-        <div style="padding-left:8%;padding-right:0;" class="col-2">
-          <!-- <button style="background-color: #3d993f; " class="uk-button uk-button-default  " disabled>My Patients</button> -->
-          <span style="padding-right:1.5%;padding-left:6%;" class="dot"> My Patient</span>
-        </div>
-        <hr>
-      </div>
-    </div>
-
-    <div class="container">
-      <ul class="uk-pagination uk-flex-center" uk-margin style="font-size:20px;letter-spacing:15px;">
-        <!-- <li><a href="#"><span uk-pagination-previous></span></a></li> -->
-        <li><a href="#" class="active-page">1</a></li>
-        <!-- <li class="uk-disabled"><span>...</span></li> -->
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <!-- <li><a href="#"><span uk-pagination-next></span></a></li> -->
-      </ul>
-
     </div>
     <script src="../js/pdirectory.js" charset="utf-8"></script>
   </body>

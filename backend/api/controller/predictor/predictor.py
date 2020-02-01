@@ -10,7 +10,7 @@ from flask import jsonify
 import json
 
 
-def create_plot(dfact, dfpred, dfmarker):
+def create_plot(dfact, dfpred, dfmarker, rate):
 
 
     trace0=go.Scatter(
@@ -131,7 +131,51 @@ def create_plot(dfact, dfpred, dfmarker):
     fig3.update_xaxes(range=[-30, 240], dtick=30, tick0=-30)
     graph3JSON = json.dumps(fig3, cls=plotly.utils.PlotlyJSONEncoder)
 
-    multi_graph={'heartrate':graph1JSON,'temperature':graph2JSON,'respiration':graph3JSON}
+
+    #rate1=3
+    valuelist1=[rate[0],4-rate[0]]
+    trace21=go.Pie(values=valuelist1,hole=.6)
+    fig21=go.Figure(data21)
+    fig21.update_traces(hoverinfo='none',textinfo='none',marker=dict(colors=["#00bfff","#ffffff"]))
+    fig21.update_layout(annotations=[dict(text=str(rate[0])+'/4',x=0.51,y=0.4,font_size=45)],showlegend=False)
+
+    #rate2=3
+    valuelist2=[rate[1],4-rate[1]]
+    trace22=go.Pie(values=valuelist2,hole=.6)
+    fig22=go.Figure(data22)
+    fig22.update_traces(hoverinfo='none',textinfo='none',marker=dict(colors=["#00bfff","#ffffff"]))
+    fig22.update_layout(annotations=[dict(text=str(rate[1])+'/4',x=0.51,y=0.4,font_size=45)],showlegend=False)
+
+    #rate3=3
+    valuelist3=[rate[2],4-rate[2]]
+    trace23=go.Pie(values=valuelist3,hole=.6)
+    fig23=go.Figure(data23)
+    fig23.update_traces(hoverinfo='none',textinfo='none',marker=dict(colors=["#00bfff","#ffffff"]))
+    fig23.update_layout(annotations=[dict(text=str(rate[2])+'/4',x=0.51,y=0.4,font_size=45)],showlegend=False)
+
+    #rate4=3
+    valuelist4=[rate[3],4-rate[3]]
+    trace24=go.Pie(values=valuelist4,hole=.6)
+    fig24=go.Figure(data24)
+    fig24.update_traces(hoverinfo='none',textinfo='none',marker=dict(colors=["#00bfff","#ffffff"]))
+    fig24.update_layout(annotations=[dict(text=str(rate[3])+'/4',x=0.51,y=0.4,font_size=45)],showlegend=False)
+
+    data21 = [trace21]
+    data22 = [trace22]
+    data23 = [trace23]
+    data24 = [trace24]
+
+    graph21JSON = json.dumps(fig21, cls=plotly.utils.PlotlyJSONEncoder)
+    graph22JSON = json.dumps(fig22, cls=plotly.utils.PlotlyJSONEncoder)
+    graph23JSON = json.dumps(fig23, cls=plotly.utils.PlotlyJSONEncoder)
+    graph24JSON = json.dumps(fig24, cls=plotly.utils.PlotlyJSONEncoder)
+
+    pie={'heartRatePie':graph21JSON,'temperaturePie':graph22JSON,'respirationPie':graph23JSON, 'wbcPie':graph24JSON}
+
+
+
+
+    multi_graph={'heartrate':graph1JSON,'temperature':graph2JSON,'respiration':graph3JSON,'pieCharts':pie}
 
     return multi_graph
 
