@@ -29,7 +29,7 @@ $('#loginBtn').click(function () {
         alert('The username or password entered is incorrect');
       } else {
         setData('user', JSON.stringify(data));
-        Nav.assign('pdirectory.html');
+        Nav.assign('mypatients.html');
       }
     },
    error: function(error) {
@@ -125,37 +125,55 @@ $('#registerBtn').click(function () {
 
     if ( password && email && fname && lname && phone && date && spec && dept && exp && regNo && type) {
 
-          var formData = {
-            // 'username': username,
-            'fname': fname,
-            'lname': lname,
-            'email': email,
-            'password': password,
-            'dept': dept,
-            'gender': gender,
-            'dob': date,
-            'phone': phone,
-            'specialization': spec,
-            'experience': exp,
-            'registration': regNo,
-            'type': type
-            // 'address': address
-          };
+          // var formData = {
+          //   // 'username': username,
+          //   'fname': fname,
+          //   'lname': lname,
+          //   'email': email,
+          //   'password': password,
+          //   'dept': dept,
+          //   'gender': gender,
+          //   'dob': date,
+          //   'phone': phone,
+          //   'specialization': spec,
+          //   'experience': exp,
+          //   'registration': regNo,
+          //   'type': type
+          //   // 'address': address
+          // };
+
+          var fd = new FormData();
+          fd.append('fname', fname);
+          fd.append('lname', lname);
+          fd.append('email', email);
+          fd.append('password', password);
+          fd.append('dept', dept);
+          fd.append('gender', gender);
+          fd.append('dob', date);
+          fd.append('phone', phone);
+          fd.append('experience', exp);
+          fd.append('registration', regNo);
+          fd.append('type', type);
+          fd.append('specialization', spec);
+          fd.append('profImg', document.getElementById('profImgUpload').files[0]);
+
 
           // console.log(formData);
 
           $.ajax({
             type: "POST",
             url: 'http://localhost:5000/user/add',
-            data: formData,
+            data: fd,
             success: function(data) {
               setData('user', JSON.stringify(data));
-              Nav.assign('pdirectory.html');
+              Nav.assign('mypatients.html');
             },
            error: function(error) {
              console.log(error);
            },
-           dataType: 'json'
+           dataType: 'json',
+           processData: false,
+           contentType: false
           });
 
     } else {
@@ -185,6 +203,20 @@ $('#email').keyup(function() {
 });
 
 
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imgDisplay')
+                .attr('src', e.target.result);
+                // .width(150)
+                // .height(200);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 
 
 

@@ -103,6 +103,15 @@
                 <span id="takenuser" class="errelem">This username is already taken</span>
     					</div>
     				</div> -->
+            <div class="row">
+              <input type="file" class=".d-none hidden" id="profImgUpload" name="" value="" onchange="readURL(this);">
+              <div class="uk-inline uk-light">
+                <img id="imgDisplay" src="../resources/images/placeholders/users/user-white.png" alt="">
+                <div class="uk-position-center">
+                  <span uk-overlay-icon id="profImg" class="bg-dark rounded-circle shadow" style="padding: 10px;" onclick="$('#profImgUpload').click();"></span>
+                </div>
+              </div>
+            </div>
     				<div class="row">
     					<div class="input-field col s12">
     						<input id="email" type="email" class="validate">

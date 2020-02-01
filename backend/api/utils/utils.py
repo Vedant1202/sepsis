@@ -90,10 +90,12 @@ def verify_session(skey, uid):
         cursor = conn.cursor()
         cursor.execute(sql, data)
         rows = cursor.fetchall()
+        # print(rows)
+        # print(rows[0][2])
         conn.commit()
         # print(len(rows))
         if rows:
-            if rows[0][3] == 1:
+            if rows[0][2] == 1:
                 return True
             else:
                 return False
@@ -142,7 +144,7 @@ def calculate_age(born):
 
 
 
-UPLOAD_FOLDER = 'E:/HackerEarth/Missing/WebApp/backend/files/'
+UPLOAD_FOLDER = 'E:/sih2020/sepsis/backend/files/doctor/profile-pics/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 # app = Flask(__name__)
@@ -159,7 +161,7 @@ def upload_file(extFolder):
 
         if file:
             if file.filename == '':
-                filename = 'user-white.png' ## Use default placeholder file
+                filename = 'user-default.png' ## Use default placeholder file
             else:
                 filename = secure_filename(file.filename)
 

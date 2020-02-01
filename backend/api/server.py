@@ -19,7 +19,7 @@ from controller.patient.add import patient_add
 from controller.user.update import user_update
 from controller.patient.update import patient_update
 from controller.user.fetch import user_fetch
-from controller.patient.fetch import patient_fetch, patient_search, patient_fetch_profile
+from controller.patient.fetch import patient_fetch, patient_search, patient_fetch_profile, my_patient_fetch, my_patient_search
 from controller.missing.fetch import missing_fetch_reg, missing_fetch_unreg, missing_fetch_reg_user, missing_fetch_unreg_user, missing_fetch_search_reg, missing_fetch_search_unreg
 from controller.missing.add import missing_add
 from controller.report.add import report_add
@@ -105,6 +105,12 @@ def logout_user():
     return logout()
 
 # # patient fetch route
+@app.route("/patient/my/fetch", methods=["POST"])
+# # @cross_origin()
+def my_fetch_patient():
+    return my_patient_fetch()
+
+# # patient fetch route
 @app.route("/patient/fetch", methods=["POST"])
 # # @cross_origin()
 def fetch_patient():
@@ -121,6 +127,12 @@ def fetch_patient_profile():
 # # @cross_origin()
 def search_patient():
     return patient_search()
+
+# # patient fetch route
+@app.route("/patient/my/search", methods=["POST"])
+# # @cross_origin()
+def my_search_patient():
+    return my_patient_search()
 
 # # missing profiles fetch route
 @app.route("/missing/fetch/reg", methods=["POST"])

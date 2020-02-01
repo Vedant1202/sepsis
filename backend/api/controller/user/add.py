@@ -8,7 +8,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 import time
 from utils.utils import not_found, create_session, calculate_age
-
+from utils.utils import not_found, create_session, calculate_age, verify_session, upload_file
+from werkzeug.utils import secure_filename
+import os
 
 
 
@@ -26,20 +28,28 @@ def user_add():
         _specialization = request.form.getlist("specialization")[0]
         _experience = request.form.getlist("experience")[0]
         _registration = request.form.getlist("registration")[0]
+        file = request.files.to_dict()['profImg']
+        filename = secure_filename(file.filename)
+        filenamefull = filename
+        # filename = os.path.join('E:/HackerEarth/Missing/WebApp/backend/files/missing', filename)
+        filename = 'E:/sih2020/sepsis/backend/files/doctor/profile-pics/images/' + filename
+        print('hello')
+        print(filename)
 
         # validate the received values
         if _fname and _lname and _email and _password and _dept and _dob and _gender and _phone and _type and _specialization and _experience and _registration and request.method == "POST":
             # do not save password as a plain text
             _hashed_password = generate_password_hash(_password)
             # save edits
-            sql = "INSERT INTO user(fname, lname, email, password, dept, dob, gender, phone, type, specialization, experience, registration) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            data = (_fname, _lname, _email, _hashed_password, _dept, _dob, _gender, _phone, _type, _specialization, _experience, _registration)
+            sql = "INSERT INTO user(fname, lname, email, password, dept, dob, gender, phone, type, specialization, experience, registration, profimg, filename) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            data = (_fname, _lname, _email, _hashed_password, _dept, _dob, _gender, _phone, _type, _specialization, _experience, _registration, filename, filenamefull)
             conn = mysql.connect()
             cursor = conn.cursor()
             cursor.execute(sql, data)
             print(cursor.lastrowid)
             uid = cursor.lastrowid
             conn.commit()
+            upload_file('images')
             skey = create_session(uid)
             resp = jsonify(uid=uid, skey=skey)
             resp.status_code = 200

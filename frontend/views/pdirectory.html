@@ -214,11 +214,11 @@
       </div>
       <div class="container" id="pdirectory">
 
-      <div class="container" align="center" style="padding-top: 10%;">
+      <div class="container" align="center" style="padding-top: 10%; padding-bottom: 10%;">
         <div uk-spinner="ratio: 5"></div>
       </div>
 
-      <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
+      <!-- <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
         <div class="col-4">
           <img src="" class="laptops" style="width: 70%;">
         </div>
@@ -237,25 +237,21 @@
           </ul>
         </div>
         <div style="padding-left:8%;padding-right:0;" class="col-2">
-          <!-- <button style="background-color: #3d993f; " class="uk-button uk-button-default  " disabled>My Patients</button> -->
           <span style="padding-right:1.5%;padding-left:6%;" class="dot"> My Patient</span>
         </div>
         <hr>
-      </div>
+      </div> -->
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
       <ul class="uk-pagination uk-flex-center" uk-margin style="font-size:20px;letter-spacing:15px;">
-        <!-- <li><a href="#"><span uk-pagination-previous></span></a></li> -->
         <li><a href="#" class="active-page">1</a></li>
-        <!-- <li class="uk-disabled"><span>...</span></li> -->
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
-        <!-- <li><a href="#"><span uk-pagination-next></span></a></li> -->
       </ul>
+    </div> -->
 
-    </div>
     <script src="../js/pdirectory.js" charset="utf-8"></script>
   </body>
 </html>

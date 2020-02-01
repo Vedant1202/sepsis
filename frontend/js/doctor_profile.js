@@ -22,20 +22,26 @@ $(document).ready(function () {
           console.log(data);
           var template = $('#profile').html();
           var missingPerson = data.data;
+          console.log(missingPerson);
 
           var personData = {
-            'username': missingPerson[1],
-            'fname': missingPerson[2],
-            'lname': missingPerson[3],
+            'fname': missingPerson[1],
+            'lname': missingPerson[2],
+            'specialization': missingPerson[3],
             'email': missingPerson[4],
-            'phone': missingPerson[5],
-            // 'phone': missingPerson[5],
-            'city': missingPerson[9],
-            'dob': missingPerson[12]
+            'experience': missingPerson[10],
+            'registration': missingPerson[12],
+
+            'email': missingPerson[4],
+            'phone': missingPerson[9],
+            'filename': missingPerson[13],
+            // 'city': missingPerson[9],
+            'dob': missingPerson[8]
           };
 
           var html = Mustache.render(template, personData);
-          $('.results').append(html);
+          $('.main').html('');
+          $('.main').append(html);
 
         }
       },

@@ -21,7 +21,8 @@ $(document).ready(function () {
         type: "POST",
         url: 'http://localhost:5000/patient/fetch',
         data: {
-          'uid': getData('user').uid
+          'uid': getData('user').uid,
+          'skey': getData('user').skey
         },
         success: function(data) {
           // console.log(JSON.parse(data[0]));
@@ -77,11 +78,18 @@ $(document).ready(function () {
 
 function searchPatient(elem) {
   console.log($('#missingKey').val().trim());
+  $('#pdirectory').html(`
+    <div class="container" align="center" style="padding-top: 10%; padding-bottom: 10%;">
+      <div uk-spinner="ratio: 5"></div>
+    </div>
+    `);
   $.ajax({
     type: "POST",
     url: 'http://localhost:5000/patient/search',
     data: {
-      'keyword': $('#missingKey').val().trim()
+      'keyword': $('#missingKey').val().trim(),
+      'skey': getData('user').skey,
+      'uid': getData('user').uid
     },
     success: function(data) {
       // console.log(JSON.parse(data[0]));
