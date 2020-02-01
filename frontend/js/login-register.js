@@ -8,12 +8,13 @@ $(document).ready(function () {
 
 $('#loginBtn').click(function () {
   // alert('submit')
+  $('#loginBtn').html('<div uk-spinner="ratio: 1"></div>');
 
-  var username = $('#username-login').val().trim();
+  var email = $('#email-login').val().trim();
   var password = $('#password-login').val();
 
   var formData = {
-    'username': username,
+    'email': email,
     'password': password
   };
 
@@ -24,10 +25,11 @@ $('#loginBtn').click(function () {
     data: formData,
     success: function(data) {
       if (!data.valid) {
+        $('#loginBtn').html('Login');
         alert('The username or password entered is incorrect');
       } else {
         setData('user', JSON.stringify(data));
-        Nav.assign('home.html');
+        Nav.assign('pdirectory.html');
       }
     },
    error: function(error) {

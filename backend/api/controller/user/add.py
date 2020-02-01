@@ -40,9 +40,8 @@ def user_add():
             print(cursor.lastrowid)
             uid = cursor.lastrowid
             conn.commit()
-            # uid = rows[0]
-            # skey = create_session(uid)
-            resp = jsonify(uid=uid, skey='skey')
+            skey = create_session(uid)
+            resp = jsonify(uid=uid, skey=skey)
             resp.status_code = 200
             # print(resp)
             return resp

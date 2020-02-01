@@ -8,7 +8,7 @@ from utils.utils import check_session, create_session, verify_session, not_found
 
 def login():
     try:
-        _username = request.form.getlist("username")[0]
+        _username = request.form.getlist("email")[0]
         _password = request.form.getlist("password")[0]
 
         if _username and _password and request.method == "POST":
@@ -25,15 +25,16 @@ def login():
                     print('skey=', sess['skey'])
                     print("verify_session=", verify_session(sess['skey'], row['uid']))
                     if sess['exists']:
+                        update_session(row['uid'])
                         resp = jsonify(uid=row["uid"],
                                        skey=sess['skey'],
-                                       type=row['type'],
+                                       # type=row['type'],
                                        valid=True)
                     else:
                         skey = create_session(row["uid"])
                         resp = jsonify(uid=row["uid"],
                                        skey=sess['skey'],
-                                       type=row['type'],
+                                       # type=row['type'],
                                        valid=True)
 
                 else:

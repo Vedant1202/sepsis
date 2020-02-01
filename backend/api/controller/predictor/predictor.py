@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.metrics import mean_squared_error
 from statsmodels.iolib.smpickle import load_pickle
 import plotly
-import plotly.graph_objs as go
+import plotly.graph_objects as go
 from flask import jsonify
 import json
 
@@ -34,16 +34,16 @@ def create_plot(dfact, dfpred, dfmarker, rate):
             xref="x",
             # y-reference is assigned to the plot paper [0,1]
             yref="y",
-            x0=0,
+            x0=-50,
             y0=90,
             x1=250,
-            y1=120,
+            y1=100,
             fillcolor="#ff0000",
             opacity=0.07,
             layer="below",
             line_width=0,
         )])
-    fig1.update_xaxes(range=[-30,240])
+    fig1.update_xaxes(range=[-30, 240], dtick=30, tick0=-30)
     graph1JSON = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -69,7 +69,7 @@ def create_plot(dfact, dfpred, dfmarker, rate):
             xref="x",
             # y-reference is assigned to the plot paper [0,1]
             yref="y",
-            x0=0,
+            x0=-50,
             y0=35,
             x1=250,
             y1=36,
@@ -84,7 +84,7 @@ def create_plot(dfact, dfpred, dfmarker, rate):
             xref="x",
             # y-reference is assigned to the plot paper [0,1]
             yref="y",
-            x0=0,
+            x0=-50,
             y0=38,
             x1=250,
             y1=39,
@@ -93,7 +93,7 @@ def create_plot(dfact, dfpred, dfmarker, rate):
             layer="below",
             line_width=0,
         )])
-    fig2.update_xaxes(range=[-30,240])
+    fig2.update_xaxes(range=[-30, 240], dtick=30, tick0=-30)
     graph2JSON = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -119,16 +119,16 @@ def create_plot(dfact, dfpred, dfmarker, rate):
             xref="x",
             # y-reference is assigned to the plot paper [0,1]
             yref="y",
-            x0=0,
+            x0=-50,
             y0=20,
             x1=250,
-            y1=23,
+            y1=30,
             fillcolor="#ff0000",
             opacity=0.07,
             layer="below",
             line_width=0,
         )])
-    fig3.update_xaxes(range=[-30,240])
+    fig3.update_xaxes(range=[-30, 240], dtick=30, tick0=-30)
     graph3JSON = json.dumps(fig3, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -186,14 +186,14 @@ def getPredictions(patientId=None):
     # read csv
     finaldf = pd.read_csv('finaldf.csv')
     finaldf.drop(['vitalperiodicid'], axis=1, inplace=True)
-
+    print('start')
     # setup variables
     patIds = finaldf['patientunitstayid'].unique()
     wbcVals = finaldf['wbc'].unique()
 
     if not patientId:
         # rno = np.random.randint(0, 10, size=1)[0]
-        rno = 0
+        rno = 1
         patientId = patIds[rno]
 
     # get patient dataframe
@@ -216,13 +216,22 @@ def getPredictions(patientId=None):
     preds = prediction
     prediction = pd.concat([pd.DataFrame(prediction, columns=['heartrate', 'respiration', 'temperature']),
                            pd.DataFrame([wbcVals[rno]]*48, columns=['wbc'])], axis=1)
+    # print(prediction)
 
-    new_ind = list(range(train.index[-1], train.index[-1] + 240, 5))
-    prediction = pd.concat([prediction, pd.DataFrame(new_ind, columns=['new_ind'])], axis=1)
-    prediction = prediction.set_index(['new_ind']).copy()
+    # new_ind = list(range(train.index[-1], train.index[-1] + 240, 5))
+    # prediction = pd.concat([prediction, pd.DataFrame(new_ind, columns=['new_ind'])], axis=1)
+    # prediction = prediction.set_index(['new_ind']).copy()
 
+
+    train = train.tail(7).copy()
+    train.set_index(pd.Index([-30, -25, -20, -15, -10, -5, 0]), drop=True, inplace=True)
+    prediction.set_index(pd.Index(range(0, 240, 5)), drop=True, inplace=True)
+
+    # print(prediction)
+    # preds = prediction.copy()
     crits = []
     for i in preds:
+        print(i)
         count = 0
         if i[2] > 38 or i[2] < 36:
             count += 1
@@ -230,16 +239,27 @@ def getPredictions(patientId=None):
             count += 1
         if i[1] > 20:
             count += 1
-
         if count > 1:
             crits.append(i)
 
-        crits = pd.DataFrame(crits, columns=['heartrate', 'respiration', 'temperature'])
+    crits = pd.DataFrame(crits, columns=['heartrate', 'respiration', 'temperature'])
 
+    print('done')
     print(prediction)
-    return dict({'predictions': prediction,
-                 'critical': crits,
-                 'actual': train})
+    return dict({'predictions': prediction.to_json(),
+                 'critical': crits.to_json(),
+                 'actual': train.to_json()})
+
+def get_dataframe():
+    try:
+        preds = getPredictions()
+        # plot = create_plot(preds['actual'], preds['predictions'], preds['critical'])
+        resp = jsonify(data=preds)
+        resp.status_code = 200
+        return resp
+    except Exception as e:
+        print('====================== EXCEPTION ========================')
+        print(e)
 
 
 def get_graph():
@@ -255,7 +275,7 @@ def get_graph():
         # finally:
             # cursor.close()
             # conn.close()
-create_plot()
+# create_plot()
 
 
 
