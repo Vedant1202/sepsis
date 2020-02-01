@@ -218,7 +218,8 @@
         <div uk-spinner="ratio: 5"></div>
       </div>
 
-      <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
+      <div class="row uk-card uk-card-hover" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
+        <div class="uk-card-badge uk-label" style="background-color:#5cc40c;padding-top:0.2%;">My Patients</div>
         <div class="col-4">
           <img src="" class="laptops" style="width: 70%;">
         </div>
@@ -236,12 +237,9 @@
             <li style="padding-bottom:10px;">${patient[9]}</li>
           </ul>
         </div>
-        <div style="padding-left:8%;padding-right:0;" class="col-2">
-          <!-- <button style="background-color: #3d993f; " class="uk-button uk-button-default  " disabled>My Patients</button> -->
-          <span style="padding-right:1.5%;padding-left:6%;" class="dot"> My Patient</span>
-        </div>
-        <hr>
+
       </div>
+      <hr>
     </div>
 
     <div class="container">
