@@ -43,30 +43,21 @@
 
 	<!-- ========================================= NAVBAR =========================================== -->
 
-  <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;" style="margin-bottom:5%">
-     <nav class="uk-navbar-container navbar-main shadow" uk-navbar style="height:100% !important">
-        <div class="row" style="width: 100%;">
+  <!-- ========================================= NAVBAR =========================================== -->
+  <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;" style="margin-bottom: 5%;">
+    <nav class="uk-navbar-container navbar-main shadow" uk-navbar style=" height: 120px;">
+      <div class="row" style="width: 100%;">
+        <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
+          <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
+        </div>
+        <div class="col-8" align="center" style="padding-top: .5%;">
+          <h1>Sepsis</h1>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <br>
 
-         <div class="col-2" align="center" style="padding-top: .5%;">
-             <h1><a href="landing.html" style="text-decoration: none;color: black;">Sepsis</a></h1>
-         </div>
-         <div class="col-3" align="center" style="padding-top: .5%;">
-
-         </div>
-         <div class="col-2" align="center" style="padding-top: 2%;">
-           <h6><span uk-icon="info"><a href="guidelines.html" style="text-decoration: none;color: black;">Guidelines/Training</a></span></h6>
-         </div>
-         <div class="col-3" align="center" style="padding-top: 2%;">
-           <h6><span uk-icon="users"><a href="detection.html" style="text-decoration: none;color: black;">Detection/Prevention</a></span></h6>
-         </div>
-         <!-- <div class="col-2" align="center" style="padding-top: 2%;">
-           <h6><span uk-icon="sign-in"><a href="doctor-login-register.html" style="text-decoration: none;color: black;">Login/Register</a></span></h6>
-         </div> -->
-
-
-       </div>
-     </nav>
-   </div> <br>
 
 	<!-- ========================================= FORM =========================================== -->
 
@@ -82,8 +73,8 @@
     				<h3 class="light-blue-text">Sign In</h3>
     				<div class="row">
     					<div class="input-field col s12">
-    						<input name="username" id="username-login" type="text" class="validate">
-    						<label for="username">Username</label>
+    						<input name="email-login" id="email-login" type="text" class="validate">
+    						<label for="email-login">Email</label>
     					</div>
     				</div>
     				<div class="row">
@@ -105,17 +96,13 @@
     		<div id="registerForm" class="col s12">
     			<div class="form-container">
     				<h3 class="light-blue-text">Register</h3>
-    				<div class="row">
-    					<!-- <div class="input-field col s6">
-    						<input id="last_name" type="text" class="validate">
-    						<label for="last_name">First Name</label>
-    					</div> -->
+    				<!-- <div class="row">
     					<div class="input-field col s12">
     						<input id="username" type="text" class="validate">
     						<label for="username">Username</label>
                 <span id="takenuser" class="errelem">This username is already taken</span>
     					</div>
-    				</div>
+    				</div> -->
     				<div class="row">
     					<div class="input-field col s12">
     						<input id="email" type="email" class="validate">

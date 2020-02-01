@@ -15,6 +15,7 @@ $(document).ready(function () {
   // }
 
   // setTimeout(function () {
+  // $('#pdirectory').html('<div class="uk-spinner"></div>');
 
       $.ajax({
         type: "POST",
@@ -26,12 +27,13 @@ $(document).ready(function () {
           // console.log(JSON.parse(data[0]));
           console.log(data.data[0]);
           $('#pdirectory').html('');
+          $('#pdirectory').html('');
           for (var i = 0; i < data.data.length; i++) {
             var patient = data.data[i];
             $('#pdirectory').append(
 
               `
-                <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
+                <div class="row" style="cursor: pointer;" onclick="setData('patient', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
                   <div class="col-4">
                     <img src="" class="laptops" style="width: 70%;">
                   </div>

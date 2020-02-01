@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth !important;
+}
+
 .chartBarsWrap {
     padding-left: 40px;
     margin: 0 30px 0 20px;
@@ -342,4 +346,3 @@
   * {
     box-sizing: border-box;
   }
-

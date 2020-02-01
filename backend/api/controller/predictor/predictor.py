@@ -43,6 +43,7 @@ def create_plot(dfact, dfpred, dfmarker):
             layer="below",
             line_width=0,
         )])
+    fig1.update_xaxes(range=[-30, 240], dtick=30, tick0=-30)
     graph1JSON = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -92,6 +93,7 @@ def create_plot(dfact, dfpred, dfmarker):
             layer="below",
             line_width=0,
         )])
+    fig2.update_xaxes(range=[-30, 240], dtick=30, tick0=-30)
     graph2JSON = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -126,7 +128,7 @@ def create_plot(dfact, dfpred, dfmarker):
             layer="below",
             line_width=0,
         )])
-
+    fig3.update_xaxes(range=[-30, 240], dtick=30, tick0=-30)
     graph3JSON = json.dumps(fig3, cls=plotly.utils.PlotlyJSONEncoder)
 
     multi_graph={'heartrate':graph1JSON,'temperature':graph2JSON,'respiration':graph3JSON}
@@ -200,9 +202,20 @@ def getPredictions(patientId=None):
 
     print('done')
     print(prediction)
-    return dict({'predictions': prediction,
-                 'critical': crits,
-                 'actual': train})
+    return dict({'predictions': prediction.to_json(),
+                 'critical': crits.to_json(),
+                 'actual': train.to_json()})
+
+def get_dataframe():
+    try:
+        preds = getPredictions()
+        # plot = create_plot(preds['actual'], preds['predictions'], preds['critical'])
+        resp = jsonify(data=preds)
+        resp.status_code = 200
+        return resp
+    except Exception as e:
+        print('====================== EXCEPTION ========================')
+        print(e)
 
 
 def get_graph():
@@ -218,7 +231,7 @@ def get_graph():
         # finally:
             # cursor.close()
             # conn.close()
-
+# create_plot()
 
 
 
