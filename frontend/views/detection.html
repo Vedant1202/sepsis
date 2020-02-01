@@ -25,9 +25,9 @@
     <!-- UTILITY FUNCTIONS JS IMPORT -->
     <script src="../js/utils.js" charset="utf-8"></script>
 
-  </head>
-  <body>
-    
+    </head>
+    <body>
+
     <!-- ========================================= NAVBAR =========================================== -->
     <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
       <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
@@ -36,7 +36,7 @@
             <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
           </div>
           <div class="col-8" align="center" style="padding-top: .5%;">
-            <h1>Sepsis</h1>
+            <h1><a style="color:black; text-decoration:none;" href="landing.html">Sepsis</a></h1>
           </div>
             <div class="uk-inline">
               <div class="col-2" align="right">
@@ -50,33 +50,30 @@
     <!-- ========================================= MENU =========================================== -->
     <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
       <div class="uk-offcanvas-bar bg-light">
-
-          <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
-
-          <div class="row" style="margin-top: 20%;">
+        <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+        <div class="row" style="margin-top: 20%;">
             <!-- <div class="col-5">
 
             </div> -->
-            <div class="col-12">
-              <h2>
-                Sepsis
-              </h2>
-              <hr style="border-color: grey; margin-bottom: 30px;">
-            </div>
+          <div class="col-12">
+            <h2>
+              Sepsis
+            </h2>
+            <hr style="border-color: grey; margin-bottom: 30px;">
           </div>
+        </div>
+        <div class="container-fluid menubar">
+          <a href="landing.html" class="btn btn-link" style="color: black;">Home</a><br>
+          <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+          <a href="doctor_profile.html" class="btn btn-link" style="color: black;">My Profile</a><br>
 
-          <div class="container-fluid menubar">
-            <a href="landing.html" class="btn btn-link" style="color: black;">Home</a><br>
-            <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
-            <a class="btn btn-link">My Profile</a><br>
+          <a href="guidelines.html" class="btn btn-link" style="color: black;">Guidelines/Training</a><br>
+          <a href="detection.html" class="btn btn-link active-menu" style="color: black;">Detection/Prediction</a><br>
+          <a href="pdirectory.html" class="btn btn-link" style="color: black;">Patient Directory</a>
 
-            <a href="guidelines.html" class="btn btn-link" style="color: black;">Guidelines/Training</a><br>
-            <a href="detection.html" class="btn btn-link active-menu" style="color: black;">Detection/Prediction</a><br>
-            <a href="pdirectory.html" class="btn btn-link" style="color: black;">Patient Directory</a>
-
-          </div>
+        </div>
       </div>
-  </div>
+    </div>
 
     <!-- ========================================= HEADER =========================================== -->
     <div class="uk-container-fluid" style="margin-top:5%;">
@@ -87,7 +84,7 @@
         <div class="col-2">
         </div>
         <div class="col-3">
-          <button style="padding: 5% 10% 0 10%;" class="btn btn-outline-primary rounded-pill" type="button">
+          <button style="padding: 7% 10% 0 10%;" class="btn btn-outline-primary rounded-pill" type="button">
             <div class="row">
               <h5><span uk-icon="download">Download</span></h5>
             </div>
@@ -122,27 +119,27 @@
         </div>
       </div>
       <div class="row" style="padding: 0 2% 3% 17%;">
-        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <div style="margin-right: 5%;" class="col-2 uk-card-hover uk-card uk-card-default uk-card-body uk-width-1-2@m">
           <h4 class="uk-card-title">Temperature</h4>
           <br>
           <h4 style="color:#15b32a;">36</h4>
           <br>
           Range of sepsis = &nbsp &nbsp &nbsp>38°C or < 36°C
         </div>
-        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-hover uk-card-default uk-card-body uk-width-1-2@m">
           <h4 class="uk-card-title">Respiratory Rate</h4>
           <h4 style="color:#FF0000;">103</h4>
           <br>
           Range of sepsis = &nbsp &nbsp &nbsp> 20 breaths/min
         </div>
-        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-hover uk-card-body uk-width-1-2@m">
           <h4 class="uk-card-title">Heart Rate</h4>
           <br>
           <h4 style="color:#15b32a;">89</h4>
           <br>
           Range of sepsis = &nbsp &nbsp &nbsp< 90 beats/min
         </div>
-        <div class="col-2 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <div class="col-2 uk-card uk-card-default uk-card-body uk-card-hover uk-width-1-2@m">
           <h4 class="uk-card-title">WBC</h4>
           <br>
           <h4 style="color:#FF0000;">67</h4>
