@@ -22,7 +22,7 @@
 
     <!-- UTILITY FUNCTIONS JS IMPORT -->
     <script src=" ../js/utils.js" charset="utf-8"></script>
-    <script src="../js/patient_edit.js" charset="utf-8"></script>
+    <!-- <script src="../js/patient_edit.js" charset="utf-8"></script> -->
   </head>
   <body>
 
@@ -67,9 +67,6 @@
 
             <div class="row" style="margin-top: 20%;">
 
-              <!-- <div class="col-5">
-
-              </div> -->
               <div class="col-12">
                 <h2>
                   Sepsis
@@ -92,93 +89,28 @@
     </div>
 
 
-    <!-- ========================================= FILTERS TAB =========================================== -->
-    <!-- <button class="uk-button uk-button-default" type="button" >Open</button> -->
-
-    <!-- <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
-      <div class="uk-offcanvas-bar bg-light">
-
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-
-        <h3>Filters</h3>
-        <hr style="border-color: grey; margin-bottom: 30px;">
-
-        <div class="container-fluid" id="allFilters">
-          <div class="row">
-            <div class="col-12">
-              <div class="uk-margin">
-                <h5>Location</h5>
-                <div class="uk-inline">
-                  <span class="uk-form-icon" uk-icon="icon: location"></span>
-                  <input class="uk-input rounded" placeholder="Enter Location" type="text" list="locations">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <h5>Age</h5>
-              <div class="uk-margin">
-                <input class="uk-range" type="range" value="0" min="0" max="120" step="1" style="padding-left: 0 !important;">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <h5>Gender</h5>
-              <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                <label><input class="uk-radio" type="radio" name="radio2" value="Male" checked>Male</label>
-                <label><input class="uk-radio" type="radio" name="radio2" value="Female">Female</label>
-                <label><input class="uk-radio" type="radio" name="radio2" value="Other">Other</label>
-              </div>
-            </div>
-          </div>
-          <div class="row" style="position: absolute; bottom: 30px;">
-            <div class="col-6">
-              <button type="button" style=" color: white !important;" class="btn btn-primary rounded-pill" name="button">Apply</button>
-            </div>
-            <div class="col-6">
-              <button type="button" class="btn btn-light rounded-pill" name="button">Cancel</button>
-            </div>
-          </div>
-        </div>
-
-
-        <datalist id="locations">
-          <option value="Mumbai">
-          <option value="Pune">
-          <option value="Goa">
-          <option value="Delhi">
-          <option value="Chennai">
-          <option value="Bangalore">
-        </datalist>
-
-      </div>
-    </div> -->
-
     <!-- ========================================= USER PROFILE VIEW =========================================== -->
+
+    <!-- <input type="file" class=".d-none" id="profImgUpload" name="" value=""> -->
+
     <div class="main">
       <div class="container">
         <div class="header">
           <div class="row">
             <div class="col-12">
-              <h2 align="center" style="margin: 0; padding: 0;">Patient Profile</h2>
+              <h2 align="center" style="margin: 0; padding: 0;margin-bottom: 7%;">Patient Profile</h2>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <input type="file" class=".d-none" id="profImgUpload" name="" value="">
-
-    <div class="main">
       <div class="container-fluid results" style="margin-bottom:5%;">
         <div class="row">
           <div class="col-3">
+            <input type="file" class=".d-none hidden" id="profImgUpload" name="" value="" onchange="readURL(this);">
               <div class="uk-inline uk-light">
-                <img src=" ../resources/images/placeholders/users/user-white.png" alt="">
+                <img id="imgDisplay" src="../resources/images/placeholders/users/user-white.png" alt="">
                 <div class="uk-position-center">
-                  <span uk-overlay-icon id="profImg" onclick="$('#profImgUpload').click();"></span>
+                  <span uk-overlay-icon id="profImg" class="bg-dark rounded-circle shadow" style="padding: 10px;" onclick="$('#profImgUpload').click();"></span>
                 </div>
               </div>
           </div>
@@ -188,10 +120,10 @@
                 <h4><strong>General Details</strong></h4>
               </div>
               <div class="col-1">
-                <a href="btn btn-link">Save</a>
+                <!-- <a href="btn btn-link">Save</a> -->
               </div>
               <div class="col-1">
-                <a href="btn btn-link" style="color:#FF0000;">Cancel</a>
+                <!-- <a href="btn btn-link" style="color:#FF0000;">Cancel</a> -->
               </div>
             </div>
             <hr>
@@ -202,7 +134,7 @@
                   Firstname:
                 </div>
                 <div class="col-9">
-                  <input type="text"  class="uk-input rounded" placeholder="Firstname"><br>
+                  <input type="text" id="fname" class="uk-input rounded" placeholder="Firstname"><br>
                 </div>
               </div>
               <div class="row">
@@ -210,7 +142,7 @@
                   Lastname:
                 </div>
                 <div class="col-9">
-                  <input type="text"  class="uk-input rounded" placeholder="Lastname"><br>
+                  <input type="text" id="lname" class="uk-input rounded" placeholder="Lastname"><br>
                 </div>
               </div>
               <!-- <label>Username: </label> -->
@@ -228,10 +160,10 @@
                   Gender:
                 </div>
                 <div class="col-9">
-                  <select class="uk-input rounded">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Others">Others</option>
+                  <select class="uk-input rounded" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
                   </select>
                 </div>
               </div>
@@ -240,7 +172,7 @@
                   Date Of Birth:
                 </div>
                 <div class="col-9">
-                  <input type="date"  class="uk-input rounded"><br>
+                  <input type="date" id="dob" class="uk-input rounded"><br>
                 </div>
               </div>
               <!-- <div class="row">
@@ -256,7 +188,7 @@
                   Contact Number:
                 </div>
                 <div class="col-9">
-                  <input type="number" class="uk-input rounded" placeholder="Contact Number"><br>
+                  <input type="number" id="phone" class="uk-input rounded" placeholder="Contact Number"><br>
                 </div>
               </div>
 
@@ -283,7 +215,7 @@
             Blood Group:
           </div>
           <div class="col-7">
-            <input type="text" class="uk-input rounded" placeholder=" A+ , A- etc"><br>
+            <input type="text" id="bgroup" class="uk-input rounded" placeholder=" A+ , A- etc"><br>
           </div>
         </div>
         <div class="row">
@@ -292,7 +224,7 @@
           </div>
 
           <div class="col-7">
-            <input type="text" class="uk-input rounded" placeholder="Diabetes etc"><br>
+            <input type="text" id="medhist" class="uk-input rounded" placeholder="Diabetes etc"><br>
           </div>
         </div>
         <div class="row">
@@ -300,7 +232,7 @@
             Reason of admitants:
           </div>
           <div class="col-7">
-            <input type="text" class="uk-input rounded" placeholder="High BP etc"><br>
+            <input type="text" id="roa" class="uk-input rounded" placeholder="High BP etc"><br>
           </div>
         </div>
         <div class="row">
@@ -308,209 +240,22 @@
             Allergies:
           </div>
           <div class="col-7">
-            <input type="text" class="uk-input rounded" placeholder="Dust Allergy etc"><br>
+            <input type="text" id="allergies" class="uk-input rounded" placeholder="Dust Allergy etc"><br>
           </div>
         </div>
       </div>
-      <!--<div class="container fluid-results">
-        <div class="row" style="margin:0px;">
-          <div class="col-3">
-            <div class="row">
-              <div class="col-10">
-                <h4><strong></strong></h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-9">
-          </div>
+
+      <div class="row">
+        <div class="container" align="center" style="margin-bottom: 10%;">
+          <!-- <button class="btn btn-lg btn-primary"  type="button" name="button"></button> -->
+          <button class="btn btn-lg btn-primary" id="submitBtn" type="button" name="button">Submit</button>
         </div>
-        <hr> -->
-        <!-- <div class="container-fluid results">
-          <div class="row" style="margin:0px;">
-            <div class="col-3">
-              <div class="row">
-                <div class="col-10">
-                  <h4><strong>Records Details</strong></h4>
-                </div>
-              </div>
-            </div>
-            <div class="col-7">
-            </div>
-            <div class="col-2">
-              <a class="uk-button uk-button-default uk-input rounded btn btn-outline-primary rounded-pill" href="#modal-center" uk-toggle>Add</a>
-              <div id="modal-center" class="uk-flex-top" uk-modal>
-                  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-                      <button class="uk-modal-close-default" type="button" uk-close></button>
-                      <p>
-                          <div class="row" style="margin-bottom:10px;">
-                            <div class="col-5">
-                              Title:
-                            </div>
-                            <div class="col-7">
-
-
-                              <input type="text" class="uk-input rounded" placeholder=" Record Name"><br>
-                            </div>
-                          </div>
-                           <div class="row" style="margin-bottom:10px;margin-top:10px;">
-                            <div class="col-5">
-                                Date:
-                            </div>
-                            <div class="col-7">
-                              <input type="date" class="uk-input rounded" placeholder="Date"><br>
-                            </div>
-                          </div> -->
-                          <!-- <div class="row" style="margin-bottom:10px;margin-top:10px;">
-                            <div class="col-5">
-                              Upload Report:
-                            </div>
-                            <div class="col-7">
-                              <input type="file" class="d.none" ><br>
-                            </div>
-                          </div>
-                      </p>
-                      <p class="uk-text-right">
-                          <button class="uk-button uk-button-primary rounded-pill" type="button">Save</button>
-                      </p>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-             <div class="col-3"> -->
-              <!-- Title:
-            </div>
-            <div class="col-7">
-              <input type="text" class="uk-input rounded" placeholder=" Record Name"><br>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-                Date:
-            </div>
-            <div class="col-3">
-              <input type="date" class="uk-input rounded" placeholder="Date"><br>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              Upload Report:
-            </div>
-            <div class="col-3">
-              <input type="file" class="d.none" ><br>
-            </div>
-          </div> -->
-          <!-- <table class="uk-table uk-table-hover uk-table-divider" style="margin-left:30px; margin-right:30px">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Title</th>
-                <th>Uploaded File</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>14/9/1999</td>
-                <td>High</td>
-                <td> <a href="#">View report</a> </td>
-              </tr>
-              <tr>
-                <td>13/9/1999</td>
-                <td>Loose</td>
-                <td> <a href="#">View report</a> </td>
-              </tr>
-              <tr>
-                <td>12/9/1999</td>
-                <td>Higher</td>
-                <td> <a href="#">View report</a> </td>
-              </tr>
-            </tbody> -->
-          <!-- </table> -->
-        <!-- </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <!-- <div class="row">
-
-            <div class="col-3">
-              Record1:
-            </div>
-            <div class="col-7">
-              <input type="text" class="uk-input rounded" placeholder=" A+ , A- etc"><br>
-            </div>
-            <div class="col-2">
-              <input type="file" class=".d-none"  name="" value="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              Record2:
-            </div>
-
-            <div class="col-7">
-              <input type="text" class="uk-input rounded" placeholder="Diabetes etc"><br>
-            </div>
-            <div class="col-2">
-              <input type="file" class=".d-none"  name="" value="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              Record3:
-            </div>
-            <div class="col-7">
-              <input type="text" class="uk-input rounded" placeholder="High BP etc"><br>
-            </div>
-            <div class="col-2">
-              <input type="file" class=".d-none"  name="" value="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              Record4:
-            </div>
-            <div class="col-7">
-              <input type="text" class="uk-input rounded" placeholder="Dust Allergy etc"><br>
-            </div>
-            <div class="col-2">
-              <input type="file" class=".d-none"  name="" value="">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              Records:
-            </div>
-            <div class="col-4">
-              <input type="number" class="uk-input rounded" placeholder="Number of Records" id="user_input"><br>
-            </div>
-            <div class="col-3">
-              <input type="submit"  class="uk-input rounded" onclick="showf();"><br>
-            </div>
-
-          </div>
-          <div class="row">
-            <div class="col-3">
-            </div>
-
-            <div class ="col-7" id="inut">
-            </div>
-            <div class="col-2" id="inut2">
-          </div> -->
-
-        </div>
+      </div>
     </div>
 
+    <!-- </div> -->
+
+  <script src="../js/patient-register.js" charset="utf-8"></script>
 
   </body>
 </html>

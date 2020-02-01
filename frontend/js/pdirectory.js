@@ -100,7 +100,7 @@ function searchPatient(elem) {
         $('#pdirectory').append(
 
           `
-            <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
+            <div class="row" style="cursor: pointer;" onclick="setData('patient', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
               <div class="col-4">
                 <img src="" class="laptops" style="width: 70%;">
               </div>

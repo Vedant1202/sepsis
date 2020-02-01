@@ -30,12 +30,13 @@ $(document).ready(function () {
           $('#pdirectory').html('');
           for (var i = 0; i < data.data.length; i++) {
             var patient = data.data[i];
+            console.log(patient);
             $('#pdirectory').append(
 
               `
                 <div class="row" style="cursor: pointer;" onclick="setData('patient', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
                   <div class="col-4">
-                    <img src="" class="laptops" style="width: 70%;">
+                    <img src="${patient[11]}" class="laptops" style="width: 70%;">
                   </div>
                   <div class="col-4" >
                     <strong>${patient[1]} ${patient[2]}</strong>
@@ -84,16 +85,17 @@ function searchPatient(elem) {
     },
     success: function(data) {
       // console.log(JSON.parse(data[0]));
-      console.log(data.data[0]);
+      // console.log(data.data[0]);
       $('#pdirectory').html('');
       for (var i = 0; i < data.data.length; i++) {
         var patient = data.data[i];
+        // console.log(patient);
         $('#pdirectory').append(
 
           `
-            <div class="row" style="cursor: pointer;" onclick="setData('pdirectory', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
+            <div class="row" style="cursor: pointer;" onclick="setData('patient', JSON.stringify({'pid': ${patient[0]}})); Nav.assign('patient_profile.html');">
               <div class="col-4">
-                <img src="" class="laptops" style="width: 70%;">
+                <img src="${patient[11]}" class="laptops" style="width: 70%;">
               </div>
               <div class="col-4" >
                 <strong>${patient[1]} ${patient[2]}</strong>

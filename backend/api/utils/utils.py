@@ -144,8 +144,8 @@ def calculate_age(born):
 
 
 
-UPLOAD_FOLDER = 'E:/sih2020/sepsis/backend/files/doctor/profile-pics/'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+UPLOAD_FOLDER = 'E:/sih2020/sepsis/backend/files/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'pdf', 'docx', 'doc'])
 
 # app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

@@ -75,10 +75,13 @@ def patient_fetch_profile():
     try:
         _skey = request.form.getlist("skey")[0]
         _pid = request.form.getlist("pid")[0]
+        _uid = request.form.getlist("uid")[0]
 
         # validate the received values
+        print(_skey, '\n', _uid)
+        print(verify_session(_skey, _uid))
         if verify_session(_skey, _uid) and request.method == "POST":
-            sql = "SELECT * FROM patient WHERE pid=%s;"
+            sql = "SELECT * FROM patient p, patient_report pr WHERE p.pid=%s AND pr.pid=p.pid;"
             data = (_pid)
             conn = mysql.connect()
             cursor = conn.cursor()

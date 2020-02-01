@@ -16,21 +16,20 @@ def report_fetch(stepsize=20):
     try:
         _skey = request.form.getlist("skey")[0]
         _uid = request.form.getlist("uid")[0]
-        _start = request.form.getlist("start")[0]
-        _end = int(_start) + stepsize
+        _pid = request.form.getlist("pid")[0]
 
         # validate the received values
-        if _skey and _uid and _start and _end and request.method == "POST":
-            sql = "SELECT * FROM missing;"
-            # data = (_uid)
+        if _skey and _uid and _pid and verify_session(_skey, _uid) and request.method == "POST":
+            sql = "SELECT * FROM patient_report WHERE pid=%s ORDER BY prid desc;"
+            data = (_pid)
             conn = mysql.connect()
             cursor = conn.cursor()
-            cursor.execute(sql)
+            cursor.execute(sql, data)
             rows = list(cursor.fetchall())
             conn.commit()
-            resp = jsonify(data=rows[int(_start):_end])
             resp.status_code = 200
             # print(resp)
+            resp = jsonify(data=rows)
             return resp
         else:
             return not_found()

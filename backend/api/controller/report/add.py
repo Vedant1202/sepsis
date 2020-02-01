@@ -8,34 +8,40 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 import time
 from utils.utils import not_found, create_session, calculate_age, verify_session
-
+from utils.utils import not_found, create_session, calculate_age, verify_session, upload_file
+from werkzeug.utils import secure_filename
+import os
 
 
 
 def report_add():
     try:
         # print(request.form.getlist())
-        _status = 1
-        _loc = request.form.getlist("loc")[0]
-        _time = request.form.getlist("time")[0]
-        _desc = request.form.getlist("info")[0]
+        _title = request.form.getlist("title")[0]
+        _date = request.form.getlist("date")[0]
+        _pid = request.form.getlist("pid")[0]
         _skey = request.form.getlist("skey")[0]
         _uid = request.form.getlist("uid")[0]
-        _mid = request.form.getlist("mid")[0]
-        _date_created = int(time.time())
-
+        file = request.files.to_dict()['profImg']
+        filename = secure_filename(file.filename)
+        filenamefull = filename
+        # filename = os.path.join('E:/HackerEarth/Missing/WebApp/backend/files/missing', filename)
+        filename = 'E:/sih2020/sepsis/backend/files/patient/reports/' + filename
+        print('hello')
+        print(filename)
 
         # validate the received values
-        if _uid and _skey and _status and _date_created and _mid and _time and _loc and _desc and verify_session(_skey, _uid) and request.method == "POST":
+        if _uid and _skey and _date and _pid and _title and verify_session(_skey, _uid) and request.method == "POST":
             # save edits
-            sql = "INSERT INTO report(status, date_created, location, uid, description, mid, time) VALUES(%s, %s, %s, %s, %s, %s, %s);"
-            data = (_status, _date_created, _loc, _uid, _desc, _mid, _time)
+            sql = "INSERT INTO patient_report(title, date, pid, filename, filenamefull) VALUES(%s, %s, %s, %s, %s);"
+            data = (_title, _date, _pid, filenamefull, filename)
             conn = mysql.connect()
             cursor = conn.cursor()
             cursor.execute(sql, data)
             # print(rows)
             conn.commit()
-            resp = jsonify(valid=True)
+            upload_file('patient/reports')
+            resp = jsonify(done=True)
             resp.status_code = 200
             # print(resp)
             return resp

@@ -49,7 +49,7 @@ def user_add():
             print(cursor.lastrowid)
             uid = cursor.lastrowid
             conn.commit()
-            upload_file('images')
+            upload_file('doctor/profile-pics/images')
             skey = create_session(uid)
             resp = jsonify(uid=uid, skey=skey)
             resp.status_code = 200

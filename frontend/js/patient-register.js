@@ -1,11 +1,4 @@
 
-
-$(document).ready(function () {
-  $('#registerBtn').prop("disabled", true);
-  deleteData('user');
-});
-
-
 // $('#loginBtn').click(function () {
 //   // alert('submit')
 //
@@ -103,7 +96,7 @@ $('#phone').keyup(function () {
 //
 
 
-$('#registerBtn').click(function () {
+$('#submitBtn').click(function () {
   // alert('submit')
 
     var fname = $('#fname').val().trim(),
@@ -122,35 +115,52 @@ $('#registerBtn').click(function () {
 
       if ( fname && lname && gender && phone && dob && bgroup && medhist && roa && allergies) {
 
-          var formData = {
-            // 'username': username,
-            // 'password': password,
-            // 'email': email,
-            'fname': fname,
-            'lname': lname,
-            'gender':gender,
-            'phone': phone,
-            'dob': dob,
-            'bgroup':bgroup,
-            'medhist': medhist,
-            'roa':roa,
-            'allergies':allergies,
-          };
+          // var formData = {
+          //   // 'username': username,
+          //   // 'password': password,
+          //   // 'email': email,
+          //   'fname': fname,
+          //   'lname': lname,
+          //   'gender':gender,
+          //   'phone': phone,
+          //   'dob': dob,
+          //   'bgroup':bgroup,
+          //   'medhist': medhist,
+          //   'roa':roa,
+          //   'allergies':allergies,
+          // };
+
+          var fdt = new FormData();
+          fdt.append('fname', fname);
+          fdt.append('lname', lname);
+          fdt.append('gender', gender);
+          fdt.append('phone', phone);
+          fdt.append('dob', dob);
+          fdt.append('bgroup', bgroup);
+          fdt.append('medhist', medhist);
+          fdt.append('roa', roa);
+          fdt.append('allergies', allergies);
+          fdt.append('profImg', document.getElementById('profImgUpload').files[0]);
+          fdt.append('uid', getData('user').uid);
+          fdt.append('skey', getData('user').skey);
+
 
           // console.log(formData);
 
           $.ajax({
             type: "POST",
-            url: 'http://localhost:5000/user/add',
-            data: formData,
+            url: 'http://localhost:5000/patient/add',
+            data: fdt,
             success: function(data) {
               setData('user', JSON.stringify(data));
-              Nav.assign('pdirectory.html');
+              Nav.assign('mypatients.html');
             },
            error: function(error) {
              console.log(error);
            },
-           dataType: 'json'
+           dataType: 'json',
+           processData: false,
+           contentType: false
           });
 
     } else {

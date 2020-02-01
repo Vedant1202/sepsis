@@ -28,7 +28,9 @@ $('#loginBtn').click(function () {
         $('#loginBtn').html('Login');
         alert('The username or password entered is incorrect');
       } else {
+        console.log(data);
         setData('user', JSON.stringify(data));
+        // alert(JSON.stringify(data));
         Nav.assign('mypatients.html');
       }
     },
@@ -165,7 +167,9 @@ $('#registerBtn').click(function () {
             url: 'http://localhost:5000/user/add',
             data: fd,
             success: function(data) {
+              console.log(data);
               setData('user', JSON.stringify(data));
+              // alert(JSON.stringify(data));
               Nav.assign('mypatients.html');
             },
            error: function(error) {
@@ -202,21 +206,6 @@ $('#email').keyup(function() {
   }
 });
 
-
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#imgDisplay')
-                .attr('src', e.target.result);
-                // .width(150)
-                // .height(200);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
 
 
 

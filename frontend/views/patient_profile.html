@@ -36,10 +36,10 @@
           <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
             <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
           </div>
-          <div class="col-7" align="center" style="padding-top: .5%;">
+          <div class="col-8" align="center" style="padding-top: .5%;">
             <h1><a style="color:black; text-decoration:none;" href="landing.html">Sepsis</a></h1>
           </div>
-            <div class="uk-inline">
+            <!-- <div class="uk-inline">
               <div class="col-4" align="right">
                 <button class="btn btn-secondary rounded-pill" type="button">
                   <div class="row">
@@ -52,7 +52,7 @@
                   </div>
               </button>
             </div>
-          </div>
+          </div> -->
         </div>
       </nav>
     </div>
@@ -98,7 +98,7 @@
         <div class="header">
           <div class="row">
             <div class="col-12">
-              <h2 align="center" style="margin: 0; padding: 0;">My Profile</h2>
+              <h2 align="center" style="margin: 0; padding: 0; margin-bottom: 6%;">My Profile</h2>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@
     </div>
 
     <div class="patient_profile">
-      <div class="container" align="center" style="padding-top: 10%;">
+      <div class="container" align="center" style="padding-top: 10%; margin-bottom: 10%;">
         <div uk-spinner="ratio: 5"></div>
       </div>
     <!-- </script> -->
@@ -118,7 +118,7 @@
       <div class="row">
         <div class="col-3" style="padding-top: 9%;">
 
-          <img src="../resources/images/placeholders/users/user-black.png">
+          <img src="{{ filename }}">
         </div>
         <div class="col-9" style="padding:20px;">
           <div class="row">
@@ -126,7 +126,7 @@
               <h4><strong>General Details</strong></h4>
             </div>
             <div class="col-2">
-              <a href="patient_edit.html">Edit</a>
+              <!-- <a href="patient_edit.html">Edit</a> -->
             </div>
           </div>
           <hr>
@@ -214,7 +214,7 @@
           Blood Group:
         </div>
         <div class="col-7">
-          {{ blood_group }}
+          {{ bgroup }}
         </div>
       </div>
       <div class="row">
@@ -224,16 +224,15 @@
 
         <div class="col-7">
           <!-- <input type="text" class="uk-input rounded" placeholder="Diabetes etc"><br> -->
-          {{ medical_hist }}
+          {{ medhist }}
         </div>
       </div>
       <div class="row">
         <div class="col-3">
-          Current Medical Problems:
+          Reason of Admittance:
         </div>
         <div class="col-7">
-          <!-- <input type="text" class="uk-input rounded" placeholder="High BP etc"><br> -->
-          {{ curr_medical_prob }}
+          {{ roa }}
         </div>
       </div>
       <div class="row">
@@ -246,82 +245,53 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid results">
-      <div class="row" style="margin:0px;">
-        <div class="col-3">
-          <div class="row">
-            <div class="col-10">
-              <h4><strong>Records Details</strong></h4>
-            </div>
+
+    </div>
+  </script>
+
+  <div class="container-fluid results">
+    <div class="row" style="margin:0px;">
+      <div class="col-3">
+        <div class="row">
+          <div class="col-10">
+            <h4><strong>Records Details</strong></h4>
           </div>
         </div>
-        <div class="col-7">
-        </div>
-        <div class="col-2">
-          <a class="uk-button uk-button-default uk-input rounded btn btn-outline-primary rounded-pill" href="#modal-center" uk-toggle>Add</a>
-          <div id="modal-center" class="uk-flex-top" uk-modal>
-              <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-                  <button class="uk-modal-close-default" type="button" uk-close></button>
-                  <p>
-                      <div class="row" style="margin-bottom:10px;">
-                        <div class="col-5">
-                          Title:
-                        </div>
-                        <div class="col-7">
-
-
-                          <input type="text" class="uk-input rounded" placeholder=" Record Name"><br>
-                        </div>
-                      </div>
-                      <!-- <div class="row" style="margin-bottom:10px;margin-top:10px;">
-                        <div class="col-5">
-                            Date:
-                        </div>
-                        <div class="col-7">
-                          <input type="date" class="uk-input rounded" placeholder="Date"><br>
-                        </div>
-                      </div> -->
-                      <div class="row" style="margin-bottom:10px;margin-top:10px;">
-                        <div class="col-5">
-                          Upload Report:
-                        </div>
-                        <div class="col-7">
-                          <input type="file" class="d.none" ><br>
-                        </div>
-                      </div>
-                  </p>
-                  <p class="uk-text-right">
-                      <button class="uk-button uk-button-primary rounded-pill" type="button">Save</button>
-                  </p>
+      </div>
+      <div class="col-7">
+      </div>
+      <div class="col-2">
+        <a class="uk-button uk-button-default uk-input rounded btn btn-outline-primary rounded-pill" href="#modal-center" uk-toggle>Add</a>
+        <div id="modal-center" class="uk-flex-top" uk-modal>
+          <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <p>
+              <div class="row" style="margin-bottom:10px;">
+                <div class="col-5">
+                  Title:
+                </div>
+                <div class="col-7">
+                  <input type="text" id="title" class="uk-input rounded" placeholder=" Record Name"><br>
+                </div>
               </div>
+              <div class="row" style="margin-bottom:10px;margin-top:10px;">
+                <div class="col-5">
+                  Upload Report:
+                </div>
+                <div class="col-7">
+                  <input type="file" id="reportFile" class="d.none" ><br>
+                </div>
+              </div>
+            </p>
+            <p class="uk-text-right">
+              <button class="uk-button uk-button-primary rounded-pill" id="uploadReport" type="button">Save</button>
+            </p>
           </div>
         </div>
       </div>
-      <hr>
-      <div class="row">
-        <!-- <div class="col-3">
-          Title:
-        </div>
-        <div class="col-7">
-          <input type="text" class="uk-input rounded" placeholder=" Record Name"><br>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-3">
-            Date:
-        </div>
-        <div class="col-3">
-          <input type="date" class="uk-input rounded" placeholder="Date"><br>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-3">
-          Upload Report:
-        </div>
-        <div class="col-3">
-          <input type="file" class="d.none" ><br>
-        </div>
-      </div> -->
+    </div>
+    <hr>
+    <div class="row">
       <table class="uk-table uk-table-hover uk-table-divider" style="margin-left:30px; margin-right:30px">
         <thead>
           <tr>
@@ -330,29 +300,36 @@
             <th>Uploaded File</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="reportsTable">
+          <!-- REPORTS TABLE -->
           <tr>
-            <td>14/9/1999</td>
-            <td>High</td>
-            <td> <a href="#">View report</a> </td>
-          </tr>
-          <tr>
-            <td>13/9/1999</td>
-            <td>Loose</td>
-            <td> <a href="#">View report</a> </td>
-          </tr>
-          <tr>
-            <td>12/9/1999</td>
-            <td>Higher</td>
-            <td> <a href="#">View report</a> </td>
+            <td>
+              <div class="container" align="center" style="padding-top: 10%; margin-bottom: 10%;">
+                <div uk-spinner="ratio: 2"></div>
+              </div>
+            </td>
+            <td>
+              <div class="container" align="center" style="padding-top: 10%; margin-bottom: 10%;">
+                <div uk-spinner="ratio: 2"></div>
+              </div>
+            </td>
+            <td>
+              <div class="container" align="center" style="padding-top: 10%; margin-bottom: 10%;">
+                <div uk-spinner="ratio: 2"></div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    </div>
+  <script type="text/template" id="report-template">
+    <tr>
+      <td>{{ date }}</td>
+      <td>{{ title }}</td>
+      <td> <a href="{{ reportURL }}" target="_blank">View report</a> </td>
+    </tr>
   </script>
-
 
 
 

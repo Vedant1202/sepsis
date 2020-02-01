@@ -8,7 +8,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 import time
 from utils.utils import not_found, create_session, calculate_age
-
+from utils.utils import not_found, create_session, calculate_age, verify_session, upload_file
+from werkzeug.utils import secure_filename
+import os
 
 
 
@@ -26,19 +28,28 @@ def patient_add():
         _roa = request.form.getlist("roa")[0]
         _allergies = request.form.getlist("allergies")[0]
         _uid = request.form.getlist("uid")[0]
+        _skey = request.form.getlist("skey")[0]
+        file = request.files.to_dict()['profImg']
+        filename = secure_filename(file.filename)
+        filenamefull = filename
+        # filename = os.path.join('E:/HackerEarth/Missing/WebApp/backend/files/missing', filename)
+        filename = 'E:/sih2020/sepsis/backend/files/patient/profile-pics/images/' + filename
+        print('hello')
+        print(filename)
 
 
         # validate the received values
-        if _fname and _lname and _gender and _phone and _dob and _bgroup and _uid and _medhist and _roa and _allergies  and request.method == "POST":
+        if _fname and _lname and _gender and _phone and _dob and _bgroup and _uid and _medhist and _roa and _allergies and verify_session(_skey, _uid) and request.method == "POST":
             # save edits
-            sql = "INSERT INTO patient(fname, lname, gender,  phone, dob, bgroup, medhist ,roa, allergies, uid) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            data = (_fname, _lname, _gender, _phone, _dob,  _bgroup, _medhist, _roa, _allergies, _uid)
+            sql = "INSERT INTO patient(fname, lname, gender,  phone, dob, bgroup, medhist ,roa, allergies, uid, profimg, filename) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            data = (_fname, _lname, _gender, _phone, _dob,  _bgroup, _medhist, _roa, _allergies, _uid, filename, filenamefull)
             conn = mysql.connect()
             cursor = conn.cursor()
             cursor.execute(sql, data)
             print(cursor.lastrowid)
             uid = cursor.lastrowid
             conn.commit()
+            upload_file('patient/profile-pics/images')
             resp = jsonify(uid=uid, skey='skey')
             resp.status_code = 200
             # print(resp)
