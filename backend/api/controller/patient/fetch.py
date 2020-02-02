@@ -81,7 +81,7 @@ def patient_fetch_profile():
         print(_skey, '\n', _uid)
         print(verify_session(_skey, _uid))
         if verify_session(_skey, _uid) and request.method == "POST":
-            sql = "SELECT * FROM patient p, patient_report pr WHERE p.pid=%s AND pr.pid=p.pid;"
+            sql = "SELECT * FROM patient p, patient_report pr WHERE p.pid=%s AND pr.pid=p.pid ORDER BY prid DESC;"
             data = (_pid)
             conn = mysql.connect()
             cursor = conn.cursor()

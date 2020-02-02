@@ -8,6 +8,12 @@ import plotly
 import plotly.graph_objects as go
 from flask import jsonify
 import json
+from app import app
+from db import mysql
+from utils.utils import not_found, create_session, calculate_age, verify_session
+from flask import flash, request
+from flask_cors import CORS
+
 
 
 def create_plot(dfact, dfpred, dfmarker, rate):
@@ -184,6 +190,8 @@ def create_plot(dfact, dfpred, dfmarker, rate):
 
 def getPredictions(patientId=None):
     # read csv
+
+
     finaldf = pd.read_csv('finaldf.csv')
     finaldf.drop(['vitalperiodicid'], axis=1, inplace=True)
     print('start')
@@ -191,10 +199,10 @@ def getPredictions(patientId=None):
     patIds = finaldf['patientunitstayid'].unique()
     wbcVals = finaldf['wbc'].unique()
 
-    if not patientId:
+    # if not patientId:
         # rno = np.random.randint(0, 10, size=1)[0]
-        rno = 1
-        patientId = patIds[rno]
+    rno = 1
+    patientId = patIds[rno]
 
     # get patient dataframe
     finaldf = finaldf[finaldf['patientunitstayid'] == patientId].copy().sort_values(by='observationoffset').reset_index(drop=True)
@@ -245,18 +253,33 @@ def getPredictions(patientId=None):
     crits = pd.DataFrame(crits, columns=['heartrate', 'respiration', 'temperature'])
 
     print('done')
-    print(prediction)
+    # print(prediction)
     return dict({'predictions': prediction.to_json(),
                  'critical': crits.to_json(),
                  'actual': train.to_json()})
 
 def get_dataframe():
     try:
-        preds = getPredictions()
-        # plot = create_plot(preds['actual'], preds['predictions'], preds['critical'])
-        resp = jsonify(data=preds)
-        resp.status_code = 200
-        return resp
+        _skey = request.form.getlist("skey")[0]
+        _uid = request.form.getlist("uid")[0]
+        _pid = request.form.getlist("pid")[0]
+
+        # validate the received values
+        if _skey and _uid and _pid and verify_session(_skey, _uid) and request.method == "POST":
+            sql = "SELECT * FROM patient WHERE pid=%s;"
+            data = (_pid)
+            conn = mysql.connect()
+            cursor = conn.cursor()
+            cursor.execute(sql, data)
+            rows = list(cursor.fetchall())
+            conn.commit()
+            preds = getPredictions()
+            # plot = create_plot(preds['actual'], preds['predictions'], preds['critical'])
+            resp = jsonify(data=preds, patient=rows)
+            resp.status_code = 200
+            return resp
+        else:
+            return not_found()
     except Exception as e:
         print('====================== EXCEPTION ========================')
         print(e)

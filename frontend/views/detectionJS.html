@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sepsis | Detection</title>
+    <!-- CSS LIBRARIES IMPORT -->
+    <link rel="stylesheet" href="../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/libs/uikit.min.css">
+
+    <!-- CUSTOM CSS IMPORTS -->
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/home.css">
+
+    <!-- JS LIBRARIES IMPORT -->
+    <script src="../js/libs/jquery.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit.min.js" charset="utf-8"></script>
+    <script src="../js/libs/uikit-icons.js" charset="utf-8"></script>
+    <script src="../js/libs/bootstrap.min.js" charset="utf-8"></script>
+    <script src="../js/libs/popper.min.js" charset="utf-8"></script>
+    <script src="../js/libs/mustache.js" charset="utf-8"></script>
+    <script src=" ../js/libs/fontawesome.js" charset="utf-8"></script>
+    <script src="../js/libs/plotly.min.js"></script>
+    <script src="../js/libs/d3.min.js"></script>
+    <script src="../js/libs/jspdf.min.js"></script>
+    <script src="../js/libs/html2canvas.min.js"></script>
+
+    <!-- UTILITY FUNCTIONS JS IMPORT -->
+    <script src="../js/utils.js" charset="utf-8"></script>
+
+    </head>
+    <body>
+
+    <!-- ========================================= NAVBAR =========================================== -->
+    <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+      <nav class="uk-navbar-container navbar-main shadow" uk-navbar>
+        <div class="row" style="width: 100%;">
+          <div class="col-2" align="left" style="padding-left: 4%; padding-top: .5%;">
+            <a class="hamburger" uk-icon="icon: menu; ratio: 2" href="#offcanvas-usage" uk-toggle></a>
+          </div>
+          <div class="col-8" align="center" style="padding-top: .5%;">
+            <h1><a style="color:black; text-decoration:none;" href="landing.html">Sepsis</a></h1>
+          </div>
+            <div class="uk-inline">
+              <div class="col-2" align="right">
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ========================================= MENU =========================================== -->
+    <div id="offcanvas-usage" uk-offcanvas="overlay: true; mode: slide;">
+      <div class="uk-offcanvas-bar bg-light">
+        <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+        <div class="row" style="margin-top: 20%;">
+            <!-- <div class="col-5">
+
+            </div> -->
+          <div class="col-12">
+            <h2>
+              Sepsis
+            </h2>
+            <hr style="border-color: grey; margin-bottom: 30px;">
+          </div>
+        </div>
+        <div class="container-fluid menubar">
+          <a href="landing.html" class="btn btn-link" style="color: black;">Home</a><br>
+          <!-- <a class="btn btn-link" id="watchingMenu" onclick="Nav.assign('');">Watching</a><br> -->
+          <a href="doctor_profile.html" class="btn btn-link" style="color: black;">My Profile</a><br>
+
+          <a href="guidelines.html" class="btn btn-link" style="color: black;">Guidelines/Training</a><br>
+          <a href="detection.html" class="btn btn-link active-menu" style="color: black;">Detection/Prediction</a><br>
+          <a href="pdirectory.html" class="btn btn-link" style="color: black;">Patient Directory</a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================= HEADER =========================================== -->
+    <div class="uk-container-fluid" style="margin-top:5%;">
+      <div class="row" style="padding: 0 0 3% 17%;">
+        <div class="col-6">
+          <h1>Report</h1>
+        </div>
+        <div class="col-2">
+        </div>
+        <div class="col-3">
+          <button class="btn btn-light rounded-pill" type="button" id="downloadPDF">
+            Download
+          </button>
+        </div>
+      </div>
+      <!-- <input style="display:none;" type="file" class=".d-none" id="profImgUpload" name="" value=""> -->
+      <div class="row" style="margin-bottom: 4%;">
+        <div class="container">
+          <div style="margin-left: 33%;" class="uk-card uk-card-default uk-card-body uk-width-1-3@m" id="nameCard">
+            <!-- PROFILE CARD -->
+            <div class="container" align="center" style="padding-top: 10%; margin-bottom: 10%;">
+              <div uk-spinner="ratio: 2"></div>
+            </div>
+          </div>
+        </div>
+        <!-- <div style="margin-right: 3.3%;" class="col-3 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Situation:</h4>
+          <h4 style="color:#FF0000;">Chance of Sepsis</h4>
+        </div>
+        <div class="col-3 uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Last Updated:</h4>
+          <h4 style="color:#3498db;">3 Hour</h4>
+        </div> -->
+      </div>
+      <div class="row" style="padding: 0 2% 3% 17%;">
+        <div style="margin-right: 5%;" class="col-2 uk-card-hover uk-card uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Temperature</h4>
+          <br>
+          <h4 style="color:#15b32a;" id="tpVal">--</h4>
+          <br>
+          Range of sepsis = &nbsp &nbsp &nbsp>38°C or < 36°C
+        </div>
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-hover uk-card-default uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Respiratory Rate</h4>
+          <h4 style="color:#FF0000;" id="rrVal">--</h4>
+          <br>
+          Range of sepsis = &nbsp &nbsp &nbsp> 20 breaths/min
+        </div>
+        <div style="margin-right: 5%;" class="col-2 uk-card uk-card-default uk-card-hover uk-card-body uk-width-1-2@m">
+          <h4 class="uk-card-title">Heart Rate</h4>
+          <br>
+          <h4 style="color:#15b32a;" id="hrVal">--</h4>
+          <br>
+          Range of sepsis = &nbsp &nbsp &nbsp< 90 beats/min
+        </div>
+        <div class="col-2 uk-card uk-card-default uk-card-body uk-card-hover uk-width-1-2@m">
+          <h4 class="uk-card-title">WBC</h4>
+          <br>
+          <h4 style="color:#FF0000;">67</h4>
+          <br>
+          Range of sepsis = &nbsp &nbsp &nbsp>12.0 x 10<sup>9</sup>cells/L or < 4.0 x 10<sup>9</sup>cells/L
+        </div>
+      </div>
+    </div>
+        <!-- </div> -->
+
+<!-- ========================================= CONTAINER =========================================== -->
+
+        <div class="uk-container" style="margin-top:5%;" id="analysis">
+          <div class="row">
+            <h1 style="padding-left:40%;">
+              Analysis
+            </h1>
+          </div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <h3>Heart Rate</h3>
+                      <div class="chart" id="graphHR" style="width:1100px;">
+                        <div class="container" align="center" style="padding-top: 10%; margin-bottom: 10%;">
+                          <div uk-spinner="ratio: 5"></div>
+                        </div>
+                      </div>
+                      <h3>Temperature</h3>
+                      <div class="chart" id="graphTP" style="width:1100px;">
+                        <div class="container" align="center" style="padding-top: 10%; margin-bottom: 10%;">
+                          <div uk-spinner="ratio: 5"></div>
+                        </div>
+                      </div>
+                      <h3>Respiration Rate</h3>
+                      <div class="chart" id="graphRR" style="width:1100px;">
+                        <div class="container" align="center" style="padding-top: 10%; margin-bottom: 10%;">
+                          <div uk-spinner="ratio: 5"></div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+
+<!-- ========================================= CONTAINER =========================================== -->
+        <div class="uk-container" style="margin-top:5%;">
+          <div class="row">
+            <h1 style="padding-left:40%;">
+              Prediction
+            </h1>
+          </div>
+        </div>
+
+<!-- ========================================= PREDICTION =========================================== -->
+        <div class="uk-container" style="margin-top:5%;">
+          <div class="row" style="width: 100%;">
+            <div class="col-6">
+              <h3 class="uk-card-title">T+1 hour</h3>
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            <div class="col-6">
+              <h3 class="uk-card-title">T+2 hour</h3>
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            </div>
+
+        </div>
+        <div class="uk-container" style="margin-top:5%; margin-bottom: 14%;">
+          <div class="row" style="width: 100%;">
+            <div class="col-6">
+              <h3 class="uk-card-title">T+3 hour</h3>
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            <div class="col-6">
+              <h3 class="uk-card-title">T+4 hour</h3>
+             <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+
+             </div>
+            </div>
+            </div>
+
+        </div>
+  </body>
+  <script src="../js/detectionJS.js" charset="utf-8"></script>
+</html>
